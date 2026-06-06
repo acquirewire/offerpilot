@@ -1,0 +1,17 @@
+db_path: jobtracker.db
+ntfy_topic:            # leave blank for the test — alerts just log to console
+
+defaults:
+  interval: 300
+
+filter:
+  keywords: []         # empty = match everything (so the test definitely fires)
+  regions: []
+  user_languages: ["english"]
+
+firms:
+  - name: "Stripe (TEST)"
+    slug: "StripeTest"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/stripe/jobs"
+    host: "https://stripe.com/jobs"

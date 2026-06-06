@@ -1,0 +1,27 @@
+# Each target is one event page to watch.
+#
+#   name          human label used in alerts
+#   site          parser to use: "fatsoma" | "milkshake" | "generic"
+#   url           the page (or JSON endpoint) to poll
+#   checkout_url  link put in the alert (defaults to `url` if omitted)
+#   fetch.method  "http" (fast, preferred) | "browser" (Playwright fallback)
+#   interval      base seconds between polls (jitter is added automatically)
+
+defaults:
+  interval: 45          # base seconds; real interval = interval ± 33% jitter
+
+targets:
+  - name: "Milkshake Summer Special"
+    site: milkshake
+    url: "https://www.milkshakeparties.com/EXAMPLE-event"
+    checkout_url: "https://www.milkshakeparties.com/EXAMPLE-event#tickets"
+    fetch:
+      method: http
+
+  - name: "Fatsoma Warehouse Rave"
+    site: fatsoma
+    # Prefer the JSON endpoint you find in DevTools > Network over the HTML page.
+    url: "https://www.fatsoma.com/e/EXAMPLE-event"
+    checkout_url: "https://www.fatsoma.com/e/EXAMPLE-event"
+    fetch:
+      method: http       # switch to "browser" if http gets challenged

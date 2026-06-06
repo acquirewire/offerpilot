@@ -1,0 +1,14 @@
+# NEVER upload these — secrets, big folders, local data
+.venv/
+__pycache__/
+*.pyc
+.env
+config.yaml
+state.json
+*.db
+accounts*.db
+.pw-profile/
+out/
+*.xlsx
+jobtracker/examples/*.docx
+jobtracker/examples/*.pdf

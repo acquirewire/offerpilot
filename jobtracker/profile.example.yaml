@@ -1,0 +1,17 @@
+# Autofill profile. Copy to profile.yaml. Used by: python -m jobtracker autofill
+first_name: "Henry"
+last_name: "Smith"
+email: "henry@example.com"
+phone: "+852 1234 5678"
+linkedin: "https://linkedin.com/in/henrysmith"
+school: "University of Example"
+degree: "BSc Economics"
+grad_year: "2027"
+city: "Hong Kong"
+cv_path: "out/Henry_Smith_GoldmanSachs.pdf"
+cover_path: "out/Henry_Smith_GoldmanSachs_Cover.pdf"
+
+# Generated answers, keyed by a substring of the question text on the form.
+qa:
+  "why this firm": "Goldman's HK franchise pairs balance-sheet scale with..."
+  "biggest achievement": "Led a 4-person team to..."

@@ -1,0 +1,9 @@
+# Minimal deps for the 24/7 HTTP-only deployment (ntfy + email alerts).
+# No playwright/chromium (browser fallback) and no twilio (SMS) needed here —
+# those imports are lazy, so the bot runs without them.
+httpx[http2]>=0.27
+selectolax>=0.3.21
+PyYAML>=6.0
+python-dotenv>=1.0
+tenacity>=8.3
+structlog>=24.1

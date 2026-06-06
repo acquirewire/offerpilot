@@ -1,0 +1,51 @@
+# Drop Tracker config. Copy to config.yaml and fill in real endpoints.
+#
+# Find each firm's JSON endpoint in DevTools > Network while browsing its
+# careers search:
+#   * Greenhouse: GET https://boards-api.greenhouse.io/v1/boards/<token>/jobs
+#   * Workday:    POST .../wday/cxs/<tenant>/<site>/jobs  (copy the request body)
+
+db_path: jobtracker.db
+ntfy_topic: "henry-job-drops-9f3a"   # same ntfy app you use for the ticket bot
+
+defaults:
+  interval: 300        # base seconds between polls; ±33% jitter added
+  max_apps: 3          # default per-firm application cap (Rule Engine)
+
+# What counts as worth-alerting. Empty list == no constraint on that axis.
+filter:
+  keywords: ["2027", "Summer Analyst", "Off-cycle", "Spring Week"]
+  regions:  ["APAC"]                       # APAC | EMEA | AMER
+  user_languages: ["english", "cantonese"] # languages YOU speak; a role's
+                                           # requirements must be a subset
+
+firms:
+  - name: "Hines"
+    slug: "Hines"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/hines/jobs?content=true"
+    host: "https://www.hines.com/careers"
+
+  - name: "Goldman Sachs"
+    slug: "GoldmanSachs"
+    ats: workday
+    method: POST
+    url: "https://goldman.wd5.myworkdayjobs.com/wday/cxs/goldman/GS/jobs"
+    host: "https://goldman.wd5.myworkdayjobs.com"
+    max_apps: 3
+    body:
+      appliedFacets: {}
+      limit: 20
+      offset: 0
+      searchText: "2027 Summer Analyst Hong Kong"
+
+  - name: "Citi"
+    slug: "Citi"
+    ats: workday
+    method: POST
+    url: "https://citi.wd5.myworkdayjobs.com/wday/cxs/citi/2/jobs"
+    host: "https://citi.wd5.myworkdayjobs.com"
+    body:
+      limit: 20
+      offset: 0
+      searchText: "Summer Analyst Hong Kong"

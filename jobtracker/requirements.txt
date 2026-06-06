@@ -1,0 +1,17 @@
+# Core (Module 1 monitor) — already in the repo's root venv
+httpx[http2]>=0.27
+selectolax>=0.3.21
+PyYAML>=6.0
+structlog>=24.1
+playwright>=1.44          # autofill (Module 3)
+
+# Optional, per-module. Install what you use:
+rapidfuzz>=3.6            # ats.py — better fuzzy matching (falls back to difflib)
+anthropic>=0.40          # tailor.py — CV/cover generation
+python-docx>=1.1         # tailor.py — layout-preserving .docx edits
+pandas>=2.2              # export.py / dashboard.py
+openpyxl>=3.1            # export.py — .xlsx writing
+streamlit>=1.37          # dashboard.py
+stripe>=9.0              # billing.py — self-serve Pro upgrades (optional)
+
+# PDF export in tailor.py shells out to LibreOffice (`soffice`) — install separately.

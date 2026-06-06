@@ -1,0 +1,300 @@
+# Auto-discovered firms. Confident (Greenhouse, name-verified) are active.
+firms:
+  - name: "Alpha FMC"
+    slug: "AlphaFMC"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/alphafmc/jobs?content=true"
+    # board: "Alpha FMC - UK "  jobs=3  match=100
+  - name: "AlphaSights"
+    slug: "AlphaSights"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/alphasights/jobs?content=true"
+    # board: "AlphaSights"  jobs=87  match=100
+  - name: "Aquatic Capital Management"
+    slug: "AquaticCapitalManagement"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/aquaticcapitalmanagement/jobs?content=true"
+    # board: "Aquatic Capital Management"  jobs=8  match=100
+  - name: "BTG Pactual"
+    slug: "BTGPactual"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/btgpactual/jobs?content=true"
+    # board: "BTG Pactual"  jobs=240  match=100
+  - name: "Baringa"
+    slug: "Baringa"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/baringa/jobs?content=true"
+    # board: "Baringa"  jobs=75  match=100
+  - name: "Blockchain.com"
+    slug: "BlockchainCom"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/blockchain/jobs?content=true"
+    # board: "Blockchain.com"  jobs=38  match=100
+  - name: "BlueCrest Capital Management"
+    slug: "BlueCrestCapitalManagement"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/bluecrestcapitalmanagement/jobs?content=true"
+    # board: "BlueCrest Capital Management"  jobs=9  match=100
+  - name: "CFO Insights"
+    slug: "CFOInsights"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/cfoinsights/jobs?content=true"
+    # board: "CFO Insights"  jobs=293  match=100
+  - name: "Cabot Properties"
+    slug: "CabotProperties"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/cabotproperties/jobs?content=true"
+    # board: "Cabot Properties Job Board"  jobs=1  match=100
+  - name: "Charles River Associates"
+    slug: "CharlesRiverAssociates"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/charlesriverassociates/jobs?content=true"
+    # board: "Charles River Associates"  jobs=63  match=100
+  - name: "Chatham Financial"
+    slug: "ChathamFinancial"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/chathamfinancial/jobs?content=true"
+    # board: "Chatham Financial"  jobs=2  match=100
+  - name: "Copper.co"
+    slug: "CopperCo"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/copperco/jobs?content=true"
+    # board: "Copper.co"  jobs=7  match=100
+  - name: "DV Trading"
+    slug: "DVTrading"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/dvtrading/jobs?content=true"
+    # board: "DV Trading"  jobs=56  match=100
+  - name: "ExodusPoint"
+    slug: "ExodusPoint"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/exoduspoint/jobs?content=true"
+    # board: "ExodusPoint"  jobs=2  match=100
+  - name: "Flow Traders"
+    slug: "FlowTraders"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/flowtraders/jobs?content=true"
+    # board: "Flow Traders"  jobs=30  match=100
+  - name: "Forvis Mazars"
+    slug: "ForvisMazars"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/forvismazars/jobs?content=true"
+    # board: "Forvis Mazars"  jobs=423  match=100
+  - name: "Future Planet Capital"
+    slug: "FuturePlanetCapital"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/future/jobs?content=true"
+    # board: "Future"  jobs=5  match=100
+  - name: "GSA Capital"
+    slug: "GSACapital"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/gsacapital/jobs?content=true"
+    # board: "GSA"  jobs=9  match=100
+  - name: "Galaxy"
+    slug: "Galaxy"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/galaxy/jobs?content=true"
+    # board: "Galaxy Integrated Technologies "  jobs=2  match=100
+  - name: "General Atlantic"
+    slug: "GeneralAtlantic"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/generalatlantic/jobs?content=true"
+    # board: "General Atlantic "  jobs=23  match=100
+  - name: "IMC Trading"
+    slug: "IMCTrading"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/imc/jobs?content=true"
+    # board: "IMC"  jobs=131  match=100
+  - name: "Jane Street"
+    slug: "JaneStreet"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/janestreet/jobs?content=true"
+    # board: "Jane Street"  jobs=204  match=100
+  - name: "Jump Trading"
+    slug: "JumpTrading"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/jumptrading/jobs?content=true"
+    # board: "Jump Trading"  jobs=68  match=100
+  - name: "Lincoln International"
+    slug: "LincolnInternational"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/lincolninternational/jobs?content=true"
+    # board: "Lincoln International"  jobs=35  match=100
+  - name: "LionTree Advisors"
+    slug: "LionTreeAdvisors"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/liontree/jobs?content=true"
+    # board: "LionTree"  jobs=1  match=100
+  - name: "Mako Trading"
+    slug: "MakoTrading"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/mako/jobs?content=true"
+    # board: "Mako"  jobs=7  match=100
+  - name: "Man Group"
+    slug: "ManGroup"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/mangroup/jobs?content=true"
+    # board: "Man Group"  jobs=67  match=100
+  - name: "Marshall Wace"
+    slug: "MarshallWace"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/marshallwace/jobs?content=true"
+    # board: "Marshall Wace"  jobs=2  match=100
+  - name: "National Bank of Canada"
+    slug: "NationalBankOfCanada"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/national/jobs?content=true"
+    # board: "NATIONAL"  jobs=5  match=100
+  - name: "Oak Hill Advisors"
+    slug: "OakHillAdvisors"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/oakhilladvisors/jobs?content=true"
+    # board: "Oak Hill Advisors"  jobs=3  match=100
+  - name: "Point72"
+    slug: "Point72"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/point72/jobs?content=true"
+    # board: "Point72 "  jobs=247  match=100
+  - name: "Private Equity Insights"
+    slug: "PrivateEquityInsights"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/privateequityinsights/jobs?content=true"
+    # board: "Private Equity Insights"  jobs=593  match=100
+  - name: "Retail Insights"
+    slug: "RetailInsights"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/retailinsights/jobs?content=true"
+    # board: "Retail Insights"  jobs=219  match=100
+  - name: "Ripple"
+    slug: "Ripple"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/ripple/jobs?content=true"
+    # board: "Ripple "  jobs=130  match=100
+  - name: "Schonfeld"
+    slug: "Schonfeld"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/schonfeld/jobs?content=true"
+    # board: "Schonfeld "  jobs=61  match=100
+  - name: "Sixth Street"
+    slug: "SixthStreet"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/sixthstreet/jobs?content=true"
+    # board: "Sixth Street"  jobs=18  match=100
+  - name: "Squarepoint Capital"
+    slug: "SquarepointCapital"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/squarepointcapital/jobs?content=true"
+    # board: "Squarepoint Capital"  jobs=80  match=100
+  - name: "StepStone Group"
+    slug: "StepStoneGroup"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/stepstone/jobs?content=true"
+    # board: "StepStone Group"  jobs=65  match=100
+  - name: "Teneo"
+    slug: "Teneo"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/teneo/jobs?content=true"
+    # board: "Teneo "  jobs=52  match=100
+  - name: "Tower Research Capital"
+    slug: "TowerResearchCapital"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/towerresearchcapital/jobs?content=true"
+    # board: "Tower Research Capital"  jobs=64  match=100
+  - name: "Virtu Financial"
+    slug: "VirtuFinancial"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/virtu/jobs?content=true"
+    # board: "Virtu Financial"  jobs=36  match=100
+  - name: "William Blair"
+    slug: "WilliamBlair"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/williamblair/jobs?content=true"
+    # board: "William Blair"  jobs=36  match=100
+  - name: "Xantium"
+    slug: "Xantium"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/xantium/jobs?content=true"
+    # board: "Xantium "  jobs=7  match=100
+  - name: "Interpath Advisory"
+    slug: "InterpathAdvisory"
+    ats: greenhouse
+    url: "https://boards-api.greenhouse.io/v1/boards/interpath/jobs?content=true"
+    # board: "Interpath Laboratory"  jobs=25  match=73
+
+# --- NEEDS VERIFICATION (Lever = no name check, or weak match). ---
+# Open the url; if it's really the firm, uncomment and move above.
+  # - name: "Capital Group"   # ⚠ VERIFY board name below
+  #   slug: "CapitalGroup"
+  #   ats: lever
+  #   url: "https://api.lever.co/v0/postings/capital?mode=json"
+  #   # board: "capital"  jobs=66  match=100
+  # - name: "Capital One"   # ⚠ VERIFY board name below
+  #   slug: "CapitalOne"
+  #   ats: lever
+  #   url: "https://api.lever.co/v0/postings/capital?mode=json"
+  #   # board: "capital"  jobs=66  match=100
+  # - name: "Genesis Quant Capital"   # ⚠ VERIFY board name below
+  #   slug: "GenesisQuantCapital"
+  #   ats: lever
+  #   url: "https://api.lever.co/v0/postings/genesis?mode=json"
+  #   # board: "genesis"  jobs=5  match=100
+  # - name: "Global Gate"   # ⚠ VERIFY board name below
+  #   slug: "GlobalGate"
+  #   ats: lever
+  #   url: "https://api.lever.co/v0/postings/gate?mode=json"
+  #   # board: "gate"  jobs=8  match=100
+  # - name: "Newton"   # ⚠ VERIFY board name below
+  #   slug: "Newton"
+  #   ats: lever
+  #   url: "https://api.lever.co/v0/postings/newton?mode=json"
+  #   # board: "newton"  jobs=3  match=100
+  # - name: "Raine Group"   # ⚠ VERIFY board name below
+  #   slug: "RaineGroup"
+  #   ats: lever
+  #   url: "https://api.lever.co/v0/postings/raine?mode=json"
+  #   # board: "raine"  jobs=1  match=100
+  # - name: "Oliver Wyman"   # ⚠ VERIFY board name below
+  #   slug: "OliverWyman"
+  #   ats: lever
+  #   url: "https://api.lever.co/v0/postings/oliverwyman?mode=json"
+  #   # board: "oliverwyman"  jobs=2  match=95
+  # - name: "General Electric"   # ⚠ VERIFY board name below
+  #   slug: "GeneralElectric"
+  #   ats: greenhouse
+  #   url: "https://boards-api.greenhouse.io/v1/boards/general/jobs?content=true"
+  #   # board: "General Interest "  jobs=1  match=68
+  # - name: "Allied World"   # ⚠ VERIFY board name below
+  #   slug: "AlliedWorld"
+  #   ats: greenhouse
+  #   url: "https://boards-api.greenhouse.io/v1/boards/allied/jobs?content=true"
+  #   # board: "Allied Mechanical"  jobs=7  match=66
+  # - name: "Tide Insurance"   # ⚠ VERIFY board name below
+  #   slug: "TideInsurance"
+  #   ats: greenhouse
+  #   url: "https://boards-api.greenhouse.io/v1/boards/tide/jobs?content=true"
+  #   # board: "Careers at Tide"  jobs=121  match=55
+  # - name: "Insurance Advisory Partners"   # ⚠ VERIFY board name below
+  #   slug: "InsuranceAdvisoryPartners"
+  #   ats: greenhouse
+  #   url: "https://boards-api.greenhouse.io/v1/boards/insurance/jobs?content=true"
+  #   # board: "Alpha FMC - Insurance Consulting"  jobs=10  match=50
+  # - name: "Société Générale"   # ⚠ VERIFY board name below
+  #   slug: "SociTGNRale"
+  #   ats: greenhouse
+  #   url: "https://boards-api.greenhouse.io/v1/boards/soci/jobs?content=true"
+  #   # board: "SOCi"  jobs=13  match=40
+  # - name: "London Stock Exchange Group"   # ⚠ VERIFY board name below
+  #   slug: "LondonStockExchangeGroup"
+  #   ats: greenhouse
+  #   url: "https://boards-api.greenhouse.io/v1/boards/london/jobs?content=true"
+  #   # board: "Aimé Leon Dore EU"  jobs=4  match=36
+  # - name: "Chicago Trading Company"   # ⚠ VERIFY board name below
+  #   slug: "ChicagoTradingCompany"
+  #   ats: greenhouse
+  #   url: "https://boards-api.greenhouse.io/v1/boards/chicago/jobs?content=true"
+  #   # board: "Returners Job Board"  jobs=1  match=33
+  # - name: "LMR Partners"   # ⚠ VERIFY board name below
+  #   slug: "LMRPartners"
+  #   ats: greenhouse
+  #   url: "https://boards-api.greenhouse.io/v1/boards/lmr/jobs?content=true"
+  #   # board: "Long Meadow Ranch and Farmstead"  jobs=8  match=32

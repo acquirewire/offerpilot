@@ -1,0 +1,18 @@
+# systemd unit for the Oracle Cloud (Ubuntu) VM. Runs the bot 24/7 and
+# restarts it on crash or reboot.
+# Installed to /etc/systemd/system/ticket-monitor.service by the deploy step.
+[Unit]
+Description=Ticket Drop Monitor
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/ticket-monitor
+ExecStart=/home/ubuntu/ticket-monitor/.venv/bin/python -m src.main
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
