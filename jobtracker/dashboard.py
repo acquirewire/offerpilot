@@ -109,6 +109,18 @@ import jobtracker.billing as billing
 acc.init()
 acc.ensure_admin()
 
+# Ensure the application-tracker tables exist. Locally these are made by the
+# `init-db` command, but on a fresh host (Streamlit Cloud) nothing has run yet,
+# so create the schema on first load to avoid "no such table" errors.
+try:
+    import jobtracker.db as _jdb
+
+    _jc = _jdb.connect(DB_PATH)
+    _jdb.init_db(_jc)
+    _jc.close()
+except Exception:
+    pass
+
 # Stripe Checkout return: ?session_id=... -> confirm payment -> unlock Pro
 _qp = st.query_params
 if "session_id" in _qp:
