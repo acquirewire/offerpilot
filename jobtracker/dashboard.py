@@ -44,41 +44,63 @@ STAGE_COLOR = {
     "Superday": "#ec4899", "Offer": "#10b981", "Rejected": "#94a3b8",
 }
 
-st.set_page_config(page_title="Job Pipeline", page_icon="💼", layout="wide")
+st.set_page_config(page_title="OfferPilot", page_icon="✈️", layout="wide")
 
-# --- styling -----------------------------------------------------------------
+# --- OfferPilot branded styling (matches the marketing site) ------------------
 st.markdown(
     """
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-      html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
-      #MainMenu, footer, header { visibility: hidden; }
-      .block-container { padding-top: 2rem; max-width: 1400px; }
-      .hero {
-        background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-        color: #fff; padding: 1.5rem 1.75rem; border-radius: 16px; margin-bottom: 1.5rem;
-      }
-      .hero h1 { margin: 0; font-size: 1.6rem; font-weight: 700; }
-      .hero p  { margin: .25rem 0 0; opacity: .75; font-size: .9rem; }
-      .metric {
-        background: #fff; border: 1px solid #e2e8f0; border-radius: 14px;
-        padding: 1rem 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,.04);
-      }
-      .metric .v { font-size: 1.9rem; font-weight: 700; color: #0f172a; line-height: 1; }
-      .metric .l { font-size: .78rem; color: #64748b; text-transform: uppercase;
-                   letter-spacing: .04em; margin-top: .35rem; }
-      .card {
-        background: #fff; border-radius: 12px; padding: .8rem .9rem; margin-bottom: .7rem;
-        box-shadow: 0 1px 3px rgba(0,0,0,.06); border-left: 4px solid #cbd5e1;
-        color: #1e293b;   /* default dark text so nothing inherits the theme's white */
-      }
-      .card mark { background: #fde68a; color: #1e293b; padding: 0 2px; border-radius: 3px; }
-      .card .firm { font-weight: 600; color: #0f172a; font-size: .92rem; }
-      .card .role { color: #475569; font-size: .82rem; margin-top: .15rem; }
-      .pill { display:inline-block; padding:.1rem .5rem; border-radius:999px;
-              font-size:.7rem; font-weight:600; color:#fff; }
-      .stagehead { font-weight:600; font-size:.85rem; color:#334155; margin-bottom:.5rem;
-                   text-transform:uppercase; letter-spacing:.03em; }
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+      :root{ --b1:#6366f1; --b2:#a855f7; --b3:#22d3ee; --ok:#34d399;
+             --grad:linear-gradient(120deg,#6366f1,#a855f7 55%,#22d3ee); }
+      html, body, [class*="css"], .stApp { font-family:'Inter',sans-serif; }
+      h1,h2,h3 { font-family:'Space Grotesk',sans-serif !important; letter-spacing:-.02em; }
+      #MainMenu, footer, header { visibility:hidden; }
+      .block-container { padding-top:2rem; max-width:1400px; }
+
+      /* hero — OfferPilot gradient + logo */
+      .hero{ background:linear-gradient(125deg,#0b1124 0%, #2a1a4a 55%, #0b2838 100%);
+        border:1px solid rgba(255,255,255,.08); color:#fff; padding:1.6rem 1.9rem;
+        border-radius:18px; margin-bottom:1.5rem; box-shadow:0 24px 50px -24px rgba(124,58,237,.5); }
+      .hero h1{ margin:0; font-size:1.7rem; font-weight:700; display:flex; align-items:center; gap:.6rem; }
+      .hero .logo{ width:36px; height:36px; border-radius:10px; background:var(--grad);
+        display:inline-grid; place-items:center; font-size:1.1rem;
+        box-shadow:0 6px 18px -6px var(--b2); }
+      .hero p{ margin:.4rem 0 0; opacity:.78; font-size:.92rem; }
+
+      /* gradient buttons */
+      .stButton > button[kind="primary"], button[data-testid="baseButton-primary"],
+      .stDownloadButton > button{
+        background:var(--grad) !important; border:0 !important; color:#fff !important;
+        border-radius:999px !important; font-weight:600 !important;
+        box-shadow:0 8px 24px -8px var(--b2) !important; }
+      .stButton > button[kind="primary"]:hover{ filter:brightness(1.08); transform:translateY(-1px); }
+      .stButton > button{ border-radius:999px !important; font-weight:600; }
+
+      /* tabs */
+      .stTabs [data-baseweb="tab-list"]{ gap:.4rem; }
+      .stTabs [data-baseweb="tab"]{ font-weight:600; }
+      .stTabs [aria-selected="true"]{ color:#c084fc !important; }
+
+      /* metric cards — glass, gradient numbers */
+      .metric{ background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09);
+        border-radius:14px; padding:1rem 1.25rem; }
+      .metric .v{ font-size:1.9rem; font-weight:700; font-family:'Space Grotesk'; line-height:1;
+        background:var(--grad); -webkit-background-clip:text; background-clip:text;
+        -webkit-text-fill-color:transparent; }
+      .metric .l{ font-size:.78rem; color:#94a3b8; text-transform:uppercase;
+        letter-spacing:.04em; margin-top:.35rem; }
+
+      /* content cards — kept white for readability of bullets/highlights */
+      .card{ background:#fff; border-radius:12px; padding:.8rem .9rem; margin-bottom:.7rem;
+        box-shadow:0 2px 8px rgba(0,0,0,.25); border-left:4px solid #cbd5e1; color:#1e293b; }
+      .card mark{ background:#fde68a; color:#1e293b; padding:0 2px; border-radius:3px; }
+      .card .firm{ font-weight:600; color:#0f172a; font-size:.92rem; }
+      .card .role{ color:#475569; font-size:.82rem; margin-top:.15rem; }
+      .pill{ display:inline-block; padding:.1rem .5rem; border-radius:999px;
+        font-size:.7rem; font-weight:600; color:#fff; }
+      .stagehead{ font-weight:600; font-size:.85rem; color:#cbd5e1; margin-bottom:.5rem;
+        text-transform:uppercase; letter-spacing:.03em; }
     </style>
     """,
     unsafe_allow_html=True,
@@ -137,7 +159,7 @@ def _auth_gate() -> dict:
         u = acc.get_user(st.session_state["user"]["email"]) or st.session_state["user"]
         st.session_state["user"] = u
         return u
-    st.markdown("<div class='hero'><h1>✈️ OfferPilot</h1>"
+    st.markdown("<div class='hero'><h1><span class='logo'>✈️</span> OfferPilot</h1>"
                 "<p>Sign in to tailor your applications.</p></div>", unsafe_allow_html=True)
     t_in, t_up = st.tabs(["Log in", "Create account"])
     with t_in:
@@ -188,8 +210,8 @@ with st.sidebar:
 
 # --- hero --------------------------------------------------------------------
 st.markdown(
-    "<div class='hero'><h1>💼 Application Pipeline</h1>"
-    "<p>Live tracker across your target firms — monitored, scored, logged.</p></div>",
+    "<div class='hero'><h1><span class='logo'>✈️</span> OfferPilot</h1>"
+    "<p>Tailor every application — scored against the job, fitted to one page, ready to send.</p></div>",
     unsafe_allow_html=True,
 )
 
