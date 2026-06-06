@@ -87,10 +87,14 @@ def create_user(email: str, password: str, tier: str = "free") -> tuple[bool, st
         return False, "Password must be at least 6 characters."
     if get_user(email):
         return False, "An account with that email already exists — try logging in."
-    with connect() as c:
-        c.execute("INSERT INTO users(email, pw_hash, tier, created_at) VALUES(?,?,?,?)",
-                  (email, hash_password(password), tier, _now()))
-        c.commit()
+    try:
+        with connect() as c:
+            c.execute("INSERT INTO users(email, pw_hash, tier, created_at) VALUES(?,?,?,?)",
+                      (email, hash_password(password), tier, _now()))
+            c.commit()
+    except sqlite3.IntegrityError:
+        # another concurrent run inserted this email first — that's fine
+        return False, "An account with that email already exists — try logging in."
     return True, "Account created."
 
 
@@ -159,8 +163,8 @@ def ensure_admin() -> None:
     pw = os.environ.get("ADMIN_PASSWORD")
     if not (email and pw):
         return
-    existing = get_user(email)
-    if not existing:
-        create_user(email, pw, tier="admin")
-    elif existing["tier"] != "admin":
+    if get_user(email) is None:
+        create_user(email, pw, tier="admin")   # race-safe (won't raise)
+    u = get_user(email)
+    if u and u["tier"] != "admin":
         set_tier(email, "admin")
