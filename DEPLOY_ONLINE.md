@@ -11,23 +11,25 @@ I've already prepared every file the host needs (`requirements.txt`, `packages.t
 
 ---
 
-## STEP 1 — Make a GitHub account & put the code there
+## STEP 1 — Put the code on GitHub (using GitHub Desktop — easiest)
 
-GitHub is where your code lives so the host can read it.
+Claude has already packaged your code into a local repository (secrets excluded).
+You just publish it with a free, click-only app.
 
-1. Go to **https://github.com** → **Sign up** → make a free account.
-2. Click the **+** (top-right) → **New repository**.
-3. Name it `offerpilot`, keep it **Private**, click **Create repository**.
-4. On the new repo page, click **“uploading an existing file”** (a link in the
-   middle of the page).
-5. Open your folder `C:\Users\henry\reselling` in File Explorer. Drag these into the
-   browser upload box — **only these**:
-   - the **`jobtracker`** folder
-   - the **`website`** folder
-   - the files **`requirements.txt`**, **`packages.txt`**, **`.gitignore`**, **`.streamlit`** (folder)
-   ⚠️ **Do NOT upload** `.venv`, `.env`, or any `.db` files (they're your private data /
-   too big — the `.gitignore` is set to skip them, but don't drag them in).
-6. Click **Commit changes**. Your code is now on GitHub.
+1. Go to **https://desktop.github.com** → **Download for Windows** → run the
+   installer (just click through it).
+2. Open **GitHub Desktop**. It says "Sign in to GitHub.com" → click it → your browser
+   opens → **Sign up** for a free GitHub account (or sign in) → click **Authorize**.
+   You'll come back to GitHub Desktop, now signed in.
+3. In GitHub Desktop's top menu: **File → Add local repository**.
+4. Click **Choose…**, navigate to **`C:\Users\henry\reselling`**, select it, click
+   **Add repository**. (It recognises the package Claude made — no errors expected.)
+5. A blue button **"Publish repository"** appears (top right). Click it.
+6. In the box that pops up:
+   - **Name:** change it to `offerpilot`
+   - **Keep "Keep this code private" TICKED** ✅
+   - Click **Publish repository**.
+7. Wait a few seconds. Your code is now on GitHub. ✅
 
 ---
 
