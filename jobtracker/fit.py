@@ -13,14 +13,30 @@ from __future__ import annotations
 import os
 from functools import lru_cache
 
-# docx font name -> Windows TTF file. Unknown fonts fall back to Calibri.
+# docx font name -> candidate TTF filenames, Windows first then the Linux
+# metric-compatible equivalents (Carlito≈Calibri, Liberation≈Arial/Times). This
+# keeps line measurement accurate on the Linux host the same as on Windows.
 _FONTS = {
-    "Calibri": "calibri.ttf", "Calibri Light": "calibril.ttf", "Arial": "arial.ttf",
-    "Times New Roman": "times.ttf", "Cambria": "cambria.ttc", "Georgia": "georgia.ttf",
-    "Verdana": "verdana.ttf", "Tahoma": "tahoma.ttf", "Helvetica": "arial.ttf",
-    "Garamond": "GARA.TTF", "Book Antiqua": "BKANT.TTF",
+    "Calibri": ["calibri.ttf", "Carlito-Regular.ttf"],
+    "Calibri Light": ["calibril.ttf", "Carlito-Regular.ttf"],
+    "Arial": ["arial.ttf", "LiberationSans-Regular.ttf"],
+    "Helvetica": ["arial.ttf", "LiberationSans-Regular.ttf"],
+    "Times New Roman": ["times.ttf", "LiberationSerif-Regular.ttf"],
+    "Cambria": ["cambria.ttc", "Caladea-Regular.ttf", "LiberationSerif-Regular.ttf"],
+    "Georgia": ["georgia.ttf", "LiberationSerif-Regular.ttf"],
+    "Verdana": ["verdana.ttf", "DejaVuSans.ttf"],
+    "Tahoma": ["tahoma.ttf", "DejaVuSans.ttf"],
+    "Garamond": ["GARA.TTF", "LiberationSerif-Regular.ttf"],
+    "Book Antiqua": ["BKANT.TTF", "LiberationSerif-Regular.ttf"],
 }
-_FONTDIR = os.path.join(os.environ.get("WINDIR", r"C:\Windows"), "Fonts")
+_FALLBACK_FILES = ["Carlito-Regular.ttf", "DejaVuSans.ttf", "calibri.ttf"]
+_FONT_DIRS = [
+    os.path.join(os.environ.get("WINDIR", r"C:\Windows"), "Fonts"),
+    "/usr/share/fonts/truetype/crosextra",   # Carlito / Caladea
+    "/usr/share/fonts/truetype/liberation",  # Liberation Sans/Serif
+    "/usr/share/fonts/truetype/dejavu",
+    "/usr/share/fonts",
+]
 
 try:
     from PIL import ImageFont
@@ -29,12 +45,21 @@ except ImportError:
     _HAVE_PIL = False
 
 
+def _find_font_path(name: str) -> str | None:
+    """First existing TTF for `name` across Windows + Linux font dirs."""
+    for fname in _FONTS.get(name, []) + _FALLBACK_FILES:
+        for d in _FONT_DIRS:
+            p = os.path.join(d, fname)
+            if os.path.exists(p):
+                return p
+    return None
+
+
 @lru_cache(maxsize=32)
 def _font(name: str, size_pt: int):
-    fname = _FONTS.get(name, "calibri.ttf")
-    path = os.path.join(_FONTDIR, fname)
-    if not os.path.exists(path):
-        path = os.path.join(_FONTDIR, "calibri.ttf")
+    path = _find_font_path(name)
+    if path is None:
+        raise FileNotFoundError(name)   # _width() falls back to the char estimate
     return ImageFont.truetype(path, max(size_pt, 1))
 
 
