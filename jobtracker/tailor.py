@@ -519,20 +519,22 @@ def tailor_cv(
     pdf_path = export_pdf(out_docx) if to_pdf else None
     pages = _page_count(pdf_path)
 
-    # One-page backstop: a full master + added JD content overflows. Compress the
-    # FEWEST, LEAST job-relevant bullets needed to reach one page — one at a time,
-    # re-rendering each step — so the most detail (and the most JD-relevant detail)
-    # is kept. Ranked by JD-keyword count ascending, then longest first.
+    # One-page backstop. Ground truth is the REAL rendered page count (LibreOffice
+    # + pypdf), never our width estimate — so it works even when the host's fonts
+    # differ from Windows. Each round shortens the longest, least-job-relevant
+    # bullet not yet shortened, re-renders, and stops the instant it fits one page.
     if one_page and pdf_path and pages and pages > 1:
         kt = [t.lower() for t in (keep_terms or [])]
-        for _ in range(len(select) + 2):
+        done: set[int] = set()
+        for _ in range(len(select) + 3):
             doc = Document(out_docx)
             cands = []
             for idx in select:
                 txt = doc.paragraphs[idx].text
-                if fit.wrap_info(txt, width_pt, font_name, size_pt)[0] >= 2:
-                    hits = sum(1 for kw in kt if kw in txt.lower())
-                    cands.append((hits, -len(txt), idx))  # least relevant, then longest
+                if idx in done or len(txt) < 55:   # too short to usefully shrink
+                    continue
+                hits = sum(1 for kw in kt if kw in txt.lower())
+                cands.append((hits, -len(txt), idx))  # least relevant, then longest
             if not cands:
                 break
             cands.sort()
@@ -542,6 +544,7 @@ def tailor_cv(
                 max_lines=1, guidance=guidance,
             )
             _replace_paragraph_text(doc.paragraphs[idx], new)
+            done.add(idx)
             doc.save(out_docx)
             pdf_path = export_pdf(out_docx)
             pages = _page_count(pdf_path)

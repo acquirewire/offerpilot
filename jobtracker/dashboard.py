@@ -319,12 +319,12 @@ with tab_log:
                 st.success(f"Logged {fsel} — {role}")
                 refresh()
 
-# --- tailor CV + cover letter ------------------------------------------------
+# --- tailor CV ---------------------------------------------------------------
 with tab_tailor:
     import tempfile
 
-    st.caption("Upload your master CV, paste the job description, and get a tailored "
-               "CV + cover letter to download. Uses Claude (needs ANTHROPIC_API_KEY).")
+    st.caption("Upload your master CV, paste the job description, and get a tailored, "
+               "one-page CV to download. Uses Claude (needs ANTHROPIC_API_KEY).")
     if not os.environ.get("ANTHROPIC_API_KEY"):
         st.error("No ANTHROPIC_API_KEY found in your .env — tailoring can't run without it.")
 
@@ -357,7 +357,7 @@ with tab_tailor:
     name = c1.text_input("Your full name", placeholder="Henry Smith")
     firm = c2.text_input("Firm", placeholder="Goldman Sachs")
 
-    if st.button("✨ Tailor my CV + write cover letter", type="primary"):
+    if st.button("✨ Tailor my CV", type="primary"):
         if not acc.can_tailor(user):
             st.warning(f"You've used your {acc.FREE_MONTHLY_LIMIT} free tailors this month. "
                        "Upgrade to Pro (sidebar) for unlimited tailoring.")
@@ -392,13 +392,9 @@ with tab_tailor:
                     after_map = {i: t for i, t in after_pairs}
                     sel_order = [i for i, _ in after_pairs]
                     cv_text = "\n".join(p.text for p in after_doc.paragraphs)
-                    cover = tl.write_cover_letter(jd_text, cv_text, firm, name)
-                    cover_out = os.path.join(tmpd, output_filename(name, firm, kind="Cover", ext="docx"))
-                    tl.save_cover_docx(cover, cover_out)
-                    cover_pdf = tl.export_pdf(cover_out)  # None if no converter
                     ats = scan(cv_text, jd_text)
                     payload = {
-                        "before": before, "after": after, "cover": cover,
+                        "before": before, "after": after,
                         "ats": f"{ats.match_pct*100:.0f}% — {ats.flag}",
                         "match_pct": ats.match_pct, "matched": ats.matched,
                         "missing": ats.missing, "jd_terms": jd_terms(jd_text),
@@ -407,12 +403,8 @@ with tab_tailor:
                         "master_bytes": up.getvalue(),
                         "cv_bytes": open(res.docx_path, "rb").read(),
                         "cv_name": os.path.basename(cv_out),
-                        "cover_bytes": open(cover_out, "rb").read(),
-                        "cover_name": os.path.basename(cover_out),
                         "cv_pdf": open(res.pdf_path, "rb").read() if res.pdf_path else None,
-                        "cover_pdf": open(cover_pdf, "rb").read() if cover_pdf else None,
                         "pdf_name": output_filename(name, firm, ext="pdf"),
-                        "cover_pdf_name": output_filename(name, firm, kind="Cover", ext="pdf"),
                         "pages": res.page_count,
                     }
                     st.session_state["tlr"] = payload
@@ -448,17 +440,10 @@ with tab_tailor:
                     del st.session_state[_k]
                 st.rerun()
         if r.get("cv_pdf"):
-            p1, p2 = st.columns(2)
-            p1.download_button("⬇ Download CV (PDF)", r["cv_pdf"], r["pdf_name"], type="primary")
-            if r.get("cover_pdf"):
-                p2.download_button("⬇ Download cover letter (PDF)", r["cover_pdf"], r["cover_pdf_name"], type="primary")
+            st.download_button("⬇ Download CV (PDF)", r["cv_pdf"], r["pdf_name"], type="primary")
         else:
-            st.info("📄 PDF export is off — no converter installed. Install LibreOffice "
-                    "(free) to download PDFs; until then, use the Word files below. "
-                    "Ask Claude: \"install LibreOffice for PDF export\".")
-        d1, d2 = st.columns(2)
-        d1.download_button("⬇ Download tailored CV (Word)", r["cv_bytes"], r["cv_name"])
-        d2.download_button("⬇ Download cover letter (Word)", r["cover_bytes"], r["cover_name"])
+            st.info("📄 PDF export is off — no converter installed. Use the Word file below.")
+        st.download_button("⬇ Download tailored CV (Word)", r["cv_bytes"], r["cv_name"])
 
         # ---- ATS & Fit feedback (requirements parsed from THIS JD) --------------
         st.divider()
@@ -603,8 +588,6 @@ with tab_tailor:
                     f"<div class='firm' style='margin-top:.45rem'>✅ {af}</div></div>",
                     unsafe_allow_html=True,
                 )
-        with st.expander("Cover letter"):
-            st.text_area("cover", r["cover"], height=260, label_visibility="collapsed")
 
 # --- admin panel: who signed up + free upgrade toggle ------------------------
 if tab_admin is not None:
