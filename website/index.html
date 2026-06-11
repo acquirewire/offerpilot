@@ -1,198 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>OfferPilot — Tailor every job application in minutes</title>
-<meta name="description" content="OfferPilot rewrites your CV and cover letter for every job, scores your fit against the real job description, and guarantees a flawless one-page PDF. Built for competitive roles." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>OfferPilot — Mission control for internship season</title>
+<meta name="description" content="OfferPilot reads the job description, re-engineers your CV to match, scores your fit, and guarantees a perfect one page. Built for competitive finance, consulting and tech applications."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
 <style>
   :root{
-    --bg:#070b16; --bg2:#0b1124; --surface:rgba(255,255,255,.045);
-    --border:rgba(255,255,255,.09); --text:#e8edf7; --muted:#94a3b8;
-    --b1:#6366f1; --b2:#a855f7; --b3:#22d3ee; --ok:#34d399;
-    --grad:linear-gradient(120deg,var(--b1),var(--b2) 55%,var(--b3));
-    --radius:18px; --maxw:1180px;
+    --bg:#05070f; --bg2:#0a0e1d; --ink:#eef2ff; --mut:#8b96b3;
+    --mint:#34f5c5; --vio:#7c5cff; --amber:#ffb02e; --rose:#ff5c87;
+    --grad:linear-gradient(100deg,var(--mint),var(--vio));
+    --line:rgba(255,255,255,.08); --glass:rgba(255,255,255,.04);
+    --r:18px; --maxw:1180px;
+    --mono:'JetBrains Mono',monospace; --disp:'Space Grotesk',sans-serif;
   }
-  @property --p{ syntax:'<number>'; initial-value:0; inherits:false; }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{
-    font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);
-    line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em;line-height:1.1}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--disp);letter-spacing:-.025em;line-height:1.05}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;border-radius:999px;
-    padding:.85rem 1.5rem;font-size:.95rem;cursor:pointer;border:1px solid transparent;transition:.25s;white-space:nowrap}
-  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 8px 30px -8px var(--b2)}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 38px -8px var(--b2)}
-  .btn-ghost{background:var(--surface);border-color:var(--border);color:var(--text)}
-  .btn-ghost:hover{background:rgba(255,255,255,.09);transform:translateY(-2px)}
+  .mono{font-family:var(--mono)}
+  .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-  /* ---- background glow ---- */
-  .glow{position:fixed;inset:0;z-index:-1;overflow:hidden}
-  .glow::before,.glow::after{content:'';position:absolute;width:60vw;height:60vw;border-radius:50%;
-    filter:blur(120px);opacity:.5;animation:float 18s ease-in-out infinite}
-  .glow::before{background:radial-gradient(circle,var(--b1),transparent 60%);top:-20vw;left:-10vw}
-  .glow::after{background:radial-gradient(circle,var(--b3),transparent 60%);top:30vw;right:-15vw;animation-delay:-9s}
-  @keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,60px)}}
+  /* ===== backdrop: grid + auroras ===== */
+  .field{position:fixed;inset:0;z-index:-2;
+    background-image:linear-gradient(rgba(124,92,255,.05) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(124,92,255,.05) 1px,transparent 1px);
+    background-size:48px 48px;
+    -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 30%,transparent 75%);
+            mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 30%,transparent 75%);}
+  .aurora{position:fixed;inset:0;z-index:-3;overflow:hidden}
+  .aurora i{position:absolute;border-radius:50%;filter:blur(110px);opacity:.42;animation:drift 22s ease-in-out infinite}
+  .aurora i:nth-child(1){width:46vw;height:46vw;background:#143b33;top:-14vw;left:-8vw}
+  .aurora i:nth-child(2){width:42vw;height:42vw;background:#241a52;top:4vw;right:-12vw;animation-delay:-8s}
+  .aurora i:nth-child(3){width:36vw;height:36vw;background:#0e2740;bottom:-16vw;left:30vw;animation-delay:-15s}
+  @keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,50px) scale(1.06)}}
 
-  /* ---- nav ---- */
-  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
-    background:rgba(7,11,22,.65);border-bottom:1px solid var(--border)}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .logo{display:flex;align-items:center;gap:.6rem;font-family:'Space Grotesk';font-weight:700;font-size:1.25rem}
-  .logo .mark{width:34px;height:34px;border-radius:10px;background:var(--grad);display:grid;place-items:center;
-    box-shadow:0 6px 20px -6px var(--b2)}
-  .nav-links{display:flex;gap:2rem;align-items:center}
-  .nav-links a{color:var(--muted);font-weight:500;font-size:.95rem;transition:.2s}
-  .nav-links a:hover{color:var(--text)}
-  .nav-cta{display:flex;gap:.7rem;align-items:center}
+  /* ===== buttons ===== */
+  .btn{display:inline-flex;align-items:center;gap:.55rem;font-weight:650;border-radius:12px;
+    padding:.9rem 1.5rem;font-size:.95rem;cursor:pointer;border:1px solid transparent;transition:.22s;white-space:nowrap}
+  .btn-go{background:var(--grad);color:#04110c;box-shadow:0 10px 34px -10px rgba(52,245,197,.45)}
+  .btn-go:hover{transform:translateY(-2px);box-shadow:0 16px 44px -10px rgba(52,245,197,.6)}
+  .btn-line{background:var(--glass);border-color:var(--line);color:var(--ink)}
+  .btn-line:hover{background:rgba(255,255,255,.08);transform:translateY(-2px)}
+  .k{font-family:var(--mono);font-size:.72rem;color:var(--mint);letter-spacing:.16em;text-transform:uppercase}
+
+  /* ===== nav ===== */
+  nav{position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);
+    background:rgba(5,7,15,.72);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{display:flex;align-items:center;gap:.6rem;font-family:var(--disp);font-weight:700;font-size:1.22rem}
+  .logo .mk{width:34px;height:34px;border-radius:9px;background:var(--grad);display:grid;place-items:center;
+    color:#04110c;font-size:1rem;box-shadow:0 6px 18px -6px rgba(52,245,197,.5)}
+  .nlinks{display:flex;gap:2rem;align-items:center}
+  .nlinks a{color:var(--mut);font-weight:550;font-size:.93rem;transition:.2s}
+  .nlinks a:hover{color:var(--ink)}
+  .ncta{display:flex;gap:.65rem;align-items:center}
   .burger{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer}
 
-  /* ---- hero ---- */
-  header{padding:clamp(3rem,7vw,6rem) 0 4rem}
-  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center}
-  .pill{display:inline-flex;align-items:center;gap:.5rem;background:var(--surface);border:1px solid var(--border);
-    border-radius:999px;padding:.4rem .9rem;font-size:.82rem;color:var(--muted);margin-bottom:1.4rem}
-  .pill .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok)}
-  .hero h1{font-size:clamp(2.4rem,5vw,3.9rem);margin-bottom:1.2rem}
-  .hero p.sub{font-size:clamp(1.05rem,1.5vw,1.25rem);color:var(--muted);max-width:34ch;margin-bottom:2rem}
-  .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.8rem}
-  .hero-meta{display:flex;gap:1.6rem;color:var(--muted);font-size:.85rem;flex-wrap:wrap}
-  .hero-meta b{color:var(--text)}
+  /* ===== hero ===== */
+  header{padding:clamp(3.2rem,7vw,5.6rem) 0 3.4rem}
+  .hero{display:grid;grid-template-columns:1.02fr .98fr;gap:3.2rem;align-items:center}
+  .status{display:inline-flex;align-items:center;gap:.55rem;background:var(--glass);border:1px solid var(--line);
+    border-radius:999px;padding:.42rem 1rem;font-family:var(--mono);font-size:.74rem;color:var(--mut);margin-bottom:1.4rem}
+  .status b{color:var(--mint);font-weight:500}
+  .status .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px var(--mint);animation:blink 2s infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+  .hero h1{font-size:clamp(2.5rem,5.4vw,4rem);margin-bottom:.4rem}
+  .hero .target{display:block;min-height:1.15em}
+  .hero .caret{display:inline-block;width:.55ch;background:var(--mint);height:.95em;vertical-align:-.12em;margin-left:2px;animation:blink 1s steps(1) infinite}
+  .hero p.sub{font-size:clamp(1.02rem,1.4vw,1.18rem);color:var(--mut);max-width:36ch;margin:1.1rem 0 2rem}
+  .hcta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.7rem}
+  .proof{display:flex;gap:1.5rem;color:var(--mut);font-size:.84rem;flex-wrap:wrap}
+  .proof span b{color:var(--ink)}
 
-  /* ---- product mock ---- */
-  .mock{position:relative;perspective:1400px}
-  .card-glass{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
-    border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;backdrop-filter:blur(10px);
-    box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
-  .mock .card-glass{transform:rotateY(-12deg) rotateX(6deg);transition:.5s;animation:rise 1s ease both}
-  .mock:hover .card-glass{transform:rotateY(-4deg) rotateX(2deg)}
-  @keyframes rise{from{opacity:0;transform:rotateY(-12deg) rotateX(6deg) translateY(30px)}}
-  .mock-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem}
-  .mock-head .firm{font-weight:600}
-  .mock-head .firm small{display:block;color:var(--muted);font-weight:400;font-size:.78rem}
-  .tag{font-size:.72rem;background:rgba(52,211,153,.15);color:var(--ok);padding:.25rem .6rem;border-radius:999px;border:1px solid rgba(52,211,153,.3)}
-  .gauge{--p:0;width:120px;height:120px;border-radius:50%;margin:0 auto 1rem;display:grid;place-items:center;
-    background:conic-gradient(var(--b3) calc(var(--p)*1%),rgba(255,255,255,.08) 0)}
-  .gauge::after{content:'';position:absolute;width:96px;height:96px;border-radius:50%;background:#0c1124}
-  .gauge .val{position:relative;font-family:'Space Grotesk';font-weight:700;font-size:1.7rem}
-  .gauge .val small{display:block;font-size:.62rem;color:var(--muted);font-weight:500;letter-spacing:.05em}
-  .ba{font-size:.83rem;margin-top:.4rem}
-  .ba .lbl{color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem}
-  .ba .old{color:#7c8aa5;text-decoration:line-through;opacity:.7}
-  .ba .new{color:var(--text);font-weight:500;background:linear-gradient(transparent 60%,rgba(168,85,247,.25) 0)}
-  .ba .new mark{background:rgba(34,211,238,.25);color:#bdf3ff;border-radius:3px;padding:0 2px}
-  .mock-float{position:absolute;right:-14px;bottom:-18px;background:var(--grad);color:#fff;font-weight:600;
-    font-size:.82rem;padding:.6rem 1rem;border-radius:14px;box-shadow:0 14px 30px -10px var(--b2);animation:bob 4s ease-in-out infinite}
-  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  /* ===== hero console ===== */
+  .console{position:relative}
+  .term{background:linear-gradient(165deg,rgba(255,255,255,.06),rgba(255,255,255,.015));
+    border:1px solid var(--line);border-radius:var(--r);backdrop-filter:blur(8px);
+    box-shadow:0 40px 80px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(52,245,197,.05);overflow:hidden;
+    animation:up .9s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes up{from{opacity:0;transform:translateY(28px)}}
+  .tbar{display:flex;align-items:center;gap:.5rem;padding:.8rem 1rem;border-bottom:1px solid var(--line);
+    font-family:var(--mono);font-size:.72rem;color:var(--mut)}
+  .tbar i{width:10px;height:10px;border-radius:50%;display:inline-block}
+  .tbar i:nth-child(1){background:#ff5f57}.tbar i:nth-child(2){background:#ffbd2e}.tbar i:nth-child(3){background:#28c840}
+  .tbar .ttl{margin-left:.6rem}
+  .tbody{padding:1.15rem 1.2rem 1.3rem;font-size:.85rem}
+  .trow{font-family:var(--mono);font-size:.76rem;color:var(--mut);margin-bottom:.5rem}
+  .trow b{color:var(--mint);font-weight:500}
+  .bullet-box{background:rgba(0,0,0,.32);border:1px solid var(--line);border-radius:12px;padding:.9rem 1rem;margin:.5rem 0}
+  .bullet-box .lbl{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:.35rem}
+  .old-b{color:#6c7894;text-decoration:line-through;text-decoration-color:rgba(255,92,135,.6);font-size:.84rem}
+  .new-b{color:var(--ink);font-size:.86rem;min-height:3.2em}
+  .new-b mark{background:rgba(52,245,197,.18);color:#a7ffe9;border-radius:3px;padding:0 3px}
+  .new-b b{color:#fff}
+  .scoreline{display:flex;align-items:center;gap:.9rem;margin-top:.9rem}
+  .meter{flex:1;height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+  .meter i{display:block;height:100%;width:0%;background:var(--grad);border-radius:99px;transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+  .scoreline .pct{font-family:var(--mono);font-size:.95rem;color:var(--mint);min-width:56px;text-align:right}
+  .chip{position:absolute;font-family:var(--mono);font-size:.7rem;padding:.5rem .8rem;border-radius:10px;
+    border:1px solid var(--line);background:rgba(10,14,29,.92);backdrop-filter:blur(6px);animation:bob 5s ease-in-out infinite}
+  .chip.one{right:-12px;top:-16px;color:var(--mint);border-color:rgba(52,245,197,.35)}
+  .chip.two{left:-14px;bottom:-16px;color:var(--amber);border-color:rgba(255,176,46,.3);animation-delay:-2.4s}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 
-  /* ---- marquee trust ---- */
-  .trust{padding:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-top:3rem}
-  .trust p{text-align:center;color:var(--muted);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.2rem}
-  .marquee{display:flex;gap:3.5rem;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-  .marquee .track{display:flex;gap:3.5rem;animation:scroll 26s linear infinite;white-space:nowrap}
-  .marquee b{font-family:'Space Grotesk';font-size:1.25rem;color:#cbd5e1;opacity:.65}
-  @keyframes scroll{to{transform:translateX(-50%)}}
+  /* ===== ticker ===== */
+  .ticker{border-block:1px solid var(--line);margin-top:3.4rem;padding:1rem 0;
+    background:rgba(0,0,0,.25)}
+  .ticker .lane{display:flex;gap:3rem;overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+  .ticker .belt{display:flex;gap:3rem;white-space:nowrap;animation:roll 30s linear infinite;font-family:var(--mono);font-size:.78rem;color:var(--mut)}
+  .ticker .belt b{color:var(--ink);font-weight:600}
+  .ticker .belt .up{color:var(--mint)}
+  @keyframes roll{to{transform:translateX(-50%)}}
 
-  /* ---- sections ---- */
-  section{padding:clamp(4rem,8vw,7rem) 0}
-  .eyebrow{color:var(--b3);font-weight:600;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;text-align:center}
-  .sec-title{font-size:clamp(1.9rem,4vw,2.8rem);text-align:center;margin:.6rem auto 1rem;max-width:18ch}
-  .sec-sub{text-align:center;color:var(--muted);max-width:52ch;margin:0 auto 3.5rem}
+  /* ===== sections ===== */
+  section{padding:clamp(4rem,8vw,6.6rem) 0}
+  .shead{display:flex;align-items:baseline;gap:1rem;margin-bottom:.7rem}
+  .snum{font-family:var(--mono);color:var(--mint);font-size:.8rem;letter-spacing:.18em}
+  .stitle{font-size:clamp(1.8rem,3.8vw,2.7rem)}
+  .ssub{color:var(--mut);max-width:56ch;margin-bottom:3rem}
 
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-  .feature{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;transition:.3s;position:relative;overflow:hidden}
-  .feature:hover{transform:translateY(-6px);border-color:rgba(168,85,247,.4);background:rgba(255,255,255,.06)}
-  .feature .ic{width:48px;height:48px;border-radius:13px;background:var(--grad);display:grid;place-items:center;font-size:1.4rem;margin-bottom:1.1rem;box-shadow:0 10px 24px -10px var(--b2)}
-  .feature h3{font-size:1.18rem;margin-bottom:.5rem}
-  .feature p{color:var(--muted);font-size:.94rem}
+  /* problem strip */
+  .pains{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+  .pain{border:1px solid var(--line);border-radius:var(--r);padding:1.7rem;background:var(--glass);position:relative;overflow:hidden}
+  .pain .big{font-family:var(--disp);font-weight:700;font-size:2.3rem;background:var(--grad);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .pain p{color:var(--mut);font-size:.93rem;margin-top:.45rem}
+  .pain::after{content:'';position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;
+    background:radial-gradient(circle,rgba(124,92,255,.18),transparent 70%)}
 
-  /* steps */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;counter-reset:s}
-  .step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;position:relative}
-  .step::before{counter-increment:s;content:"0" counter(s);font-family:'Space Grotesk';font-weight:700;font-size:2.2rem;
-    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;display:block;margin-bottom:.6rem}
-  .step h3{font-size:1.15rem;margin-bottom:.4rem}
-  .step p{color:var(--muted);font-size:.92rem}
+  /* loop steps */
+  .loop{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;counter-reset:n}
+  .lstep{border:1px solid var(--line);border-radius:var(--r);padding:1.5rem;background:var(--glass);position:relative;transition:.3s}
+  .lstep:hover{transform:translateY(-6px);border-color:rgba(52,245,197,.35)}
+  .lstep::before{counter-increment:n;content:"0" counter(n);font-family:var(--mono);font-size:.72rem;color:var(--mint);letter-spacing:.18em}
+  .lstep .ic{font-size:1.6rem;margin:.7rem 0 .55rem}
+  .lstep h3{font-size:1.06rem;margin-bottom:.35rem}
+  .lstep p{color:var(--mut);font-size:.88rem}
+  .lstep .conn{position:absolute;right:-14px;top:50%;color:var(--mut);font-family:var(--mono)}
+  .lstep:last-child .conn{display:none}
 
-  /* stats */
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;text-align:center;
-    background:linear-gradient(135deg,rgba(99,102,241,.12),rgba(34,211,238,.08));border:1px solid var(--border);
-    border-radius:24px;padding:2.6rem 1.5rem}
-  .stat .num{font-family:'Space Grotesk';font-weight:700;font-size:clamp(2rem,4vw,2.8rem);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .stat .lab{color:var(--muted);font-size:.88rem}
+  /* before/after lab */
+  .lab{display:grid;grid-template-columns:.95fr 1.05fr;gap:3rem;align-items:center}
+  .switch{display:inline-flex;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:1.4rem}
+  .switch button{background:transparent;border:0;color:var(--mut);font-family:var(--mono);font-size:.78rem;
+    padding:.6rem 1.2rem;cursor:pointer;transition:.2s}
+  .switch button.on{background:var(--grad);color:#04110c;font-weight:700}
+  .doc{border:1px solid var(--line);border-radius:var(--r);background:#fbfcff;color:#15203a;padding:1.6rem 1.7rem;
+    box-shadow:0 36px 70px -30px rgba(0,0,0,.7);font-size:.86rem;position:relative}
+  .doc .dn{font-family:var(--disp);font-weight:700;font-size:1.15rem;color:#0b1430}
+  .doc .dm{color:#5b6b8f;font-size:.72rem;margin-bottom:1rem}
+  .doc .dh{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;color:#7785a5;margin:.9rem 0 .4rem;text-transform:uppercase}
+  .doc ul{list-style:none}
+  .doc li{padding-left:1rem;position:relative;margin-bottom:.5rem;line-height:1.45}
+  .doc li::before{content:"•";position:absolute;left:0;color:#7c5cff}
+  .doc li b{color:#0b1430}
+  .doc li mark{background:#d9f8ee;color:#0b3b2d;border-radius:3px;padding:0 2px}
+  .doc .stamp{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;
+    padding:.3rem .6rem;border-radius:8px}
+  .doc .stamp.bad{background:#ffe7ec;color:#b0254a}
+  .doc .stamp.good{background:#d9f8ee;color:#0b6b4f}
+  .labstats{display:flex;gap:1rem;margin-top:1.3rem;flex-wrap:wrap}
+  .lstat{border:1px solid var(--line);background:var(--glass);border-radius:12px;padding:.7rem 1rem;font-family:var(--mono);font-size:.76rem;color:var(--mut)}
+  .lstat b{color:var(--mint);font-weight:600}
+
+  /* radar */
+  .radarwrap{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:center}
+  .radar{position:relative;width:min(380px,86vw);aspect-ratio:1;margin:0 auto}
+  .radar .ring{position:absolute;inset:0;border:1px solid rgba(52,245,197,.18);border-radius:50%}
+  .radar .ring:nth-child(2){inset:18%}.radar .ring:nth-child(3){inset:36%}
+  .radar .sweep{position:absolute;inset:0;border-radius:50%;
+    background:conic-gradient(from 0deg,rgba(52,245,197,.25),transparent 18%);animation:spin 4.5s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .radar .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:10px;height:10px;border-radius:50%;
+    background:var(--mint);box-shadow:0 0 18px var(--mint)}
+  .ping{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 12px var(--amber)}
+  .ping::after{content:'';position:absolute;inset:-7px;border-radius:50%;border:1px solid var(--amber);animation:pulse 2.2s infinite}
+  @keyframes pulse{0%{transform:scale(.4);opacity:1}100%{transform:scale(1.8);opacity:0}}
+  .feed{border:1px solid var(--line);border-radius:var(--r);background:rgba(0,0,0,.3);overflow:hidden}
+  .feed .fh{padding:.85rem 1.1rem;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.72rem;color:var(--mut);display:flex;justify-content:space-between}
+  .feed .fh b{color:var(--mint);font-weight:500}
+  .feed ul{list-style:none;max-height:300px;overflow:hidden}
+  .feed li{display:flex;justify-content:space-between;gap:1rem;padding:.8rem 1.1rem;border-bottom:1px solid rgba(255,255,255,.05);
+    font-size:.84rem;animation:slidein .5s ease both}
+  @keyframes slidein{from{opacity:0;transform:translateY(-10px)}}
+  .feed li .f1 b{display:block;font-weight:600}
+  .feed li .f1 span{color:var(--mut);font-size:.74rem}
+  .feed li .tag{font-family:var(--mono);font-size:.64rem;align-self:center;padding:.3rem .55rem;border-radius:8px;
+    background:rgba(52,245,197,.12);color:var(--mint);border:1px solid rgba(52,245,197,.25);white-space:nowrap}
+
+  /* features */
+  .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+  .fcard{border:1px solid var(--line);border-radius:var(--r);padding:1.7rem;background:var(--glass);
+    transition:transform .25s, border-color .25s;will-change:transform}
+  .fcard:hover{border-color:rgba(124,92,255,.4)}
+  .fcard .ic{width:46px;height:46px;border-radius:12px;background:var(--grad);display:grid;place-items:center;
+    color:#04110c;font-size:1.25rem;margin-bottom:1rem}
+  .fcard h3{font-size:1.1rem;margin-bottom:.45rem}
+  .fcard p{color:var(--mut);font-size:.9rem}
+
+  /* grind scenarios */
+  .grind{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+  .gcard{border:1px solid var(--line);border-radius:var(--r);background:var(--glass);padding:1.6rem}
+  .gcard .t{font-family:var(--mono);font-size:.68rem;color:var(--amber);letter-spacing:.14em;text-transform:uppercase}
+  .gcard h3{font-size:1.05rem;margin:.55rem 0 .4rem}
+  .gcard p{color:var(--mut);font-size:.89rem}
 
   /* pricing */
-  .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;align-items:stretch}
-  .price{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:2rem;display:flex;flex-direction:column;transition:.3s}
-  .price:hover{transform:translateY(-6px)}
-  .price.pop{border-color:transparent;background:linear-gradient(180deg,rgba(168,85,247,.16),rgba(99,102,241,.06));position:relative;box-shadow:0 0 0 1px var(--b2),0 30px 60px -25px var(--b2)}
-  .price .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--grad);font-size:.72rem;font-weight:600;padding:.3rem .9rem;border-radius:999px}
-  .price h3{font-size:1.2rem}
-  .price .amt{font-family:'Space Grotesk';font-weight:700;font-size:2.6rem;margin:.4rem 0}
-  .price .amt span{font-size:1rem;color:var(--muted);font-weight:500}
-  .price ul{list-style:none;margin:1.2rem 0;display:flex;flex-direction:column;gap:.7rem;flex:1}
-  .price li{color:var(--muted);font-size:.92rem;display:flex;gap:.6rem;align-items:flex-start}
-  .price li::before{content:"✓";color:var(--ok);font-weight:700}
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;align-items:stretch}
+  .plan{border:1px solid var(--line);border-radius:20px;padding:2rem;background:var(--glass);display:flex;flex-direction:column;transition:.3s}
+  .plan:hover{transform:translateY(-6px)}
+  .plan.hot{position:relative;background:linear-gradient(180deg,rgba(52,245,197,.08),rgba(124,92,255,.05));
+    box-shadow:0 0 0 1px rgba(52,245,197,.4), 0 30px 60px -25px rgba(52,245,197,.25)}
+  .plan .tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--grad);color:#04110c;
+    font-size:.7rem;font-weight:700;padding:.32rem .9rem;border-radius:999px}
+  .plan h3{font-size:1.15rem}
+  .plan .amt{font-family:var(--disp);font-weight:700;font-size:2.5rem;margin:.35rem 0}
+  .plan .amt span{font-size:.95rem;color:var(--mut);font-weight:500}
+  .plan ul{list-style:none;margin:1.1rem 0 1.4rem;display:flex;flex-direction:column;gap:.65rem;flex:1}
+  .plan li{color:var(--mut);font-size:.9rem;display:flex;gap:.55rem}
+  .plan li::before{content:"▸";color:var(--mint)}
 
   /* faq */
-  .faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:.8rem}
-  details{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.3rem;transition:.2s}
-  details[open]{border-color:rgba(168,85,247,.4)}
+  .faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:.75rem}
+  details{background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:1.05rem 1.25rem;transition:.2s}
+  details[open]{border-color:rgba(52,245,197,.35)}
   summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center}
   summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";font-size:1.4rem;color:var(--b3);transition:.2s}
+  summary::after{content:"+";font-family:var(--mono);font-size:1.3rem;color:var(--mint);transition:.2s}
   details[open] summary::after{transform:rotate(45deg)}
-  details p{color:var(--muted);margin-top:.7rem;font-size:.94rem}
+  details p{color:var(--mut);margin-top:.65rem;font-size:.92rem}
 
-  /* cta band */
-  .cta-band{background:var(--grad);border-radius:28px;padding:clamp(2.5rem,5vw,4rem);text-align:center;position:relative;overflow:hidden}
-  .cta-band h2{font-size:clamp(1.8rem,4vw,2.6rem);color:#fff;margin-bottom:.8rem}
-  .cta-band p{color:rgba(255,255,255,.85);margin-bottom:1.8rem}
-  .cta-band .btn-primary{background:#fff;color:#1e1b4b}
+  /* final cta */
+  .final{position:relative;border:1px solid var(--line);border-radius:26px;overflow:hidden;
+    padding:clamp(2.6rem,5vw,4.2rem);text-align:center;
+    background:radial-gradient(120% 160% at 50% 0%,rgba(52,245,197,.14),rgba(124,92,255,.1) 45%,transparent 75%)}
+  .final h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:.7rem}
+  .final p{color:var(--mut);margin-bottom:1.9rem}
+  .final .mono-line{font-family:var(--mono);font-size:.72rem;color:var(--mut);margin-top:1.4rem}
 
-  footer{border-top:1px solid var(--border);padding:3rem 0 2rem;color:var(--muted);font-size:.9rem}
-  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
-  .foot a{color:var(--muted)}.foot a:hover{color:var(--text)}
+  footer{border-top:1px solid var(--line);padding:3rem 0 2.2rem;color:var(--mut);font-size:.88rem}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1.6rem}
+  .foot a{color:var(--mut)}.foot a:hover{color:var(--ink)}
+  .legal{margin-top:2rem;font-size:.75rem;opacity:.65}
 
-  /* reveal */
   .reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
 
-  @media(max-width:880px){
-    .hero{grid-template-columns:1fr;text-align:center}
-    .hero p.sub{margin-left:auto;margin-right:auto}.hero-cta,.hero-meta{justify-content:center}
-    .mock{margin-top:1rem}.mock .card-glass{transform:none;animation:none}
-    .nav-links{display:none}.burger{display:block}
-    .grid,.steps,.prices,.stats{grid-template-columns:1fr}
-    .stats{gap:2rem}
-    .nav-links.open{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;
-      background:var(--bg2);padding:1.2rem 24px;border-bottom:1px solid var(--border)}
+  @media(max-width:920px){
+    .hero,.lab,.radarwrap{grid-template-columns:1fr}
+    .hero{text-align:center}.hero p.sub{margin-inline:auto}.hcta,.proof{justify-content:center}
+    .pains,.fgrid,.grind,.plans{grid-template-columns:1fr}
+    .loop{grid-template-columns:1fr 1fr}.lstep .conn{display:none}
+    .nlinks{display:none}.burger{display:block}
+    .nlinks.open{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;
+      background:var(--bg2);padding:1.2rem 24px;border-bottom:1px solid var(--line)}
+    .chip{display:none}
   }
 </style>
 </head>
 <body>
-<div class="glow"></div>
+<div class="aurora"><i></i><i></i><i></i></div>
+<div class="field"></div>
 
 <nav>
   <div class="wrap nav-in">
-    <a class="logo" href="#"><span class="mark">✈</span> OfferPilot</a>
-    <div class="nav-links" id="navlinks">
-      <a href="#features">Features</a>
-      <a href="#how">How it works</a>
+    <a class="logo" href="#"><span class="mk">✈</span>OfferPilot</a>
+    <div class="nlinks" id="nlinks">
+      <a href="#lab">The rewrite</a>
+      <a href="#radar">Drop radar</a>
+      <a href="#arsenal">Arsenal</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </div>
-    <div class="nav-cta">
-      <a href="#pricing" class="btn btn-ghost" style="padding:.6rem 1.1rem">Sign in</a>
-      <a href="#pricing" class="btn btn-primary" style="padding:.6rem 1.2rem">Start free</a>
+    <div class="ncta">
+      <a href="#" class="btn btn-line" style="padding:.55rem 1.05rem">Sign in</a>
+      <a href="#" class="btn btn-go" style="padding:.55rem 1.15rem">Start free</a>
       <button class="burger" id="burger">☰</button>
     </div>
   </div>
@@ -201,211 +290,385 @@
 <header class="wrap">
   <div class="hero">
     <div class="reveal in">
-      <span class="pill"><span class="dot"></span> AI-tailored applications — built for competitive roles</span>
-      <h1>Your CV, rewritten for <span class="grad-text">every job</span> — in one click.</h1>
-      <p class="sub">OfferPilot tailors your CV and cover letter to each role, scores your fit against the actual job description, and guarantees a flawless one page.</p>
-      <div class="hero-cta">
-        <a href="#pricing" class="btn btn-primary">Start free →</a>
-        <a href="#how" class="btn btn-ghost">▷ See how it works</a>
+      <span class="status"><span class="dot"></span>SYSTEM ONLINE&nbsp;·&nbsp;<b>internship season 2027</b></span>
+      <h1>Built to get you into
+        <span class="target grad"><span id="typer">Goldman Sachs</span><span class="caret"></span></span>
+      </h1>
+      <p class="sub">OfferPilot reads the job description, re-engineers your CV to match it, scores your fit — and guarantees a flawless one page. Every application, about two minutes.</p>
+      <div class="hcta">
+        <a href="#" class="btn btn-go">Launch OfferPilot →</a>
+        <a href="#lab" class="btn btn-line">See a rewrite ▾</a>
       </div>
-      <div class="hero-meta">
-        <span><b>60s</b> per application</span>
-        <span><b>100%</b> one page, guaranteed</span>
-        <span><b>No</b> formatting lost</span>
+      <div class="proof">
+        <span><b>~2 min</b> per tailored CV</span>
+        <span><b>1 page</b> — guaranteed</span>
+        <span><b>0</b> formatting lost</span>
       </div>
     </div>
 
-    <div class="mock reveal in">
-      <div class="card-glass">
-        <div class="mock-head">
-          <div class="firm">Goldman Sachs <small>Summer Analyst — IBD</small></div>
-          <span class="tag">● One page</span>
-        </div>
-        <div class="gauge" id="gauge"><span class="val"><span id="gval">0</span>%<small>JOB FIT</small></span></div>
-        <div class="ba">
-          <div class="lbl">Your bullet, tailored</div>
-          <div class="old" id="ba-old">Worked on a DCF model for a client in the TMT sector.</div>
-          <div class="new" id="ba-new">Built a <mark>DCF valuation</mark> on a live <mark>TMT</mark> deal, delivering a deal-ready model via cash-flow projections in Excel.</div>
+    <div class="console reveal in">
+      <div class="term">
+        <div class="tbar"><i></i><i></i><i></i><span class="ttl">offerpilot — tailor.run</span></div>
+        <div class="tbody">
+          <div class="trow">> target: <b id="t-firm">Goldman Sachs — Summer Analyst, IBD</b></div>
+          <div class="trow">> parsing job description… <b>17 requirements found</b></div>
+          <div class="bullet-box">
+            <div class="lbl">your bullet</div>
+            <div class="old-b" id="ob">Worked on a DCF model for a client in the TMT sector.</div>
+          </div>
+          <div class="bullet-box" style="border-color:rgba(52,245,197,.3)">
+            <div class="lbl" style="color:var(--mint)">re-engineered</div>
+            <div class="new-b" id="nb"></div>
+          </div>
+          <div class="scoreline">
+            <div class="meter"><i id="meter"></i></div>
+            <div class="pct"><span id="pct">0</span>%</div>
+          </div>
         </div>
       </div>
-      <div class="mock-float">+ Cover letter ✓</div>
+      <div class="chip one">✓ one page · verified</div>
+      <div class="chip two">⚡ 17 JD requirements scored</div>
     </div>
-  </div>
-
-  <div class="trust">
-    <p>Tailored for applications to</p>
-    <div class="marquee"><div class="track" id="track">
-      <b>Goldman Sachs</b><b>J.P. Morgan</b><b>Morgan Stanley</b><b>McKinsey &amp; Co</b><b>BlackRock</b><b>Citi</b><b>Jane Street</b><b>Barclays</b><b>Point72</b><b>Evercore</b>
-    </div></div>
   </div>
 </header>
 
-<section id="features">
+<div class="ticker">
+  <div class="wrap lane"><div class="belt" id="belt">
+    <span><b>GOLDMAN SACHS</b> · summer analyst <i class="up">▲ tracked</i></span>
+    <span><b>JANE STREET</b> · quant intern <i class="up">▲ tracked</i></span>
+    <span><b>J.P. MORGAN</b> · IBD 2027 <i class="up">▲ tracked</i></span>
+    <span><b>McKINSEY</b> · summer associate <i class="up">▲ tracked</i></span>
+    <span><b>BLACKSTONE</b> · PE analyst <i class="up">▲ tracked</i></span>
+    <span><b>POINT72</b> · academy 2027 <i class="up">▲ tracked</i></span>
+    <span><b>CITADEL</b> · investment intern <i class="up">▲ tracked</i></span>
+    <span><b>EVERCORE</b> · advisory summer <i class="up">▲ tracked</i></span>
+  </div></div>
+</div>
+
+<section>
   <div class="wrap">
-    <div class="reveal"><div class="eyebrow">Everything you need to apply</div>
-    <h2 class="sec-title">One tool, from job posting to polished PDF</h2>
-    <p class="sec-sub">Stop rewriting your CV from scratch for every role. OfferPilot does the heavy lifting — accurately, and on one page.</p></div>
-    <div class="grid">
-      <div class="feature reveal"><div class="ic">✍️</div><h3>AI CV tailoring</h3><p>Rewrites your bullets for each job in the proven “accomplished X by doing Y” format — keeping your exact formatting and layout untouched.</p></div>
-      <div class="feature reveal"><div class="ic">🎯</div><h3>Reads the job, not a checklist</h3><p>Pulls the real requirements straight from each job description — hard skills and competencies — and scores how well you match.</p></div>
-      <div class="feature reveal"><div class="ic">✉️</div><h3>Cover letters that fit</h3><p>Tone-matched cover letters drafted from your CV and the role in seconds — specific, never generic.</p></div>
-      <div class="feature reveal"><div class="ic">📄</div><h3>One page, always</h3><p>Guarantees a clean one-page PDF. Never overflows to two, never leaves a half-empty page — it fills the space intelligently.</p></div>
-      <div class="feature reveal"><div class="ic">📡</div><h3>Job drop radar</h3><p>Monitors company career pages around the clock and alerts you the moment a role you want opens.</p></div>
-      <div class="feature reveal"><div class="ic">📊</div><h3>Application tracker</h3><p>Every application, stage and document in one dashboard — with smart per-firm limits so you never over-apply.</p></div>
+    <div class="pains">
+      <div class="pain reveal"><div class="big">100s</div><p>of applicants per seat at top firms. A generic CV is a coin-flip you'll lose.</p></div>
+      <div class="pain reveal"><div class="big">7 sec</div><p>is all a screener spends on your CV — if the keywords get it past the software at all.</p></div>
+      <div class="pain reveal"><div class="big">2 a.m.</div><p>is when you'd otherwise be hand-rewriting bullets before a rolling deadline closes.</p></div>
     </div>
   </div>
 </section>
 
-<section id="how" style="padding-top:0">
+<section id="lab" style="padding-top:1rem">
   <div class="wrap">
-    <div class="reveal"><div class="eyebrow">How it works</div>
-    <h2 class="sec-title">Three steps to a stronger application</h2>
-    <p class="sec-sub">From your master CV to a tailored, scored, one-page PDF — in about a minute.</p></div>
-    <div class="steps">
-      <div class="step reveal"><h3>Upload &amp; paste</h3><p>Drop in your CV and paste the job description. Pick which bullets to tailor — your grades and facts stay untouched.</p></div>
-      <div class="step reveal"><h3>AI tailors &amp; scores</h3><p>OfferPilot rewrites for the role, fits it to one page, and shows your fit against every requirement it reads from the job.</p></div>
-      <div class="step reveal"><h3>Download &amp; apply</h3><p>Get a polished CV and cover letter as PDFs, named and ready. Apply with confidence — and track it automatically.</p></div>
+    <div class="reveal">
+      <div class="shead"><span class="snum">01 / THE REWRITE</span></div>
+      <h2 class="stitle">Same experience. <span class="grad">Different weapon.</span></h2>
+      <p class="ssub">OfferPilot doesn't pad your CV with fluff — it re-angles what you've actually done toward what each firm is screening for, keeps every real number, and bolds the metrics that matter.</p>
     </div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap reveal">
-    <div class="stats">
-      <div class="stat"><div class="num" data-count="3" data-suffix="×">0</div><div class="lab">more interviews per CV sent*</div></div>
-      <div class="stat"><div class="num" data-count="60" data-suffix="s">0</div><div class="lab">to tailor a full application</div></div>
-      <div class="stat"><div class="num" data-count="100" data-suffix="%">0</div><div class="lab">one-page, every time</div></div>
-      <div class="stat"><div class="num" data-count="19" data-suffix="">0</div><div class="lab">requirements scored per job</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="pricing" style="padding-top:0">
-  <div class="wrap">
-    <div class="reveal"><div class="eyebrow">Pricing</div>
-    <h2 class="sec-title">Start free. Upgrade when you’re applying for real.</h2>
-    <p class="sec-sub">No card required to start. Cancel anytime.</p></div>
-    <div class="prices">
-      <div class="price reveal">
-        <h3>Free</h3>
-        <div class="amt">£0<span>/mo</span></div>
-        <p style="color:var(--muted);font-size:.9rem">For trying it out</p>
-        <ul><li>3 tailored CVs / month</li><li>Job-fit ATS scan</li><li>One-page PDF export</li><li>Bullet-level editing</li></ul>
-        <a href="#" class="btn btn-ghost" style="justify-content:center">Get started</a>
+    <div class="lab">
+      <div class="reveal">
+        <div class="switch" id="switch">
+          <button class="on" data-v="before">BEFORE</button>
+          <button data-v="after">AFTER OFFERPILOT</button>
+        </div>
+        <p style="color:var(--mut);font-size:.95rem;max-width:38ch" id="labnote">
+          The raw bullet: true, but invisible. No keywords, no metrics surfaced, no angle.
+        </p>
+        <div class="labstats">
+          <div class="lstat">fit score <b id="labfit">41%</b></div>
+          <div class="lstat">page count <b>1 / 1</b></div>
+          <div class="lstat">numbers kept <b>100%</b></div>
+        </div>
       </div>
-      <div class="price pop reveal">
-        <span class="badge">Most popular</span>
-        <h3>Pro</h3>
-        <div class="amt">£9<span>/mo</span></div>
-        <p style="color:var(--muted);font-size:.9rem">For active job hunters</p>
-        <ul><li>Unlimited tailored CVs</li><li>AI cover letters</li><li>Job drop radar + alerts</li><li>Application tracker dashboard</li><li>One-click “apply improvements”</li></ul>
-        <a href="#" class="btn btn-primary" style="justify-content:center">Start 7-day free trial</a>
-      </div>
-      <div class="price reveal">
-        <h3>Campus</h3>
-        <div class="amt">£5<span>/mo</span></div>
-        <p style="color:var(--muted);font-size:.9rem">Verified students</p>
-        <ul><li>Everything in Pro</li><li>Student email discount</li><li>Spring week &amp; internship radar</li><li>Priority support</li></ul>
-        <a href="#" class="btn btn-ghost" style="justify-content:center">Verify &amp; save</a>
+      <div class="doc reveal" id="docpane">
+        <span class="stamp bad" id="stamp">UNTAILORED</span>
+        <div class="dn">Henry S.</div>
+        <div class="dm">London · BSc Accounting &amp; Finance</div>
+        <div class="dh">Experience</div>
+        <ul id="doclist">
+          <li>Worked on a DCF model for a client in the TMT sector.</li>
+          <li>Helped the team with comparable company analysis.</li>
+          <li>Did some research on market trends for pitch books.</li>
+        </ul>
+        <div class="dh">Education</div>
+        <ul><li>First-Class average — untouched, always.</li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<section id="faq" style="padding-top:0">
+<section id="radar" style="padding-top:1rem">
   <div class="wrap">
-    <div class="reveal"><div class="eyebrow">FAQ</div>
-    <h2 class="sec-title">Questions, answered</h2><div style="height:2rem"></div></div>
+    <div class="reveal">
+      <div class="shead"><span class="snum">02 / DROP RADAR</span></div>
+      <h2 class="stitle">Roles open quietly. <span class="grad">You'll know first.</span></h2>
+      <p class="ssub">The radar watches the career pages of the firms you care about, around the clock — and pings your phone the moment a matching 2027 role goes live. Rolling deadlines stop being a lottery.</p>
+    </div>
+    <div class="radarwrap">
+      <div class="radar reveal">
+        <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+        <div class="sweep"></div><div class="core"></div>
+        <div class="ping" style="top:24%;left:62%"></div>
+        <div class="ping" style="top:58%;left:20%;animation-delay:-.8s"></div>
+        <div class="ping" style="top:72%;left:70%;animation-delay:-1.5s"></div>
+      </div>
+      <div class="feed reveal">
+        <div class="fh"><span>LIVE FEED · sample</span><b>● scanning 40+ firms</b></div>
+        <ul id="feedlist"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="arsenal" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="shead"><span class="snum">03 / THE ARSENAL</span></div>
+      <h2 class="stitle">Everything between you and <span class="grad">"we'd like to invite you…"</span></h2>
+      <p class="ssub">One tool that covers the whole grind — finding the role, matching it, proving the fit, and tracking the pipeline.</p>
+    </div>
+    <div class="fgrid">
+      <div class="fcard reveal tilt"><div class="ic">⚡</div><h3>JD-driven rewriting</h3><p>Reads each job description and re-engineers your bullets toward its actual requirements — truthfully, keeping every real metric you earned.</p></div>
+      <div class="fcard reveal tilt"><div class="ic">📐</div><h3>One page. Always.</h3><p>Renders the real PDF and compresses the least-relevant detail until it physically fits one page. Never overflowing, never half-empty.</p></div>
+      <div class="fcard reveal tilt"><div class="ic">🎯</div><h3>Fit scoring</h3><p>Extracts hard skills and competencies from each posting and shows exactly which you cover and which you're missing — before you hit submit.</p></div>
+      <div class="fcard reveal tilt"><div class="ic">📡</div><h3>Drop radar + alerts</h3><p>Monitors firm career pages 24/7 and pushes an alert to your phone the moment a matching role opens.</p></div>
+      <div class="fcard reveal tilt"><div class="ic">✏️</div><h3>You hold the pen</h3><p>Every bullet is editable. Tweak the wording, rebuild the PDF instantly, undo any change. The AI proposes — you decide.</p></div>
+      <div class="fcard reveal tilt"><div class="ic">📊</div><h3>Pipeline tracker</h3><p>Every application, stage and deadline in one board — with per-firm application limits so you never burn a slot by accident.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:1rem">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="shead"><span class="snum">04 / THE LOOP</span></div>
+      <h2 class="stitle">Four moves. <span class="grad">Two minutes.</span></h2>
+      <div style="height:2.4rem"></div>
+    </div>
+    <div class="loop">
+      <div class="lstep reveal"><div class="ic">📄</div><h3>Drop your CV in</h3><p>Your Word master, once. Grades and facts are locked — never touched.</p><span class="conn">→</span></div>
+      <div class="lstep reveal"><div class="ic">📋</div><h3>Paste the posting</h3><p>Any job description, any firm, any sector.</p><span class="conn">→</span></div>
+      <div class="lstep reveal"><div class="ic">🤖</div><h3>Watch it re-engineer</h3><p>Bullets re-angled, metrics bolded, fitted to one page, scored against the JD.</p><span class="conn">→</span></div>
+      <div class="lstep reveal"><div class="ic">🚀</div><h3>Download &amp; send</h3><p>A named, polished PDF — straight into the application portal.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:1rem">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="shead"><span class="snum">05 / BUILT FOR THE GRIND</span></div>
+      <h2 class="stitle">You've been here.</h2>
+      <div style="height:2.2rem"></div>
+    </div>
+    <div class="grind">
+      <div class="gcard reveal"><div class="t">scenario 01</div><h3>The 11pm drop</h3><p>A rolling-deadline role opens while you're in the library. Radar pings your phone, you tailor on the spot, and you're in the first hundred applicants instead of the last thousand.</p></div>
+      <div class="gcard reveal"><div class="t">scenario 02</div><h3>The 14th application this week</h3><p>By hand, application #14 gets your worst CV. With OfferPilot, #14 gets the same precision as #1 — every bullet re-aimed, every metric bolded, zero fatigue.</p></div>
+      <div class="gcard reveal"><div class="t">scenario 03</div><h3>The niche desk</h3><p>Debt advisory? Infrastructure? Quant? The fit report shows you exactly which requirements you're missing before you apply — so you fix the gap, not guess it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="shead"><span class="snum">06 / PRICING</span></div>
+      <h2 class="stitle">Cheaper than one society dinner. <span class="grad">Worth an offer.</span></h2>
+      <p class="ssub">Start free, no card. Upgrade when you're applying for real.</p>
+    </div>
+    <div class="plans">
+      <div class="plan reveal">
+        <h3>Scout</h3><div class="amt">£0<span>/mo</span></div>
+        <p style="color:var(--mut);font-size:.88rem">Test the weapon</p>
+        <ul><li>3 tailored CVs / month</li><li>Fit scoring per job</li><li>One-page PDF, guaranteed</li><li>Bullet-level editing</li></ul>
+        <a href="#" class="btn btn-line" style="justify-content:center">Start free</a>
+      </div>
+      <div class="plan hot reveal">
+        <span class="tag">SEASON PASS</span>
+        <h3>Operator</h3><div class="amt">£9<span>/mo</span></div>
+        <p style="color:var(--mut);font-size:.88rem">For live application season</p>
+        <ul><li>Unlimited tailored CVs</li><li>AI improvement tips + one-click apply</li><li>Drop radar + phone alerts</li><li>Pipeline tracker &amp; firm limits</li><li>Undo / version safety net</li></ul>
+        <a href="#" class="btn btn-go" style="justify-content:center">Start free →</a>
+      </div>
+      <div class="plan reveal">
+        <h3>Campus</h3><div class="amt">£5<span>/mo</span></div>
+        <p style="color:var(--mut);font-size:.88rem">Verified students</p>
+        <ul><li>Everything in Operator</li><li>Student-email discount</li><li>Spring week &amp; internship radar</li><li>Priority support</li></ul>
+        <a href="#" class="btn btn-line" style="justify-content:center">Verify &amp; save</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="shead"><span class="snum">07 / FAQ</span></div>
+      <h2 class="stitle">Straight answers.</h2>
+      <div style="height:2rem"></div>
+    </div>
     <div class="faq reveal">
-      <details open><summary>Does it keep my CV’s formatting?</summary><p>Yes — it edits your existing Word document in place, changing only the words. Fonts, columns, spacing and layout stay exactly as you designed them.</p></details>
-      <details><summary>Is it really always one page?</summary><p>Guaranteed. It renders the real PDF, checks the page count, and intelligently condenses the least-relevant detail until it fits — never overflowing, never leaving the page half-empty.</p></details>
-      <details><summary>Will it invent experience I don’t have?</summary><p>No. It only re-frames and re-words your real achievements to match the role, and never fabricates. Your grades and facts are left untouched.</p></details>
-      <details><summary>Which jobs does it work for?</summary><p>Any role with a job description. It reads the requirements from each posting, so it’s just as sharp for consulting, tech or graduate schemes as it is for finance.</p></details>
-      <details><summary>Is my data private?</summary><p>Your CV is processed only to generate your documents and is never sold or shared. You stay in control of every file.</p></details>
+      <details open><summary>Will it keep my CV's exact formatting?</summary><p>Yes. It edits your Word document in place — only the words change. Fonts, spacing, layout and structure stay exactly as you built them.</p></details>
+      <details><summary>Is the one page really guaranteed?</summary><p>Yes — and not by guessing. It renders the actual PDF, counts the real pages, and intelligently condenses the least job-relevant detail until it physically fits a single page.</p></details>
+      <details><summary>Will it make things up?</summary><p>Never. It re-angles and re-words what you actually did, keeps every real number, and leaves your grades and facts untouched. No invented experience, full stop.</p></details>
+      <details><summary>Does it only work for finance?</summary><p>No — it reads the requirements from whatever job description you paste, so consulting, tech, law and graduate schemes work just as well.</p></details>
+      <details><summary>Is my CV private?</summary><p>Your documents are processed only to generate your tailored CV and are never sold or shared. You control every file.</p></details>
     </div>
   </div>
 </section>
 
 <section style="padding-top:0">
   <div class="wrap reveal">
-    <div class="cta-band">
-      <h2>Land the interview. Skip the busywork.</h2>
-      <p>Join thousands tailoring smarter, not harder. Your next application is 60 seconds away.</p>
-      <a href="#" class="btn btn-primary">Start free — no card needed</a>
+    <div class="final">
+      <h2>The season is short.<br/><span class="grad">Apply like it.</span></h2>
+      <p>Your next application could be two minutes away from being your best one.</p>
+      <a href="#" class="btn btn-go" style="font-size:1.02rem;padding:1rem 2rem">Launch OfferPilot — free →</a>
+      <div class="mono-line">> no card required · cancel anytime · your CV stays yours</div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap foot">
-    <div><a class="logo" href="#" style="font-size:1.1rem"><span class="mark" style="width:28px;height:28px">✈</span> OfferPilot</a>
-      <p style="margin-top:.7rem;max-width:30ch">Tailored applications for ambitious people.</p></div>
+    <div>
+      <a class="logo" href="#" style="font-size:1.05rem"><span class="mk" style="width:28px;height:28px">✈</span>OfferPilot</a>
+      <p style="margin-top:.7rem;max-width:30ch">Mission control for internship season.</p>
+    </div>
     <div style="display:flex;gap:3rem;flex-wrap:wrap">
-      <div style="display:flex;flex-direction:column;gap:.5rem"><b style="color:var(--text)">Product</b><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#how">How it works</a></div>
-      <div style="display:flex;flex-direction:column;gap:.5rem"><b style="color:var(--text)">Company</b><a href="#">About</a><a href="#">Privacy</a><a href="#">Terms</a></div>
+      <div style="display:flex;flex-direction:column;gap:.5rem"><b style="color:var(--ink)">Product</b><a href="#lab">The rewrite</a><a href="#radar">Drop radar</a><a href="#pricing">Pricing</a></div>
+      <div style="display:flex;flex-direction:column;gap:.5rem"><b style="color:var(--ink)">Company</b><a href="#">About</a><a href="#">Privacy</a><a href="#">Terms</a></div>
     </div>
   </div>
-  <div class="wrap" style="margin-top:2rem;font-size:.8rem;opacity:.6">© 2026 OfferPilot. *Illustrative — results vary. Not affiliated with the firms shown.</div>
+  <div class="wrap legal">© 2026 OfferPilot. Examples and figures are illustrative; results vary. Firm names are shown to indicate the kinds of roles users target — OfferPilot is not affiliated with or endorsed by any firm shown.</div>
 </footer>
 
 <script>
-  // ====================================================================
-  //  WHERE THE BUTTONS GO  — change this ONE line to your tool's address.
-  //  • Using it yourself now:  keep it as the localhost line below
-  //    (start the app first:  python.exe -m streamlit run jobtracker/dashboard.py)
-  //  • Going live later:       replace with your hosted app URL, e.g.
-  //    const APP_URL = "https://app.offerpilot.com";
-  // ====================================================================
+  // ==================================================================
+  //  WHERE THE BUTTONS GO — your live app. Change this one line if the
+  //  app URL ever changes.
+  // ==================================================================
   const APP_URL = "https://offerpilot-offer.streamlit.app";
-
-  // point every "Start free / Sign in / Get started / trial" button at the app
   document.querySelectorAll('a.btn').forEach(a=>{
     const t=a.textContent.toLowerCase();
-    if(/start free|sign in|get started|free trial|verify|no card/.test(t)){
-      a.href=APP_URL; a.target='_self';
-    }
+    if(/start free|sign in|launch offerpilot|verify/.test(t)){ a.href=APP_URL; }
   });
 
   // mobile menu
-  burger.onclick=()=>navlinks.classList.toggle('open');
-  navlinks.querySelectorAll('a').forEach(a=>a.onclick=()=>navlinks.classList.remove('open'));
+  burger.onclick=()=>nlinks.classList.toggle('open');
+  nlinks.querySelectorAll('a').forEach(a=>a.onclick=()=>nlinks.classList.remove('open'));
 
-  // duplicate marquee for seamless loop
-  track.innerHTML+=track.innerHTML;
+  // duplicate ticker belt for seamless loop
+  belt.innerHTML+=belt.innerHTML;
 
-  // scroll reveal
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+  // reveal on scroll
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // animated counters
-  function animateCount(el){
-    const target=+el.dataset.count, suf=el.dataset.suffix||'', dur=1400, t0=performance.now();
-    (function tick(now){const p=Math.min((now-t0)/dur,1);const v=Math.round((1-Math.pow(1-p,3))*target);
-      el.textContent=v+suf; if(p<1)requestAnimationFrame(tick);})(t0);
+  // ---- hero: firm typewriter ----
+  const firms=["Goldman Sachs","Jane Street","J.P. Morgan","McKinsey & Co","Blackstone","Citadel","Evercore","your dream firm"];
+  const typer=document.getElementById('typer');
+  let fi=0;
+  function typeWord(word,done){
+    let i=0; typer.textContent='';
+    const id=setInterval(()=>{typer.textContent=word.slice(0,++i); if(i>=word.length){clearInterval(id); done&&done();}},55);
   }
-  const cIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){animateCount(e.target);cIo.unobserve(e.target)}}),{threshold:.6});
-  document.querySelectorAll('[data-count]').forEach(el=>cIo.observe(el));
+  function eraseWord(done){
+    const id=setInterval(()=>{const t=typer.textContent; typer.textContent=t.slice(0,-1);
+      if(!typer.textContent){clearInterval(id); done&&done();}},28);
+  }
+  function cycleFirms(){
+    setTimeout(()=>eraseWord(()=>{fi=(fi+1)%firms.length; typeWord(firms[fi],cycleFirms);}),2300);
+  }
+  cycleFirms();
 
-  // gauge fill to 94 + before/after rotation
-  const gauge=document.getElementById('gauge'),gval=document.getElementById('gval');
-  const gIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
-    let v=0;const id=setInterval(()=>{v++;gauge.style.setProperty('--p',v);gval.textContent=v;if(v>=94)clearInterval(id);},14);
-    gIo.unobserve(e.target);}}),{threshold:.5});
-  gIo.observe(gauge);
-
-  const examples=[
-    {old:"Worked on a DCF model for a client in the TMT sector.",
-     neu:"Built a <mark>DCF valuation</mark> on a live <mark>TMT</mark> deal, delivering a deal-ready model via cash-flow projections in Excel."},
-    {old:"Helped the team with comparable company analysis.",
-     neu:"Ran <mark>comparable company analysis</mark> for a deal team, benchmarking peers in <mark>Bloomberg</mark> to refine valuation."},
-    {old:"Did some research on market trends for pitch books.",
-     neu:"Produced <mark>industry research</mark> for client <mark>pitch books</mark>, synthesising trends into deck-ready insight."}
+  // ---- hero console: rewrite demo ----
+  const demos=[
+    {firm:"Goldman Sachs — Summer Analyst, IBD",
+     old:"Worked on a DCF model for a client in the TMT sector.",
+     neu:'Built a <mark>DCF valuation</mark> on a live <mark>TMT</mark> deal, delivering a deal-ready model with <b>three-statement</b> cash-flow projections.',pct:94},
+    {firm:"Jane Street — Quantitative Trading Intern",
+     old:"Traded stocks in a university investment society.",
+     neu:'Ran <mark>systematic long/short</mark> strategies in live markets, sizing positions on macro catalysts to maximise <b>P&L</b>.',pct:91},
+    {firm:"Blackstone — Private Equity Analyst",
+     old:"Helped with company analysis for a student fund.",
+     neu:'Screened <mark>buyout targets</mark> via <mark>LBO modelling</mark> and <b>10x</b> leverage cases, pitching theses to the fund committee.',pct:92}
   ];
-  let ei=0;const baOld=document.getElementById('ba-old'),baNew=document.getElementById('ba-new');
-  setInterval(()=>{ei=(ei+1)%examples.length;const card=document.querySelector('.ba');
-    card.style.opacity=0;setTimeout(()=>{baOld.textContent=examples[ei].old;baNew.innerHTML=examples[ei].neu;card.style.opacity=1;},300);
-  },3800);
-  document.querySelector('.ba').style.transition='opacity .3s';
+  const ob=document.getElementById('ob'), nb=document.getElementById('nb'),
+        tf=document.getElementById('t-firm'), meter=document.getElementById('meter'), pct=document.getElementById('pct');
+  let di=0;
+  function runDemo(){
+    const d=demos[di];
+    tf.textContent=d.firm; ob.textContent=d.old; nb.innerHTML=''; meter.style.width='0%'; pct.textContent='0';
+    // typewriter the HTML safely: type plain, then swap to rich
+    const plain=d.neu.replace(/<[^>]+>/g,'');
+    let i=0;
+    const id=setInterval(()=>{
+      nb.textContent=plain.slice(0,++i);
+      if(i>=plain.length){
+        clearInterval(id); nb.innerHTML=d.neu;
+        meter.style.width=d.pct+'%';
+        let v=0; const cid=setInterval(()=>{v+=2; if(v>=d.pct){v=d.pct; clearInterval(cid);} pct.textContent=v;},22);
+        setTimeout(()=>{di=(di+1)%demos.length; runDemo();},4200);
+      }
+    },16);
+  }
+  runDemo();
+
+  // ---- before/after lab ----
+  const beforeDoc={
+    stamp:['UNTAILORED','bad'], fit:'41%',
+    note:'The raw bullet: true, but invisible. No keywords, no metrics surfaced, no angle.',
+    items:['Worked on a DCF model for a client in the TMT sector.',
+           'Helped the team with comparable company analysis.',
+           'Did some research on market trends for pitch books.']
+  };
+  const afterDoc={
+    stamp:['TAILORED · 1 PAGE','good'], fit:'92%',
+    note:'Same experience, re-aimed: the JD\'s own language, metrics bolded, every claim still true.',
+    items:['Built a <mark>DCF valuation</mark> on a live <mark>TMT</mark> deal, delivering a deal-ready three-statement model with <b>3.5x</b> MoM exits.',
+           'Ran <mark>comparable company analysis</mark> across <b>12</b> peers in Bloomberg to refine deal pricing.',
+           'Produced <mark>industry research</mark> for client <mark>pitch books</mark>, distilling sector trends into deck-ready insight.']
+  };
+  const sw=document.getElementById('switch'), doclist=document.getElementById('doclist'),
+        stamp=document.getElementById('stamp'), labfit=document.getElementById('labfit'), labnote=document.getElementById('labnote');
+  function setDoc(d){
+    doclist.innerHTML=d.items.map(x=>`<li>${x}</li>`).join('');
+    stamp.textContent=d.stamp[0]; stamp.className='stamp '+d.stamp[1];
+    labfit.textContent=d.fit; labnote.textContent=d.note;
+  }
+  sw.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    sw.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    setDoc(b.dataset.v==='after'?afterDoc:beforeDoc);
+  });
+  // auto-flip once for delight
+  setTimeout(()=>{sw.querySelector('[data-v="after"]').click();},3500);
+
+  // ---- radar feed ----
+  const drops=[
+    {f:'Point72',r:'2027 Academy Investment Analyst — Hong Kong',t:'JUST OPENED'},
+    {f:'DV Trading',r:'2027 Summer Internship — Trading',t:'JUST OPENED'},
+    {f:'Schonfeld',r:'2027 Summer Internship — APAC',t:'NEW'},
+    {f:'Evercore',r:'Advisory Summer Internship — London',t:'NEW'},
+    {f:'Man Group',r:'2027 Quant Internship — London',t:'JUST OPENED'},
+    {f:'Squarepoint',r:'Graduate Quant Researcher — London',t:'NEW'},
+  ];
+  const feed=document.getElementById('feedlist');
+  let dropI=0;
+  function pushDrop(){
+    const d=drops[dropI%drops.length]; dropI++;
+    const li=document.createElement('li');
+    li.innerHTML=`<div class="f1"><b>${d.f}</b><span>${d.r}</span></div><span class="tag">● ${d.t}</span>`;
+    feed.prepend(li);
+    while(feed.children.length>5) feed.removeChild(feed.lastChild);
+  }
+  pushDrop();pushDrop();pushDrop();
+  setInterval(pushDrop,2600);
+
+  // ---- subtle 3D tilt on feature cards ----
+  document.querySelectorAll('.tilt').forEach(c=>{
+    c.addEventListener('mousemove',e=>{
+      const r=c.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      c.style.transform=`translateY(-6px) rotateX(${-y*6}deg) rotateY(${x*6}deg)`;
+    });
+    c.addEventListener('mouseleave',()=>{c.style.transform='';});
+  });
 </script>
 </body>
 </html>
