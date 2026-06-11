@@ -91,6 +91,29 @@ def _hard_trim(text: str, max_chars: int) -> str:
     return " ".join(words).rstrip(" ,;:-—")
 
 
+# The model must NEVER leak a clarification/refusal into a CV bullet. If a
+# rewrite looks like meta-text (a question, an apology, "please share the JD"…),
+# we discard it and keep the real bullet instead.
+_META_RE = re.compile(
+    r"please (share|provide|let me know)|could you (please )?(share|provide)"
+    r"|i (can|could|will|would|need|am unable|cannot|can't|don't have|do not have)"
+    r"|as an ai|i'?m sorry|i apologi[sz]e|happy to (help|assist)"
+    r"|the (target |actual )?(job description|cv bullet)|provide the"
+    r"|here('| i)s the rewritten|sure[,!]? ",
+    re.IGNORECASE,
+)
+
+
+def _looks_like_meta(text: str) -> bool:
+    t = (text or "").strip()
+    return (not t) or t.endswith("?") or bool(_META_RE.search(t))
+
+
+def _safe_rewrite(candidate: str, fallback: str) -> str:
+    """Return the model's rewrite, or the fallback if it looks like meta/refusal."""
+    return fallback if _looks_like_meta(candidate) else candidate.strip()
+
+
 def _guidance_clause(guidance: str | None) -> str:
     if not guidance:
         return ""
@@ -120,10 +143,12 @@ def rewrite_bullet_fitted(
     ctx = f"=== MASTER CV ===\n{master_cv}\n\n=== TARGET JOB DESCRIPTION ===\n{jd_text}"
 
     if guidance:
-        text = _complete(_XYZ_SYSTEM, ctx,
-                         f"Rewrite this bullet.{_guidance_clause(guidance)}\n\nBullet: {original}")
+        text = _safe_rewrite(
+            _complete(_XYZ_SYSTEM, ctx,
+                      f"Rewrite this bullet.{_guidance_clause(guidance)}\n\nBullet: {original}"),
+            original)
     else:
-        text = rewrite_bullet(original, jd_text, master_cv)
+        text = _safe_rewrite(rewrite_bullet(original, jd_text, master_cv), original)
     n, frac = fit.wrap_info(text, width_pt, font_name, size_pt)
     tries = 0
     while (n > target or not fit.is_clean(n, frac, target)) and tries < max_tries:
@@ -140,7 +165,7 @@ def rewrite_bullet_fitted(
                 f"exactly two full lines (never a line and a quarter). Keep the XYZ format "
                 f"and every number.{_guidance_clause(guidance)}\n\nBullet: {text}"
             )
-        text = _complete(_XYZ_SYSTEM, ctx, user)
+        text = _safe_rewrite(_complete(_XYZ_SYSTEM, ctx, user), text)
         n, frac = fit.wrap_info(text, width_pt, font_name, size_pt)
         tries += 1
 
@@ -220,6 +245,7 @@ def rewrite_group_fitted(
 
     out = []
     for line, orig, t in zip(parsed, originals, targets):
+        line = _safe_rewrite(line, orig)   # never let meta/refusal text become a bullet
         n, frac = fit.wrap_info(line, width_pt, font_name, size_pt)
         # Regenerate if too long (would overflow) OR too short (collapsed a
         # two-line bullet into one and lost detail it had room to keep).
