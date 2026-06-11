@@ -383,14 +383,43 @@ def list_bullets(doc) -> list[tuple[int, str, bool]]:
     return out
 
 
+# Impactful CV metrics to bold: percentages, multiples, currency amounts, counts.
+_METRIC_RE = re.compile(
+    r'[£$€]\d[\d,.]*\s?[KMB]?n?\+?'   # £12,000+  $1B+  $10B  €5m
+    r'|\d[\d,.]*\s?%'                 # 28.5%  83%
+    r'|\d[\d,.]*x\b'                  # 3.5x  10x
+    r'|\d[\d,.]*\+',                  # 50+  200+  30+
+    re.IGNORECASE,
+)
+
+
+def _add_run(paragraph, text: str, name, size, bold: bool) -> None:
+    run = paragraph.add_run(text)
+    if name:
+        run.font.name = name
+    if size:
+        run.font.size = size
+    if bold:
+        run.font.bold = True
+
+
 def _replace_paragraph_text(paragraph, new_text: str) -> None:
-    """Swap a paragraph's text while keeping its style and first run's font."""
-    if not paragraph.runs:
-        paragraph.add_run(new_text)
-        return
-    paragraph.runs[0].text = new_text
-    for run in paragraph.runs[1:]:           # collapse trailing runs, keep formatting of run[0]
-        run.text = ""
+    """Replace a bullet's text, keeping its font, and BOLD the impactful metrics
+    (percentages, multiples, currency amounts, counts) like a polished CV does."""
+    base = paragraph.runs[0] if paragraph.runs else None
+    name = base.font.name if base else None
+    size = base.font.size if base else None
+    for r in list(paragraph.runs):           # clear existing runs
+        r._element.getparent().remove(r._element)
+
+    pos = 0
+    for m in _METRIC_RE.finditer(new_text):
+        if m.start() > pos:
+            _add_run(paragraph, new_text[pos:m.start()], name, size, False)
+        _add_run(paragraph, m.group(0), name, size, True)   # the metric -> bold
+        pos = m.end()
+    if pos < len(new_text) or not paragraph.runs:
+        _add_run(paragraph, new_text[pos:], name, size, False)
 
 
 @dataclass
