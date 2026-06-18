@@ -193,6 +193,8 @@ def _build_fetchers(cfg: Config) -> tuple[OddsFetcher, StatsFetcher | None]:
 
 async def run(config_path: str) -> None:
     """Forever loop: tick every cfg.poll_interval seconds."""
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+    logging.getLogger("httpx").setLevel(logging.WARNING)   # don't log URLs (they carry the API key)
     cfg = load(config_path)
     fetch_odds, fetch_stats = _build_fetchers(cfg)
     seen: dict[str, float] = {}
