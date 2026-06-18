@@ -1,0 +1,27 @@
+{
+  "fouls": [
+    {
+      "fixture": "Brighton vs Aston Villa",
+      "player": "K. Mitoma",
+      "opponent": "M. Cash (RB)",
+      "line": 1.5,
+      "offered_decimal": 1.90,
+      "player_fouls_won_p90": 1.9,
+      "opp_defender_fouls_committed_p90": 2.8,
+      "minutes_expected": 85,
+      "lineups_confirmed": true
+    }
+  ],
+  "cards": [
+    {
+      "fixture": "Brighton vs Aston Villa",
+      "line": 4.5,
+      "offered_decimal": 2.10,
+      "home_cards_p90": 1.8,
+      "away_cards_p90": 1.9,
+      "referee_cards_pg": 5.5,
+      "league_avg_cards_pg": 4.0,
+      "referee": "M. Oliver"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "_comment": "Per-90 player foul rates for Detector B (free). fouls_p90 = fouls COMMITTED per 90 (FBref 'Fls' / 90, or API-Football). opp_draw_p90 (optional) = the opponent he's matched against drawing fouls per 90 (FBref 'Fld' / 90) — adds the winger-vs-fullback matchup lift. minutes_expected defaults to 85. Names are matched loosely (lowercased, suffix-stripped).",
+  "players": [
+    {"name": "M Cash", "fouls_p90": 2.8, "opp_draw_p90": 2.5, "minutes_expected": 85},
+    {"name": "Bukayo Saka", "fouls_p90": 0.9, "opp_draw_p90": 1.8, "minutes_expected": 88}
+  ]
+}

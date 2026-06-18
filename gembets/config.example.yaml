@@ -1,0 +1,78 @@
+# gembets config — copy to config.yaml and fill in. API keys go in .env, NOT here.
+# Defaults are tuned to run FREE on The Odds API free tier (500 credits/month).
+
+# --- odds feed (Detector A: consensus outliers — the free engine) ---
+odds_source: both                  # api | scrape | both (api primary, scrape fallback)
+odds_provider: theoddsapi          # the-odds-api.com — free tier
+sport_key: soccer_epl              # one league keeps credit use low (soccer_epl, ...)
+regions: [uk]                      # 1 region; each market x region = ~1 credit/call
+markets: [1X2, "Over/Under 2.5"]   # 2 markets -> ~2 credits/call
+
+# Free-tier budget guard. 500 credits/month; the router stops calling the API
+# once reported credits drop to credit_floor and leans on the scraper instead.
+monthly_credits: 500
+credit_floor: 25
+
+# --- scrape fallback (free + unlimited, but needs one-time selector calibration) ---
+# Add oddschecker match "winner" pages here; verify selectors with `scrape-test`.
+scrape_scraper: oddschecker
+scrape_urls: []
+  # - https://www.oddschecker.com/football/english/premier-league/brighton-v-aston-villa/winner
+
+# --- Detector C: goals model (FREE) — flags mispriced 1X2 / O-U 2.5 / BTTS ---
+enable_goals: false                # needs a results CSV; best for a domestic league in season
+goals_csv_url: ""                  # e.g. https://www.football-data.co.uk/mmz4281/2526/E0.csv
+min_edge_goals: 0.05               # +5% EV vs the model to flag
+
+# --- Detector D: line-movement / steam (FREE) — works for any competition ---
+enable_steam: true                 # alert when sharp money moves but your books lag
+steam_move: 0.03                   # sharp implied prob must rise >= 3 points
+steam_gap: 0.05                    # your book must still imply >= 5 points less than sharp
+steam_window: 1800                 # measure movement over the last 30 min
+
+# --- Detector E: team-totals model vs FREE Betfair Exchange odds ---
+# Spots mispriced cards (booking points) / corners / goals lines. Needs a results
+# CSV to fit the model AND Betfair creds in .env (BETFAIR_APP_KEY + a session token
+# from `python -m boostmatcher betfair-login`). Verify codes with `betfair-probe`.
+enable_totals: false
+totals_csv_url: ""                 # e.g. https://www.football-data.co.uk/mmz4281/2425/E0.csv
+betfair_market_types: []           # [] = sensible defaults (goals/corners/bookings)
+betfair_hours_ahead: 48            # pull Betfair markets starting within this window
+
+# --- Detector B (FREE): player fouls via Betfair PLAYER_FOULS + free player stats ---
+# Your winger-vs-foul-heavy-fullback gem, free: Betfair has the player-foul odds,
+# FBref/API-Football have the per-90 rates. Fill a rates JSON (see
+# examples/player_rates.example.json) + Betfair creds, then `betfair-probe`.
+enable_player_fouls: false
+player_rates_path: ""              # e.g. gembets/examples/player_rates.example.json
+
+# --- legacy Detector B (PAID Sportmonks/props) — superseded by the free one above ---
+stats_provider: sportmonks
+enable_statedge: false
+
+# --- thresholds ---
+min_lift: 0.33                     # only notify if a book's odds are this fraction above
+                                   # the typical price (0.33 = 4.0 vs 3.0). Lower = more alerts.
+max_odds: 5.0                      # ignore longshots: skip any outcome priced above this
+min_books: 4                       # need this many books for a trustworthy typical price
+allowed_books: [skybet, paddypower]   # only flag these books ([] = all soft books)
+min_edge_statedge: 0.06            # +6% EV to flag a model edge (Detector B, off on free)
+
+# --- staking (Kelly) — every alert gets a £ stake; Kelly is also the +EV gate ---
+bankroll: 500                      # your betting bank (£)
+kelly_fraction: 0.25               # quarter-Kelly (conservative)
+max_fraction: 0.05                 # never stake > 5% of bankroll on one bet
+# max_stake: 50                    # optional hard £ cap per bet
+
+# --- ledger / CLV / P&L — `gembets report` shows what's actually working ---
+ledger_path: gembets_ledger.db
+clv_cutoff: -0.01                  # auto-mute a detector whose avg CLV < this...
+min_clv_sample: 30                 # ...once it has >= this many priced bets
+
+# --- arbitrage (Detector F) — guaranteed cross-bookmaker profit, free ---
+enable_arb: true
+arb_min_margin: 0.005
+
+# --- loop ---
+poll_interval: 1800                # 30 min — free-tier-safe (~48 calls/day max)
+ntfy_topic: gems-himagic-7f3       # reuse the jobtracker/Fatsoma ntfy + SMTP env vars

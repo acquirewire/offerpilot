@@ -1,0 +1,4 @@
+# gembets — minimal deps. The maths core (odds.py) is pure stdlib incl. Poisson,
+# so the detectors + tests run with nothing installed. These cover live mode only.
+httpx>=0.27        # async odds/stats API calls + ntfy push
+PyYAML>=6.0        # config.yaml loader

@@ -1,0 +1,20 @@
+# systemd unit for the Oracle Cloud (Ubuntu) VM — runs the gembets monitor 24/7
+# and restarts it on crash or reboot. install.sh writes this for you with the real
+# paths/user; this copy is here for reference. Installed to:
+#   /etc/systemd/system/gembets.service
+[Unit]
+Description=gembets football value-bet monitor
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/reselling
+EnvironmentFile=-/home/ubuntu/reselling/.env
+ExecStart=/home/ubuntu/reselling/.venv/bin/python -m gembets monitor --config /home/ubuntu/reselling/gembets/config.yaml
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
