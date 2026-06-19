@@ -1,0 +1,2714 @@
+db_path: jobtracker.db
+ntfy_topic: henry-jobs-x7k2p9
+defaults:
+  interval: 1800
+  max_apps: 3
+filter:
+  require_any:
+  - intern
+  - internship
+  - summer analyst
+  - summer associate
+  - summer intern
+  - placement
+  - insight
+  - vacation scheme
+  - vacation programme
+  - off-cycle
+  - industrial placement
+  - work placement
+  - spring week
+  - spring insight
+  - spring into
+  - summer programme
+  - summer program
+  - summer scheme
+  - summer academy
+  exclude:
+  - full-time
+  - full time
+  - experienced
+  - vice president
+  - managing director
+  - graduate programme
+  - graduate program
+  - graduate analyst
+  - graduate scheme
+  - mba
+  years:
+  - 2027
+  user_languages:
+  - english
+firms:
+- name: 7IM
+  slug: 7IM
+  ats: browser
+  url: https://careers.7im.co.uk/
+  interval: 7200
+- name: AAB Group
+  slug: AABGroup
+  ats: pinpoint
+  url: https://aab.pinpointhq.com/postings.json
+  interval: 1800
+- name: Aberdeen Group
+  slug: AberdeenGroup
+  ats: workday
+  url: https://abrdn.wd3.myworkdayjobs.com/wday/cxs/abrdn/abrdn/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://abrdn.wd3.myworkdayjobs.com
+  interval: 1800
+- name: ABN AMRO
+  slug: ABNAMRO
+  ats: browser
+  url: https://www.abnamro.com/uk/en/careers
+  interval: 7200
+- name: Accuracy
+  slug: Accuracy
+  ats: browser
+  url: https://www.accuracy.com/careers/
+  interval: 7200
+- name: ADIA
+  slug: ADIA
+  ats: browser
+  url: https://jobs.adia.ae/
+  interval: 7200
+- name: Advent International
+  slug: AdventInternational
+  ats: browser
+  url: https://www.adventinternational.com/advent-at-work/
+  interval: 7200
+- name: Aegon
+  slug: Aegon
+  ats: browser
+  url: https://www.aegon.com/careers/graduates-interns
+  interval: 7200
+- name: Affinius Capital
+  slug: AffiniusCapital
+  ats: browser
+  url: https://affiniuscapital.com/careers/
+  interval: 7200
+- name: AIG
+  slug: AIG
+  ats: workday
+  url: https://aig.wd1.myworkdayjobs.com/wday/cxs/aig/aig/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://aig.wd1.myworkdayjobs.com
+  interval: 1800
+- name: AJ Bell
+  slug: AJBell
+  ats: pinpoint
+  url: https://ajbell.pinpointhq.com/postings.json
+  interval: 1800
+- name: Alantra
+  slug: Alantra
+  ats: browser
+  url: https://www.alantra.com/careers/students-graduates/
+  interval: 7200
+- name: Allia C&C
+  slug: AlliaCC
+  ats: browser
+  url: https://allia.group/careers/
+  interval: 7200
+- name: AllianceBernstein
+  slug: AllianceBernstein
+  ats: workday
+  url: https://abglobal.wd1.myworkdayjobs.com/wday/cxs/abglobal/alliancebernsteincareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://abglobal.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Allianz Insurance
+  slug: AllianzInsurance
+  ats: browser
+  url: https://careers.allianz.com/gb/en/internships-and-placements
+  interval: 7200
+- name: Allied World
+  slug: AlliedWorld
+  ats: browser
+  url: https://alliedworldinsurance.com/products/working-at-allied-world/
+  interval: 7200
+- name: Alpha FMC
+  slug: AlphaFMC
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/alphafmc/jobs?content=true
+  interval: 1800
+- name: AlphaSights
+  slug: AlphaSights
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/alphasights/jobs?content=true
+  interval: 1800
+- name: Altana Wealth
+  slug: AltanaWealth
+  ats: browser
+  url: https://altanawealth.com/careers/
+  interval: 7200
+- name: Alvarez & Marsal
+  slug: AlvarezMarsal
+  ats: browser
+  url: https://careers.alvarezandmarsal.com/search/job-type/intern/jobs
+  interval: 7200
+- name: Alvine Capital
+  slug: AlvineCapital
+  ats: browser
+  url: https://www.alvinecapital.com/
+  interval: 7200
+- name: Amazon
+  slug: Amazon
+  ats: browser
+  url: https://www.amazon.jobs/content/en-gb/career-programs/university/internships-for-students
+  interval: 7200
+- name: American Express
+  slug: AmericanExpress
+  ats: browser
+  url: https://careers.americanexpress.com/students/uk
+  interval: 7200
+- name: Amundi
+  slug: Amundi
+  ats: browser
+  url: https://jobs.amundi.com/
+  interval: 7200
+- name: Analysys Mason
+  slug: AnalysysMason
+  ats: smartrecruiters
+  url: https://api.smartrecruiters.com/v1/companies/AnalysysMason1/postings?limit=100
+  interval: 1800
+- name: Ankura
+  slug: Ankura
+  ats: workday
+  url: https://ankura.wd5.myworkdayjobs.com/wday/cxs/ankura/Ankura/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://ankura.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Aon
+  slug: Aon
+  ats: browser
+  url: https://www.aon.com/careers/early-careers/uk/internships
+  interval: 7200
+- name: Apax Partners
+  slug: ApaxPartners
+  ats: recruitee
+  url: https://apax.recruitee.com/api/offers/
+  interval: 1800
+- name: Apollo Global Management
+  slug: ApolloGlobalManagement
+  ats: workday
+  url: https://athene.wd5.myworkdayjobs.com/wday/cxs/athene/Apollo_Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://athene.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Apple
+  slug: Apple
+  ats: browser
+  url: https://jobs.apple.com/en-us/details/200646124-0836/finance-development-program-2027-internship-opportunities
+  interval: 7200
+- name: Aquatic Capital Management
+  slug: AquaticCapitalManagement
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/aquaticcapitalmanagement/jobs?content=true
+  interval: 1800
+- name: Arbuthnot Latham
+  slug: ArbuthnotLatham
+  ats: browser
+  url: https://careers.arbuthnotlatham.co.uk/
+  interval: 7200
+- name: Arch Insurance International
+  slug: ArchInsuranceInternational
+  ats: ashby
+  url: https://api.ashbyhq.com/posting-api/job-board/arch
+  interval: 1800
+- name: Ardea Partners
+  slug: ArdeaPartners
+  ats: browser
+  url: https://www.ardeapartners.com/careers
+  interval: 7200
+- name: Arena Investors
+  slug: ArenaInvestors
+  ats: workable
+  url: https://apply.workable.com/api/v1/widget/accounts/arena-investors-lp?details=true
+  interval: 1800
+- name: Ares Management
+  slug: AresManagement
+  ats: workday
+  url: https://aresmgmt.wd1.myworkdayjobs.com/wday/cxs/aresmgmt/External/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://aresmgmt.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Arkle Finance
+  slug: ArkleFinance
+  ats: browser
+  url: https://arklefinance.co.uk/careers/
+  interval: 7200
+- name: Aspect Capital
+  slug: AspectCapital
+  ats: browser
+  url: https://www.aspectcapital.com/careers/
+  interval: 7200
+- name: AstraZeneca
+  slug: AstraZeneca
+  ats: browser
+  url: https://careers.astrazeneca.com/early-careers-internships
+  interval: 7200
+- name: Atlanta Wealth
+  slug: AtlantaWealth
+  ats: browser
+  url: https://altanawealth.com/careers/
+  interval: 7200
+- name: Audit Scotland
+  slug: AuditScotland
+  ats: browser
+  url: https://www.audit-scotland.gov.uk/careers
+  interval: 7200
+- name: AustralianSuper
+  slug: AustralianSuper
+  ats: browser
+  url: https://www.australiansuper.com/careers/graduate-and-internship-programs
+  interval: 7200
+- name: Aventum Group
+  slug: AventumGroup
+  ats: browser
+  url: https://aventumgroup.com/join-us/early-careers
+  interval: 7200
+- name: AXA
+  slug: AXA
+  ats: browser
+  url: https://jobs.axa.co.uk/early-careers
+  interval: 7200
+- name: Azets
+  slug: Azets
+  ats: browser
+  url: https://www.azets.com/en-uk/careers
+  interval: 7200
+- name: BAE Systems
+  slug: BAESystems
+  ats: browser
+  url: https://www.baesystems.com/en-uk/careers/careers-in-the-uk/your-career-with-us/search---apply/graduate-opportunities/summer-internships
+  interval: 7200
+- name: Baillie Gifford
+  slug: BaillieGifford
+  ats: pinpoint
+  url: https://bailliegifford.pinpointhq.com/postings.json
+  interval: 1800
+- name: Bain & Company
+  slug: BainCompany
+  ats: browser
+  url: https://www.bain.com/careers/work-with-us/internships-programs/true-north-scholarship-for-women-london/
+  interval: 7200
+- name: Bain Capital
+  slug: BainCapital
+  ats: workday
+  url: https://baincapital.wd1.myworkdayjobs.com/wday/cxs/baincapital/External_Public/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://baincapital.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Baird
+  slug: Baird
+  ats: browser
+  url: https://www.bairdcareers.com/internships/global-investment-banking-intern-programme-europe/
+  interval: 7200
+- name: Baker Hughes
+  slug: BakerHughes
+  ats: browser
+  url: https://careers.bakerhughes.com/global/en/early-careers-internships
+  interval: 7200
+- name: Balyasny Asset Management
+  slug: BalyasnyAssetManagement
+  ats: browser
+  url: https://www.bamfunds.com/careers/internships
+  interval: 7200
+- name: Bank of America
+  slug: BankOfAmerica
+  ats: workday
+  url: https://ghr.wd1.myworkdayjobs.com/wday/cxs/ghr/lateral-us/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://ghr.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Bank of England
+  slug: BankOfEngland
+  ats: browser
+  url: https://www.bankofengland.co.uk/careers/future-talent/internships
+  interval: 7200
+- name: Barclays
+  slug: Barclays
+  ats: workday
+  url: https://barclays.wd3.myworkdayjobs.com/wday/cxs/barclays/External_Career_Site_Barclays/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://barclays.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Baringa
+  slug: Baringa
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/baringa/jobs?content=true
+  interval: 1800
+- name: Barings
+  slug: Barings
+  ats: workday
+  url: https://barings.wd1.myworkdayjobs.com/wday/cxs/barings/barings/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://barings.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Barnett Waddingham
+  slug: BarnettWaddingham
+  ats: browser
+  url: https://www.barnett-waddingham.co.uk/careers/early-careers/summer-internships/
+  interval: 7200
+- name: Bastion Trading
+  slug: BastionTrading
+  ats: ashby
+  url: https://api.ashbyhq.com/posting-api/job-board/bastion
+  interval: 1800
+- name: BBVA
+  slug: BBVA
+  ats: workday
+  url: https://bbva.wd3.myworkdayjobs.com/wday/cxs/bbva/BBVA/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://bbva.wd3.myworkdayjobs.com
+  interval: 1800
+- name: BC Partners
+  slug: BCPartners
+  ats: recruitee
+  url: https://bcpartners.recruitee.com/api/offers/
+  interval: 1800
+- name: BCG
+  slug: BCG
+  ats: browser
+  url: https://careers.bcg.com/global/en/internship-opportunities
+  interval: 7200
+- name: BDO Global
+  slug: BDOGlobal
+  ats: browser
+  url: https://careers.bdo.co.uk/placements-and-internships
+  interval: 7200
+- name: Berenberg
+  slug: Berenberg
+  ats: browser
+  url: https://careers.berenberg.com/early-careers/internships/summer-internship-programmes
+  interval: 7200
+- name: BGF
+  slug: BGF
+  ats: browser
+  url: https://www.bgf.co.uk/career/
+  interval: 7200
+- name: Blackfinch Group
+  slug: BlackfinchGroup
+  ats: browser
+  url: https://blackfinch.com/careers/
+  interval: 7200
+- name: BlackRock
+  slug: BlackRock
+  ats: browser
+  url: https://careers.blackrock.com/early-careers/emea/
+  interval: 7200
+- name: Blackstone
+  slug: Blackstone
+  ats: workday
+  url: https://blackstone.wd1.myworkdayjobs.com/wday/cxs/blackstone/Blackstone_Campus_Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://blackstone.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Blockchain.com
+  slug: BlockchainCom
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/blockchain/jobs?content=true
+  interval: 1800
+- name: Bloomberg
+  slug: Bloomberg
+  ats: browser
+  url: https://www.bloomberg.com/company/early-careers/internship/
+  interval: 7200
+- name: BlueCrest Capital Management
+  slug: BlueCrestCapitalManagement
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/bluecrestcapitalmanagement/jobs?content=true
+- name: BMLL
+  slug: BMLL
+  ats: browser
+  url: https://www.bmlltech.com/company/careers
+  interval: 7200
+- name: BMO Capital Markets
+  slug: BMOCapitalMarkets
+  ats: browser
+  url: https://capitalmarkets.bmo.com/en/careers/
+  interval: 7200
+- name: BNP Paribas
+  slug: BNPParibas
+  ats: browser
+  url: https://careers.bnpparibas.co.uk/internships/
+  interval: 7200
+- name: BNY Mellon
+  slug: BNYMellon
+  ats: browser
+  url: https://www.bny.com/corporate/global/en/about-us/careers/students/internship-program.html
+  interval: 7200
+- name: BP
+  slug: BP
+  ats: workday
+  url: https://bpinternational.wd3.myworkdayjobs.com/wday/cxs/bpinternational/bpCareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://bpinternational.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Brevan Howard
+  slug: BrevanHoward
+  ats: workday
+  url: https://wd3.myworkdaysite.com/wday/cxs/brevanhoward/BH_ExternalCareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://wd3.myworkdaysite.com
+  interval: 1800
+- name: Bridgepoint
+  slug: Bridgepoint
+  ats: pinpoint
+  url: https://bridgepoint.pinpointhq.com/postings.json
+  interval: 1800
+- name: Brio Real Estate
+  slug: BrioRealEstate
+  ats: workday
+  url: https://revantage.wd1.myworkdayjobs.com/wday/cxs/revantage/Brio_Real_Estate/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://revantage.wd1.myworkdayjobs.com
+  interval: 1800
+- name: British Airways
+  slug: BritishAirways
+  ats: browser
+  url: https://careers.ba.com/emerging-talent
+  interval: 7200
+- name: British Business Bank
+  slug: BritishBusinessBank
+  ats: browser
+  url: https://www.british-business-bank.co.uk/about/careers/early-career
+  interval: 7200
+- name: British Land
+  slug: BritishLand
+  ats: browser
+  url: https://www.britishland.com/careers/early-careers/
+  interval: 7200
+- name: BTG Pactual
+  slug: BTGPactual
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/btgpactual/jobs?content=true
+  interval: 1800
+- name: BTIG
+  slug: BTIG
+  ats: browser
+  url: https://www.btig.com/careers/internship-program/
+  interval: 7200
+- name: Burford Capital
+  slug: BurfordCapital
+  ats: browser
+  url: https://www.burfordcapital.com/about-us/careers/
+  interval: 7200
+- name: Cabot Properties
+  slug: CabotProperties
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/cabotproperties/jobs?content=true
+  interval: 1800
+- name: Caledonia Investments
+  slug: CaledoniaInvestments
+  ats: browser
+  url: https://www.caledonia.com/about/our-intern-programme/
+  interval: 7200
+- name: Cambridge Associates
+  slug: CambridgeAssociates
+  ats: workday
+  url: https://cambridgeassociates.wd5.myworkdayjobs.com/wday/cxs/cambridgeassociates/Cambridge_Associates/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://cambridgeassociates.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Campbell Lutyens
+  slug: CampbellLutyens
+  ats: browser
+  url: https://campbell-lutyens.com/careers/graduate-programme/
+  interval: 7200
+- name: Canaccord Genuity
+  slug: CanaccordGenuity
+  ats: browser
+  url: https://www.canaccordgenuity.com/global-careers/students/
+  interval: 7200
+- name: Canada Life
+  slug: CanadaLife
+  ats: recruitee
+  url: https://canada.recruitee.com/api/offers/
+  interval: 1800
+- name: Canary Wharf Group
+  slug: CanaryWharfGroup
+  ats: workday
+  url: https://canarywharf.wd103.myworkdayjobs.com/wday/cxs/canarywharf/CanaryWharf/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://canarywharf.wd103.myworkdayjobs.com
+  interval: 1800
+- name: Capgemini
+  slug: Capgemini
+  ats: browser
+  url: https://www.capgemini.com/gb-en/careers/career-paths/graduates-and-apprenticeships/graduates/
+  interval: 7200
+- name: Capital Group
+  slug: CapitalGroup
+  ats: workday
+  url: https://capgroup.wd1.myworkdayjobs.com/wday/cxs/capgroup/capitalgroupcareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://capgroup.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Capital One
+  slug: CapitalOne
+  ats: workday
+  url: https://capitalone.wd12.myworkdayjobs.com/wday/cxs/capitalone/Capital_One/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://capitalone.wd12.myworkdayjobs.com
+  interval: 1800
+- name: Capstone
+  slug: Capstone
+  ats: browser
+  url: https://www.capstoneco.com/careers/
+  interval: 7200
+- name: Capula Investment Management
+  slug: CapulaInvestmentManagement
+  ats: workable
+  url: https://apply.workable.com/api/v1/widget/accounts/capula-investment-management-ltd?details=true
+  interval: 1800
+- name: Carlyle Group
+  slug: CarlyleGroup
+  ats: browser
+  url: https://www.carlyle.com/careers
+  interval: 7200
+- name: Carter Jonas
+  slug: CarterJonas
+  ats: browser
+  url: https://www.carterjonas.co.uk/early-careers/property-internships-work-experience
+  interval: 7200
+- name: Castleton Commodities International
+  slug: CastletonCommoditiesInternational
+  ats: browser
+  url: https://www.cci.com/careers/students/
+  interval: 7200
+- name: Caxton Associates
+  slug: CaxtonAssociates
+  ats: browser
+  url: https://www.caxton.com/careers/
+  interval: 7200
+- name: Cboe Global Markets
+  slug: CboeGlobalMarkets
+  ats: browser
+  url: https://careers.cboe.com/us/en/student
+  interval: 7200
+- name: CBRE
+  slug: CBRE
+  ats: browser
+  url: https://www.cbre.co.uk/careers/students-and-graduates
+  interval: 7200
+- name: CD&R
+  slug: CDR
+  ats: browser
+  url: https://www.cdr.com/tsp/coop-careers
+  interval: 7200
+- name: CDPQ
+  slug: CDPQ
+  ats: workday
+  url: https://cdpq.wd10.myworkdayjobs.com/wday/cxs/cdpq/CDPQ/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://cdpq.wd10.myworkdayjobs.com
+  interval: 1800
+- name: Centerview Partners
+  slug: CenterviewPartners
+  ats: browser
+  url: https://www.centerviewpartners.com/careers.aspx
+  interval: 7200
+- name: Centrica
+  slug: Centrica
+  ats: browser
+  url: https://www.lifeatcentrica.com/our-pathways/internships/
+  interval: 7200
+- name: CFC
+  slug: CFC
+  ats: pinpoint
+  url: https://cfc.pinpointhq.com/postings.json
+  interval: 1800
+- name: CFO Insights
+  slug: CFOInsights
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/cfoinsights/jobs?content=true
+  interval: 1800
+- name: Charities Aid Foundation
+  slug: CharitiesAidFoundation
+  ats: browser
+  url: https://www.cafonline.org/about-us/careers
+  interval: 7200
+- name: Charles River Associates
+  slug: CharlesRiverAssociates
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/charlesriverassociates/jobs?content=true
+  interval: 1800
+- name: Chatham Financial
+  slug: ChathamFinancial
+  ats: workday
+  url: https://chathamfinancial.wd501.myworkdayjobs.com/wday/cxs/chathamfinancial/ChathamFinancial/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://chathamfinancial.wd501.myworkdayjobs.com
+  interval: 1800
+- name: Chicago Trading Company
+  slug: ChicagoTradingCompany
+  ats: browser
+  url: https://www.chicagotrading.com/campus
+  interval: 7200
+- name: CIBC
+  slug: CIBC
+  ats: workday
+  url: https://cibc.wd3.myworkdayjobs.com/wday/cxs/cibc/search/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://cibc.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Cinven
+  slug: Cinven
+  ats: pinpoint
+  url: https://cinven.pinpointhq.com/postings.json
+  interval: 1800
+- name: Citadel
+  slug: Citadel
+  ats: browser
+  url: https://www.citadel.com/careers/open-opportunities
+  interval: 7200
+- name: Citadel Securities
+  slug: CitadelSecurities
+  ats: browser
+  url: https://www.citadelsecurities.com/careers/internships/
+  interval: 7200
+- name: Citco
+  slug: Citco
+  ats: browser
+  url: https://www.citco.com/careers
+  interval: 7200
+- name: Citi
+  slug: Citi
+  ats: browser
+  url: https://jobs.citi.com/early-careers
+  interval: 7200
+- name: CITIC CLSA
+  slug: CITICCLSA
+  ats: browser
+  url: https://www.clsa.com/internship-programme-2/
+  interval: 7200
+- name: Clarksons
+  slug: Clarksons
+  ats: browser
+  url: https://www.clarksons.com/home/careers/early-careers/broking-summer-internship/
+  interval: 7200
+- name: Climate Investment
+  slug: ClimateInvestment
+  ats: browser
+  url: https://www.climatechangecareers.com/job/climate-investment-ci/london-united-kingdom/summer-intern-investments/
+  interval: 7200
+- name: Coinbase
+  slug: Coinbase
+  ats: browser
+  url: https://www.coinbase.com/en-gb/careers/positions/7322939
+  interval: 7200
+- name: Colliers
+  slug: Colliers
+  ats: smartrecruiters
+  url: https://api.smartrecruiters.com/v1/companies/colliers/postings?limit=100
+  interval: 1800
+- name: Columbia Threadneedle Investments
+  slug: ColumbiaThreadneedleInvestments
+  ats: browser
+  url: https://www.columbiathreadneedle.com/en/gb/institutional/careers/early-careers/
+  interval: 7200
+- name: Compass Lexecon
+  slug: CompassLexecon
+  ats: workday
+  url: https://fticonsulting.wd108.myworkdayjobs.com/wday/cxs/fticonsulting/CompassLexeconCareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://fticonsulting.wd108.myworkdayjobs.com
+  interval: 1800
+- name: Convex Insurance
+  slug: ConvexInsurance
+  ats: pinpoint
+  url: https://convexin.pinpointhq.com/postings.json
+  interval: 1800
+- name: Copper.co
+  slug: CopperCo
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/copperco/jobs?content=true
+  interval: 1800
+- name: CPPIB
+  slug: CPPIB
+  ats: browser
+  url: https://www.cppinvestments.com/careers/campus-candidates/internships/
+  interval: 7200
+- name: Crédit Agricole
+  slug: CrDitAgricole
+  ats: browser
+  url: https://www.ca-cib.com/en/careers/students-and-young-graduates
+  interval: 7200
+- name: 'CT: Accountants Advisers'
+  slug: CTAccountantsAdvisers
+  ats: browser
+  url: https://ct.me/careers/graduate-recruitment/
+  interval: 7200
+- name: Cushman & Wakefield
+  slug: CushmanWakefield
+  ats: workday
+  url: https://cw.wd1.myworkdayjobs.com/wday/cxs/cw/External/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://cw.wd1.myworkdayjobs.com
+  interval: 1800
+- name: CVC Capital Partners
+  slug: CVCCapitalPartners
+  ats: browser
+  url: https://www.cvc.com/about/working-at-cvc/
+  interval: 7200
+- name: Cygnum Capital
+  slug: CygnumCapital
+  ats: browser
+  url: https://www.cygnumcapital.com/careers
+  interval: 7200
+- name: D.E. Shaw
+  slug: DEShaw
+  ats: browser
+  url: https://www.deshaw.com/careers/internships
+  interval: 7200
+- name: Da Vinci Trading
+  slug: DaVinciTrading
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/davinciderivatives/jobs?content=true
+  interval: 1800
+- name: Dare
+  slug: Dare
+  ats: browser
+  url: https://careers.dare.global/departments/graduate-student-programmes
+  interval: 7200
+- name: DC Advisory
+  slug: DCAdvisory
+  ats: browser
+  url: https://www.dcadvisory.com/join-us/early-careers/
+  interval: 7200
+- name: DealGlobe
+  slug: DealGlobe
+  ats: browser
+  url: https://en.dealglobe.com/careers/
+  interval: 7200
+- name: Deloitte
+  slug: Deloitte
+  ats: browser
+  url: https://www.deloitte.com/uk/en/careers/early-careers/early-careers-programmes.html
+  interval: 7200
+- name: Deutsche Bank
+  slug: DeutscheBank
+  ats: browser
+  url: https://careers.db.com/students-graduates/Search-Programmes/
+  interval: 7200
+  search_term: intern
+- name: Dimensional Fund Advisors
+  slug: DimensionalFundAdvisors
+  ats: workday
+  url: https://dimensional.wd5.myworkdayjobs.com/wday/cxs/dimensional/DFA_Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://dimensional.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Dow Jones
+  slug: DowJones
+  ats: browser
+  url: https://dowjones-internships.jobs/
+  interval: 7200
+- name: DRW
+  slug: DRW
+  ats: browser
+  url: https://www.drw.com/work-at-drw/interns
+  interval: 7200
+- name: DV Trading
+  slug: DVTrading
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/dvtrading/jobs?content=true
+  interval: 1800
+- name: DWS
+  slug: DWS
+  ats: browser
+  url: https://www.dws-earlycareers.groupgti.com/internship-program
+  interval: 7200
+- name: E.ON
+  slug: EON
+  ats: browser
+  url: https://careers.eon.com/uk
+  interval: 7200
+- name: Eastdil Secured
+  slug: EastdilSecured
+  ats: browser
+  url: https://eastdilsecured.com/student-recent-college-graduate-programs/
+  interval: 7200
+- name: EBRD
+  slug: EBRD
+  ats: browser
+  url: https://www.ebrd.com/home/work-with-us/ebrd-careers/ebrd-internships.html
+  interval: 7200
+- name: EDF Trading
+  slug: EDFTrading
+  ats: browser
+  url: https://www.edftrading.com/careers/graduates-interns
+  interval: 7200
+- name: Enstar Group
+  slug: EnstarGroup
+  ats: pinpoint
+  url: https://enstargroup.pinpointhq.com/postings.json
+  interval: 1800
+- name: EQ
+  slug: EQ
+  ats: browser
+  url: https://www.eqaccountants.co.uk/careers/internships/
+  interval: 7200
+- name: EQT
+  slug: EQT
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/eqtpartners/jobs?content=true
+  interval: 1800
+- name: Equinor
+  slug: Equinor
+  ats: browser
+  url: https://www.equinor.com/careers/summer-interns
+  interval: 7200
+- name: Equitix
+  slug: Equitix
+  ats: browser
+  url: https://equitix.com/about/careers/
+  interval: 7200
+- name: Ethical Capital Partners
+  slug: EthicalCapitalPartners
+  ats: browser
+  url: https://www.ethicalcapitalpartners.com/careers
+  interval: 7200
+- name: Evercore
+  slug: Evercore
+  ats: browser
+  url: https://www.evercore.com/careers/students-graduates/students-graduates-europe-asia/
+  interval: 7200
+- name: Everest
+  slug: Everest
+  ats: workday
+  url: https://wd5.myworkdaysite.com/wday/cxs/everestre/careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://wd5.myworkdaysite.com
+  interval: 1800
+- name: ExodusPoint
+  slug: ExodusPoint
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/exoduspoint/jobs?content=true
+  interval: 1800
+- name: EY
+  slug: EY
+  ats: browser
+  url: https://www.ey.com/en_uk/careers/students/undergraduates/sip
+  interval: 7200
+- name: EY-Parthenon
+  slug: EYParthenon
+  ats: browser
+  url: https://www.ey.com/en_uk/careers/parthenon/earlycareers
+  interval: 7200
+- name: FactSet
+  slug: FactSet
+  ats: browser
+  url: https://www.factset.com/careers
+  interval: 7200
+- name: Fenchurch Advisory
+  slug: FenchurchAdvisory
+  ats: browser
+  url: https://fenchurchadvisory.com/careers/
+  interval: 7200
+- name: Fide Partners
+  slug: FidePartners
+  ats: browser
+  url: https://fidepartners.com/careers/
+  interval: 7200
+- name: Fidelity International
+  slug: FidelityInternational
+  ats: browser
+  url: https://careers.fidelityinternational.com/early-careers-overview/interns-and-insights/internships/
+  interval: 7200
+- name: Fidelity Investments
+  slug: FidelityInvestments
+  ats: workday
+  url: https://wd1.myworkdaysite.com/wday/cxs/fmr/targeted/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://wd1.myworkdaysite.com
+  interval: 1800
+- name: Financial Conduct Authority
+  slug: FinancialConductAuthority
+  ats: browser
+  url: https://www.fca.org.uk/careers/early-careers
+  interval: 7200
+- name: First Actuarial
+  slug: FirstActuarial
+  ats: browser
+  url: https://www.firstactuarial.co.uk/careers/
+  interval: 7200
+- name: First Bank of Nigeria
+  slug: FirstBankOfNigeria
+  ats: browser
+  url: https://www.fbnbank.co.uk/firstbankuk-careers/
+  interval: 7200
+- name: First Wealth
+  slug: FirstWealth
+  ats: browser
+  url: https://www.firstwealth.co.uk/about-us/careers
+  interval: 7200
+- name: Flow Traders
+  slug: FlowTraders
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/flowtraders/jobs?content=true
+  interval: 1800
+- name: Flowdesk
+  slug: Flowdesk
+  ats: smartrecruiters
+  url: https://api.smartrecruiters.com/v1/companies/flowdesk/postings?limit=100
+  interval: 1800
+- name: Forvis Mazars
+  slug: ForvisMazars
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/forvismazars/jobs?content=true
+  interval: 1800
+- name: Francisco Partners
+  slug: FranciscoPartners
+  ats: workday
+  url: https://merative.wd12.myworkdayjobs.com/wday/cxs/merative/External_Career_Site/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://merative.wd12.myworkdayjobs.com
+  interval: 1800
+- name: Franklin Templeton
+  slug: FranklinTempleton
+  ats: browser
+  url: https://www.franklintempletoncareers.com/early-careers
+  interval: 7200
+- name: Frontier Economics
+  slug: FrontierEconomics
+  ats: workday
+  url: https://frontiereconomics.wd3.myworkdayjobs.com/wday/cxs/frontiereconomics/Frontier_Economics_Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://frontiereconomics.wd3.myworkdayjobs.com
+  interval: 1800
+- name: FTI Consulting
+  slug: FTIConsulting
+  ats: browser
+  url: https://www.fticonsulting.com/careers/early-careers
+  interval: 7200
+- name: Future Planet Capital
+  slug: FuturePlanetCapital
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/future/jobs?content=true
+  interval: 1800
+- name: G-Research
+  slug: GResearch
+  ats: browser
+  url: https://www.gresearch.com/vacancies/internship-in-quantitative-research/
+  interval: 7200
+- name: Galaxy
+  slug: Galaxy
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/galaxydigitalservices/jobs?content=true
+  interval: 1800
+- name: Gartner
+  slug: Gartner
+  ats: browser
+  url: https://jobs.gartner.com/early-careers/internships/
+  interval: 7200
+- name: General Atlantic
+  slug: GeneralAtlantic
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/generalatlantic/jobs?content=true
+  interval: 1800
+- name: General Electric
+  slug: GeneralElectric
+  ats: browser
+  url: https://jobs.gecareers.com/global/en/internships-co-ops
+  interval: 7200
+- name: Genesis Quant Capital
+  slug: GenesisQuantCapital
+  ats: lever
+  url: https://api.lever.co/v0/postings/genesis?mode=json
+  interval: 1800
+- name: GEP
+  slug: GEP
+  ats: browser
+  url: https://www.gep.com/careers/join-us/campus-connect
+  interval: 7200
+- name: GIC
+  slug: GIC
+  ats: browser
+  url: https://gic.careers/programmes/gic-internship-programme/
+  interval: 7200
+- name: Gleacher Shacklock
+  slug: GleacherShacklock
+  ats: browser
+  url: https://www.gleachershacklock.com/work-with-us/careers/
+  interval: 7200
+- name: GLG
+  slug: GLG
+  ats: browser
+  url: https://glginsights.com/campus-recruitment/
+  interval: 7200
+- name: Global Gate
+  slug: GlobalGate
+  ats: lever
+  url: https://api.lever.co/v0/postings/gate?mode=json
+  interval: 1800
+- name: Global Infrastructure Advisors
+  slug: GlobalInfrastructureAdvisors
+  ats: browser
+  url: https://www.global-infra.com/careers/
+  interval: 7200
+- name: Gneiss Energy
+  slug: GneissEnergy
+  ats: browser
+  url: https://gneiss.energy/careers/
+  interval: 7200
+- name: Goldman Sachs
+  slug: GoldmanSachs
+  ats: browser
+  url: https://www.goldmansachs.com/careers/students/programs-and-internships/emea/summer-analyst-programme
+  interval: 7200
+- name: Google
+  slug: Google
+  ats: browser
+  url: https://www.google.com/about/careers/applications/students/business-internships/
+  interval: 7200
+- name: Government Economic Service
+  slug: GovernmentEconomicService
+  ats: browser
+  url: https://www.gov.uk/guidance/how-to-apply-for-a-government-economic-service-summer-vacation-placement
+  interval: 7200
+- name: GP Bullhound
+  slug: GPBullhound
+  ats: recruitee
+  url: https://gpbullhound.recruitee.com/api/offers/
+  interval: 1800
+- name: GPFS
+  slug: GPFS
+  ats: browser
+  url: https://gpfs.breezy.hr/
+  interval: 7200
+- name: Grant Thornton
+  slug: GrantThornton
+  ats: recruitee
+  url: https://grantthornton.recruitee.com/api/offers/
+  interval: 1800
+- name: Greenhill
+  slug: Greenhill
+  ats: browser
+  url: https://greenhill.freshminds.co.uk/
+  interval: 7200
+- name: Greystar
+  slug: Greystar
+  ats: workday
+  url: https://greystar.wd1.myworkdayjobs.com/wday/cxs/greystar/External/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://greystar.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Grosvenor
+  slug: Grosvenor
+  ats: workday
+  url: https://grosvenor.wd3.myworkdayjobs.com/wday/cxs/grosvenor/External_careers_site_Grosvenor/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://grosvenor.wd3.myworkdayjobs.com
+  interval: 1800
+- name: GSA Capital
+  slug: GSACapital
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/gsacapital/jobs?content=true
+  interval: 1800
+- name: Guggenheim Partners
+  slug: GuggenheimPartners
+  ats: workday
+  url: https://guggenheim.wd1.myworkdayjobs.com/wday/cxs/guggenheim/Guggenheim_Careers_Campus/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://guggenheim.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Guidehouse
+  slug: Guidehouse
+  ats: workday
+  url: https://guidehouse.wd1.myworkdayjobs.com/wday/cxs/guidehouse/External/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://guidehouse.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Gunvor
+  slug: Gunvor
+  ats: workday
+  url: https://gunvor.wd3.myworkdayjobs.com/wday/cxs/gunvor/Gunvor_Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://gunvor.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Hamilton Insurance Group
+  slug: HamiltonInsuranceGroup
+  ats: browser
+  url: https://www.hamiltongroup.com/careers/
+  interval: 7200
+- name: Hamilton Lane
+  slug: HamiltonLane
+  ats: workday
+  url: https://hamiltonlane.wd108.myworkdayjobs.com/wday/cxs/hamiltonlane/search/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://hamiltonlane.wd108.myworkdayjobs.com
+  interval: 1800
+- name: Handelsbanken
+  slug: Handelsbanken
+  ats: browser
+  url: https://www.handelsbanken.co.uk/en/about-us/careers/internships
+  interval: 7200
+- name: Harris Williams
+  slug: HarrisWilliams
+  ats: workday
+  url: https://pnc.wd5.myworkdayjobs.com/wday/cxs/pnc/HarrisWilliams/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://pnc.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Harrison Street
+  slug: HarrisonStreet
+  ats: lever
+  url: https://api.lever.co/v0/postings/harrisonst?mode=json
+  interval: 1800
+- name: Hayfin Capital Management
+  slug: HayfinCapitalManagement
+  ats: browser
+  url: https://www.hayfin.com/people/internship-programme/
+  interval: 7200
+- name: HDI Global
+  slug: HDIGlobal
+  ats: browser
+  url: https://ukcareers.hdi.global/
+  interval: 7200
+- name: Hellman & Friedman
+  slug: HellmanFriedman
+  ats: browser
+  url: https://hf.com/
+  interval: 7200
+- name: HgCapital
+  slug: HgCapital
+  ats: pinpoint
+  url: https://hgcapital.pinpointhq.com/postings.json
+  interval: 1800
+- name: Hiscox
+  slug: Hiscox
+  ats: workday
+  url: https://hiscox.wd3.myworkdayjobs.com/wday/cxs/hiscox/Hiscox_External_Site/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://hiscox.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Houlihan Lokey
+  slug: HoulihanLokey
+  ats: workday
+  url: https://hl.wd1.myworkdayjobs.com/wday/cxs/hl/Campus/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://hl.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Howden
+  slug: Howden
+  ats: workday
+  url: https://hyperiongrp.wd3.myworkdayjobs.com/wday/cxs/hyperiongrp/Hyperion_External/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://hyperiongrp.wd3.myworkdayjobs.com
+  interval: 1800
+- name: HSBC
+  slug: HSBC
+  ats: browser
+  url: https://www.hsbc.com/careers/students-and-graduates/internships
+  interval: 7200
+- name: Hudson River Trading
+  slug: HudsonRiverTrading
+  ats: browser
+  url: https://www.hudsonrivertrading.com/student-opportunities/
+  interval: 7200
+- name: Hymans Robertson
+  slug: HymansRobertson
+  ats: pinpoint
+  url: https://hymans.pinpointhq.com/postings.json
+  interval: 1800
+- name: ICE
+  slug: ICE
+  ats: browser
+  url: https://www.ice.com/careers/intern
+  interval: 7200
+- name: IMC Trading
+  slug: IMCTrading
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/imc/jobs?content=true
+  interval: 1800
+- name: InfraRed Capital Partners
+  slug: InfraRedCapitalPartners
+  ats: browser
+  url: https://www.ircp.com/talent/early-careers/
+  interval: 7200
+- name: Insight Partners
+  slug: InsightPartners
+  ats: browser
+  url: https://info.insightpartners.com/Campus-Recruiting-Programs.html
+  interval: 7200
+- name: Insurance Advisory Partners
+  slug: InsuranceAdvisoryPartners
+  ats: browser
+  url: https://www.insuranceap.com/
+  interval: 7200
+- name: Interpath Advisory
+  slug: InterpathAdvisory
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/interpath/jobs?content=true
+  interval: 1800
+- name: Intriva
+  slug: Intriva
+  ats: browser
+  url: https://apply.workable.com/intriva-capital/
+  interval: 7200
+- name: Inverto
+  slug: Inverto
+  ats: browser
+  url: https://inverto.com/en/careers/students/
+  interval: 7200
+- name: Invesco
+  slug: Invesco
+  ats: browser
+  url: https://careers.invesco.com/early-careers/
+  interval: 7200
+- name: Investec
+  slug: Investec
+  ats: browser
+  url: https://www.investec.com/en_gb/welcome-to-investec/Careers/graduates.html
+  interval: 7200
+- name: IQT
+  slug: IQT
+  ats: browser
+  url: https://www.iqt.org/careers
+  interval: 7200
+- name: Isio
+  slug: Isio
+  ats: browser
+  url: https://careers.isio.com/pages/early-careers
+  interval: 7200
+- name: Ithaca Energy
+  slug: IthacaEnergy
+  ats: browser
+  url: https://www.ithacaenergy.com/careers/apply
+  interval: 7200
+- name: J.P. Morgan
+  slug: JPMorgan
+  ats: browser
+  url: https://www.jpmorganchase.com/careers/explore-opportunities/students-and-graduates
+  interval: 7200
+- name: Jane Street
+  slug: JaneStreet
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/janestreet/jobs?content=true
+  interval: 1800
+- name: Javelin Global Commodities
+  slug: JavelinGlobalCommodities
+  ats: browser
+  url: https://javelincommodities.com/contact/careers/
+  interval: 7200
+- name: Jefferies
+  slug: Jefferies
+  ats: browser
+  url: https://www.jefferies.com/careers/students-and-graduates/
+  interval: 7200
+- name: JLL
+  slug: JLL
+  ats: workday
+  url: https://jll.wd1.myworkdayjobs.com/wday/cxs/jll/jllcareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://jll.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Johnston Carmichael
+  slug: JohnstonCarmichael
+  ats: browser
+  url: https://johnstoncarmichael.com/careers/starting-out/summer-internships/
+  interval: 7200
+- name: Julius Baer
+  slug: JuliusBaer
+  ats: workday
+  url: https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://juliusbaer.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Jump Trading
+  slug: JumpTrading
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/jumptrading/jobs?content=true
+  interval: 1800
+- name: Just
+  slug: Just
+  ats: browser
+  url: https://www.workatjust.co.uk/early_careers/
+  interval: 7200
+- name: KBW (Keefe, Bruyette & Woods)
+  slug: KBWKeefeBruyetteWoods
+  ats: browser
+  url: https://kbw.com/about-us/working-at-kbw/
+  interval: 7200
+- name: KKR
+  slug: KKR
+  ats: browser
+  url: https://www.kkr.com/careers/student-careers
+  interval: 7200
+- name: Kline Hill Partners
+  slug: KlineHillPartners
+  ats: browser
+  url: https://www.klinehill.com/
+  interval: 7200
+- name: Knight Frank
+  slug: KnightFrank
+  ats: smartrecruiters
+  url: https://api.smartrecruiters.com/v1/companies/knight/postings?limit=100
+  interval: 1800
+- name: Korn Ferry
+  slug: KornFerry
+  ats: browser
+  url: https://www.kornferry.com/careers/join-korn-ferry/internships
+  interval: 7200
+- name: KPMG
+  slug: KPMG
+  ats: pinpoint
+  url: https://kpmg.pinpointhq.com/postings.json
+  interval: 1800
+- name: KR8 Advisory
+  slug: KR8Advisory
+  ats: browser
+  url: https://kr8.co.uk/careers/
+  interval: 7200
+- name: L'Oréal
+  slug: LOrAl
+  ats: smartrecruiters
+  url: https://api.smartrecruiters.com/v1/companies/loral/postings?limit=100
+  interval: 1800
+- name: L.E.K. Consulting
+  slug: LEKConsulting
+  ats: browser
+  url: https://www.lek.com/join-lek/apply/internships
+  interval: 7200
+- name: LaSalle
+  slug: LaSalle
+  ats: workday
+  url: https://jll.wd1.myworkdayjobs.com/wday/cxs/jll/lasallecareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://jll.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Lazard
+  slug: Lazard
+  ats: browser
+  url: https://www.lazard.com/about-lazard/locations/united-kingdom/careers-in-the-united-kingdom/early-career-programmes-in-the-uk/
+  interval: 7200
+- name: Lazard Asset Management
+  slug: LazardAssetManagement
+  ats: browser
+  url: https://www.lazard.com/careers/students/
+  interval: 7200
+- name: LCP
+  slug: LCP
+  ats: browser
+  url: https://careers.lcp.com/early-careers/summer-internships
+  interval: 7200
+- name: Leerink Partners
+  slug: LeerinkPartners
+  ats: workday
+  url: https://leerink.wd5.myworkdayjobs.com/wday/cxs/leerink/leerinkpartners/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://leerink.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Legal & General
+  slug: LegalGeneral
+  ats: recruitee
+  url: https://legal.recruitee.com/api/offers/
+  interval: 1800
+- name: Lendable
+  slug: Lendable
+  ats: ashby
+  url: https://api.ashbyhq.com/posting-api/job-board/lendable
+  interval: 1800
+- name: Lenovo
+  slug: Lenovo
+  ats: browser
+  url: https://jobs.lenovo.com/en_US/careers/EarlyCareer
+  interval: 7200
+- name: Leo-Crown Estates
+  slug: LeoCrownEstates
+  ats: browser
+  url: https://leo-crown.com/
+  interval: 7200
+- name: Liberty Global
+  slug: LibertyGlobal
+  ats: browser
+  url: https://www.libertyglobal.com/careers/early-careers/internships-and-industrial-placements/finance-internship/
+  interval: 7200
+- name: Lincoln International
+  slug: LincolnInternational
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/lincolninternational/jobs?content=true
+  interval: 1800
+- name: LionTree Advisors
+  slug: LionTreeAdvisors
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/liontree/jobs?content=true
+  interval: 1800
+- name: Liquidnet
+  slug: Liquidnet
+  ats: browser
+  url: https://www.liquidnet.com/careers
+  interval: 7200
+- name: Lloyds Banking Group
+  slug: LloydsBankingGroup
+  ats: browser
+  url: https://www.lloydsbankinggrouptalent.com/our-opportunities/undergraduates/summer-internships/
+  interval: 7200
+- name: LMR Partners
+  slug: LMRPartners
+  ats: browser
+  url: https://www.lmrpartners.com/careers
+  interval: 7200
+- name: Lockton
+  slug: Lockton
+  ats: smartrecruiters
+  url: https://api.smartrecruiters.com/v1/companies/lockton/postings?limit=100
+  interval: 1800
+- name: Loizou & Co
+  slug: LoizouCo
+  ats: browser
+  url: https://loizouco.com/careers
+  interval: 7200
+- name: London Stock Exchange Group
+  slug: LondonStockExchangeGroup
+  ats: browser
+  url: https://www.lseg.com/en/careers/graduate-internship-programmes/internship-programmes
+  interval: 7200
+- name: M&G
+  slug: MG
+  ats: workday
+  url: https://mgpru.wd3.myworkdayjobs.com/wday/cxs/mgpru/mandgprudential/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://mgpru.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Macquarie Group
+  slug: MacquarieGroup
+  ats: browser
+  url: https://www.macquarie.com/uk/en/careers/graduates-and-interns.html
+  interval: 7200
+- name: Macro Hive
+  slug: MacroHive
+  ats: browser
+  url: https://macrohive.com/
+  interval: 7200
+- name: Mako Trading
+  slug: MakoTrading
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/mako/jobs?content=true
+  interval: 1800
+- name: Man Group
+  slug: ManGroup
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/mangroup/jobs?content=true
+  interval: 1800
+- name: Markel
+  slug: Markel
+  ats: smartrecruiters
+  url: https://api.smartrecruiters.com/v1/companies/markel/postings?limit=100
+  interval: 1800
+- name: MarketAxess
+  slug: MarketAxess
+  ats: browser
+  url: https://www.marketaxess.com/careers/students
+  interval: 7200
+- name: Marsh McLennan
+  slug: MarshMcLennan
+  ats: browser
+  url: https://careers.marshmclennan.com/global/en/landingstudenttemplate
+  interval: 7200
+- name: Marshall Wace
+  slug: MarshallWace
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/marshallwace/jobs?content=true
+  interval: 1800
+- name: Maven Securities
+  slug: MavenSecurities
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/emergingtalent/jobs?content=true
+  interval: 1800
+- name: McKinsey & Company
+  slug: McKinseyCompany
+  ats: browser
+  url: https://www.mckinsey.com/careers/search-jobs/jobs/businessanalystintern-15275
+  interval: 7200
+- name: Menzies
+  slug: Menzies
+  ats: pinpoint
+  url: https://menzies.pinpointhq.com/postings.json
+  interval: 1800
+- name: Mercer
+  slug: Mercer
+  ats: workday
+  url: https://mmc.wd1.myworkdayjobs.com/wday/cxs/mmc/MMC/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://mmc.wd1.myworkdayjobs.com
+  interval: 1800
+- name: MFS
+  slug: MFS
+  ats: workday
+  url: https://mfs.wd1.myworkdayjobs.com/wday/cxs/mfs/MFS-Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://mfs.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Midland Heart
+  slug: MidlandHeart
+  ats: browser
+  url: https://jobs.midlandheartgroup.org.uk/jobs/early-careers/
+  interval: 7200
+- name: Millennium Management
+  slug: MillenniumManagement
+  ats: browser
+  url: https://campusjobs.mlp.com/careers/job/755954628841
+  interval: 7200
+- name: Mizuho
+  slug: Mizuho
+  ats: browser
+  url: https://www.mizuhogroup.com/emea/careers/investment-banking-careers/internship-programme
+  interval: 7200
+- name: MKI Global Partners
+  slug: MKIGlobalPartners
+  ats: browser
+  url: https://mkigp.com/
+  interval: 7200
+- name: Moelis & Co
+  slug: MoelisCo
+  ats: workday
+  url: https://moelis.wd1.myworkdayjobs.com/wday/cxs/moelis/University-Hires/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://moelis.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Moody's
+  slug: MoodyS
+  ats: browser
+  url: https://careers.moodys.com/
+  interval: 7200
+- name: Morgan Stanley
+  slug: MorganStanley
+  ats: browser
+  url: https://www.morganstanley.com/people-opportunities/students-graduates
+  interval: 7200
+- name: Mubadala Investment Company
+  slug: MubadalaInvestmentCompany
+  ats: browser
+  url: https://www.mubadala.com/en/careers/student
+  interval: 7200
+- name: MUFG
+  slug: MUFG
+  ats: workday
+  url: https://mufgub.wd3.myworkdayjobs.com/wday/cxs/mufgub/MUFG-EarlyCareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://mufgub.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Munich Re
+  slug: MunichRe
+  ats: browser
+  url: https://www.munichre.com/en/careers/students-and-career-starters/internship.html
+  interval: 7200
+- name: National Bank of Canada
+  slug: NationalBankOfCanada
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/national/jobs?content=true
+  interval: 1800
+- name: Nationwide
+  slug: Nationwide
+  ats: browser
+  url: https://www.nationwide-jobs.co.uk/early-careers/summer-internships/
+  interval: 7200
+- name: Natrium Capital
+  slug: NatriumCapital
+  ats: browser
+  url: https://www.natriumcapital.com/careers/
+  interval: 7200
+- name: NatWest Markets
+  slug: NatWestMarkets
+  ats: browser
+  url: https://jobs.natwestgroup.com/pages/natwest-markets-internships
+  interval: 7200
+- name: NCR Atleos
+  slug: NCRAtleos
+  ats: workday
+  url: https://ncratleos.wd1.myworkdayjobs.com/wday/cxs/ncratleos/ext_apacatleos/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://ncratleos.wd1.myworkdayjobs.com
+  interval: 1800
+- name: NERA
+  slug: NERA
+  ats: browser
+  url: https://www.nera.com/careers/student.html
+  interval: 7200
+- name: Network Rail
+  slug: NetworkRail
+  ats: pinpoint
+  url: https://networkrail.pinpointhq.com/postings.json
+  interval: 1800
+- name: Neuberger Berman
+  slug: NeubergerBerman
+  ats: workday
+  url: https://nb.wd1.myworkdayjobs.com/wday/cxs/nb/nbcareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://nb.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Newton
+  slug: Newton
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/newton/jobs?content=true
+  interval: 1800
+- name: NextWave Consulting
+  slug: NextWaveConsulting
+  ats: browser
+  url: https://www.nxwave.com/careers
+  interval: 7200
+- name: NFU Mutual
+  slug: NFUMutual
+  ats: browser
+  url: https://careers.nfumutual.co.uk/what-you-could-be-doing/internships
+  interval: 7200
+- name: Nomura
+  slug: Nomura
+  ats: browser
+  url: https://www.nomura.com/careers/early-careers/internship-programs/
+  interval: 7200
+- name: Nordic Capital
+  slug: NordicCapital
+  ats: browser
+  url: https://career.nordiccapital.com/pages/internship-program
+  interval: 7200
+- name: Norges Bank
+  slug: NorgesBank
+  ats: browser
+  url: https://www.nbim.no/en/about-us/career/summer-internship/
+  interval: 7200
+- name: Northern Trust
+  slug: NorthernTrust
+  ats: workday
+  url: https://ntrs.wd1.myworkdayjobs.com/wday/cxs/ntrs/northerntrust/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://ntrs.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Nuveen
+  slug: Nuveen
+  ats: workday
+  url: https://tiaa.wd1.myworkdayjobs.com/wday/cxs/tiaa/Search/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://tiaa.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Oak Hill Advisors
+  slug: OakHillAdvisors
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/oakhilladvisors/jobs?content=true
+  interval: 1800
+- name: OC&C
+  slug: OCC
+  ats: browser
+  url: https://www.occstrategy.com/en/careers/careers-at-occ/
+  interval: 7200
+- name: Oliver Wyman
+  slug: OliverWyman
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/oliver/jobs?content=true
+  interval: 1800
+- name: Ondra Partners
+  slug: OndraPartners
+  ats: browser
+  url: https://www.ondra.com/
+  interval: 7200
+- name: Optiver
+  slug: Optiver
+  ats: browser
+  url: https://optiver.com/working-at-optiver/internships/
+  interval: 7200
+- name: Oracle
+  slug: Oracle
+  ats: browser
+  url: https://www.oracle.com/careers/students-grads/internships/
+  interval: 7200
+- name: Orbis
+  slug: Orbis
+  ats: browser
+  url: https://www.orbis.com/careers/careers/opportunities/intern-with-us
+  interval: 7200
+- name: OTPP
+  slug: OTPP
+  ats: workday
+  url: https://otppb.wd3.myworkdayjobs.com/wday/cxs/otppb/OntarioTeachers_Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://otppb.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Oxera
+  slug: Oxera
+  ats: pinpoint
+  url: https://oxera.pinpointhq.com/postings.json
+  interval: 1800
+- name: P&G
+  slug: PG
+  ats: workday
+  url: https://pg.wd5.myworkdayjobs.com/wday/cxs/pg/1000/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://pg.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Panmure Liberum
+  slug: PanmureLiberum
+  ats: browser
+  url: https://panmureliberum.com/people/careers/
+  interval: 7200
+- name: Peel Hunt
+  slug: PeelHunt
+  ats: browser
+  url: https://www.peelhunt.com/careers/internships/
+  interval: 7200
+- name: Pension Insurance Corporation
+  slug: PensionInsuranceCorporation
+  ats: browser
+  url: https://www.pensioncorporation.com/careers
+  interval: 7200
+- name: Perella Weinberg Partners
+  slug: PerellaWeinbergPartners
+  ats: browser
+  url: https://pwpartners.com/careers/intern-graduate-recruitment/
+  interval: 7200
+- name: Permira
+  slug: Permira
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/permiraexternalprivate/jobs?content=true
+  interval: 1800
+- name: PGIM
+  slug: PGIM
+  ats: workday
+  url: https://pru.wd5.myworkdayjobs.com/wday/cxs/pru/Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://pru.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Pharus
+  slug: Pharus
+  ats: browser
+  url: https://pharus.com/careers/
+  interval: 7200
+- name: Pictet Asset Management
+  slug: PictetAssetManagement
+  ats: browser
+  url: https://am.pictet.com/uk/en/careers
+  interval: 7200
+- name: PIMCO
+  slug: PIMCO
+  ats: workday
+  url: https://pimco.wd1.myworkdayjobs.com/wday/cxs/pimco/pimco-careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://pimco.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Piper Sandler
+  slug: PiperSandler
+  ats: workday
+  url: https://pipersandler.wd501.myworkdayjobs.com/wday/cxs/pipersandler/Piper_Sandler_Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://pipersandler.wd501.myworkdayjobs.com
+  interval: 1800
+- name: PJT Partners
+  slug: PJTPartners
+  ats: workday
+  url: https://pjtpartners.wd1.myworkdayjobs.com/wday/cxs/pjtpartners/Students/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://pjtpartners.wd1.myworkdayjobs.com
+  interval: 1800
+- name: PKF Littlejohn
+  slug: PKFLittlejohn
+  ats: pinpoint
+  url: https://pkf.pinpointhq.com/postings.json
+  interval: 1800
+- name: PKF Smith Cooper
+  slug: PKFSmithCooper
+  ats: pinpoint
+  url: https://pkf.pinpointhq.com/postings.json
+  interval: 1800
+- name: Plural Strategy
+  slug: PluralStrategy
+  ats: browser
+  url: https://www.pluralstrategy.com/careers/
+  interval: 7200
+- name: Point72
+  slug: Point72
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/point72/jobs?content=true
+  interval: 1800
+- name: Principal Asset Management
+  slug: PrincipalAssetManagement
+  ats: browser
+  url: https://careers.principal.com/internships
+  interval: 7200
+- name: Private Equity Insights
+  slug: PrivateEquityInsights
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/privateequityinsights/jobs?content=true
+  interval: 1800
+- name: Proxima
+  slug: Proxima
+  ats: ashby
+  url: https://api.ashbyhq.com/posting-api/job-board/proxima
+  interval: 1800
+- name: PSP Investments
+  slug: PSPInvestments
+  ats: workday
+  url: https://investpsp.wd3.myworkdayjobs.com/wday/cxs/investpsp/psp_careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://investpsp.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Putnam
+  slug: Putnam
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/putnamassociatesllc/jobs?content=true
+  interval: 1800
+- name: PwC
+  slug: PwC
+  ats: browser
+  url: https://www.pwc.co.uk/careers/early-careers/undergraduate/summer-internship.html
+  interval: 7200
+- name: Qatalyst Partners
+  slug: QatalystPartners
+  ats: browser
+  url: https://qatalyst.com/
+  interval: 7200
+- name: Quadrature
+  slug: Quadrature
+  ats: pinpoint
+  url: https://quadrature.pinpointhq.com/postings.json
+  interval: 1800
+- name: Quantbot Technologies
+  slug: QuantbotTechnologies
+  ats: browser
+  url: https://www.quantbot.com/careers/internships/
+  interval: 7200
+- name: Quantuma
+  slug: Quantuma
+  ats: browser
+  url: https://careers.k3capitalgroup.com/
+  interval: 7200
+- name: Qube RT
+  slug: QubeRT
+  ats: browser
+  url: https://www.qube-rt.com/careers
+  interval: 7200
+- name: Raine Group
+  slug: RaineGroup
+  ats: lever
+  url: https://api.lever.co/v0/postings/raine?mode=json
+  interval: 1800
+- name: Raymond James
+  slug: RaymondJames
+  ats: workday
+  url: https://raymondjames.wd1.myworkdayjobs.com/wday/cxs/raymondjames/RaymondJamesEarlyCareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://raymondjames.wd1.myworkdayjobs.com
+  interval: 1800
+- name: RBC Capital Markets
+  slug: RBCCapitalMarkets
+  ats: browser
+  url: https://www.rbccm.com/en/careers/campus-recruiting.page
+  interval: 7200
+- name: Redburn
+  slug: Redburn
+  ats: browser
+  url: https://www.redburnatlantic.com/careers/
+  interval: 7200
+- name: Rede Partners
+  slug: RedePartners
+  ats: browser
+  url: https://www.rede-partners.com/graduate-scheme
+  interval: 7200
+- name: Retail Insights
+  slug: RetailInsights
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/retailinsights/jobs?content=true
+  interval: 1800
+- name: Revolut
+  slug: Revolut
+  ats: browser
+  url: https://www.revolut.com/careers/position/internship-programme-2027-strategy-operations-manager-aa3cc201-5808-4d7e-ba8e-e82e443d90d3/
+  interval: 7200
+- name: Ripple
+  slug: Ripple
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/ripple/jobs?content=true
+  interval: 1800
+- name: Robey Warshaw
+  slug: RobeyWarshaw
+  ats: browser
+  url: https://www.robeywarshaw.com/
+  interval: 7200
+- name: Rokos Capital Management
+  slug: RokosCapitalManagement
+  ats: browser
+  url: https://www.rokoscapital.com/careers
+  interval: 7200
+- name: Roland Berger
+  slug: RolandBerger
+  ats: browser
+  url: https://www.rolandberger.com/en/Join/Join-Us/Career-Starter/Internship/
+  interval: 7200
+- name: Rothesay
+  slug: Rothesay
+  ats: browser
+  url: https://www.rothesay.com/about-us/working-here/careers/graduate-and-intern-programmes/
+  interval: 7200
+- name: Rothschild & Co.
+  slug: RothschildCo
+  ats: browser
+  url: https://www.rothschildandco.com/en/careers/students-and-graduates/
+  interval: 7200
+- name: Royal London
+  slug: RoyalLondon
+  ats: pinpoint
+  url: https://royal.pinpointhq.com/postings.json
+  interval: 1800
+- name: RSM
+  slug: RSM
+  ats: recruitee
+  url: https://rsm.recruitee.com/api/offers/
+  interval: 1800
+- name: RWE
+  slug: RWE
+  ats: browser
+  url: https://www.rwe.com/en/rwe-careers-portal/job-offers
+  interval: 7200
+- name: Ryan
+  slug: Ryan
+  ats: workday
+  url: https://ryan.wd1.myworkdayjobs.com/wday/cxs/ryan/RyanCareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://ryan.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Ryan Specialty
+  slug: RyanSpecialty
+  ats: workday
+  url: https://ryansg.wd5.myworkdayjobs.com/wday/cxs/ryansg/Ryan_Specialty_Career_Site/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://ryansg.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Rystad Energy
+  slug: RystadEnergy
+  ats: browser
+  url: https://www.rystadenergy.com/rystad-energy-internship-program
+  interval: 7200
+- name: S&P Global
+  slug: SPGlobal
+  ats: browser
+  url: https://www.spglobal.com/en/explore-s-p-global/careers
+  interval: 7200
+- name: S&W
+  slug: SW
+  ats: smartrecruiters
+  url: https://api.smartrecruiters.com/v1/companies/EvelynPartners/postings?limit=100
+  interval: 1800
+- name: Saffery
+  slug: Saffery
+  ats: pinpoint
+  url: https://saffery.pinpointhq.com/postings.json
+  interval: 1800
+- name: Saltgate
+  slug: Saltgate
+  ats: browser
+  url: https://saltgate.com/careers/
+  interval: 7200
+- name: Santander
+  slug: Santander
+  ats: browser
+  url: https://www.santander.com/en/careers/uk-careers/emerging-talent/summer-internships
+  interval: 7200
+- name: Savills
+  slug: Savills
+  ats: browser
+  url: https://www.savills.co.uk/contact-us/careers/future-talent-careers/placement-opportunities/summer-scheme.aspx
+  interval: 7200
+- name: Schonfeld
+  slug: Schonfeld
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/schonfeld/jobs?content=true
+  interval: 1800
+- name: Schroders
+  slug: Schroders
+  ats: pinpoint
+  url: https://schroders.pinpointhq.com/postings.json
+  interval: 1800
+- name: Scotiabank
+  slug: Scotiabank
+  ats: browser
+  url: https://www.scotiabank.com/careers/en/careers/careers-students-and-new-grads.html
+  interval: 7200
+- name: Severn Trent
+  slug: SevernTrent
+  ats: browser
+  url: https://www.severntrent.com/careers/early-careers/summer-placements/
+  interval: 7200
+- name: Shell
+  slug: Shell
+  ats: browser
+  url: https://www.shell.co.uk/about-us/careers/shell-assessed-internship-programme.html
+  interval: 7200
+- name: Silver Lake
+  slug: SilverLake
+  ats: ashby
+  url: https://api.ashbyhq.com/posting-api/job-board/silver
+  interval: 1800
+- name: SilverTide
+  slug: SilverTide
+  ats: browser
+  url: https://uk.linkedin.com/company/silvertide-financial/jobs
+  interval: 7200
+- name: Simon-Kucher
+  slug: SimonKucher
+  ats: browser
+  url: https://www.simon-kucher.com/en/careers
+  interval: 7200
+- name: Sixth Street
+  slug: SixthStreet
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/sixthstreet/jobs?content=true
+  interval: 1800
+- name: Skagen Capital
+  slug: SkagenCapital
+  ats: browser
+  url: https://www.skagencapital.com/
+  interval: 7200
+- name: Sky
+  slug: Sky
+  ats: browser
+  url: https://careers.sky.com/earlycareers/internships/finance
+  interval: 7200
+- name: Société Générale
+  slug: SociTGNRale
+  ats: browser
+  url: https://www.societegenerale.co.uk/en/careers/internship/
+  interval: 7200
+- name: Sona Asset Management
+  slug: SonaAssetManagement
+  ats: ashby
+  url: https://api.ashbyhq.com/posting-api/job-board/sona
+  interval: 1800
+- name: Soros Fund Management
+  slug: SorosFundManagement
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/familyoffice/jobs?content=true
+  interval: 1800
+- name: Squarepoint Capital
+  slug: SquarepointCapital
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/squarepointcapital/jobs?content=true
+  interval: 1800
+- name: Standard Chartered
+  slug: StandardChartered
+  ats: recruitee
+  url: https://standard.recruitee.com/api/offers/
+  interval: 1800
+- name: State Street
+  slug: StateStreet
+  ats: workday
+  url: https://statestreet.wd1.myworkdayjobs.com/wday/cxs/statestreet/Global/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://statestreet.wd1.myworkdayjobs.com
+  interval: 1800
+- name: StepStone Group
+  slug: StepStoneGroup
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/stepstone/jobs?content=true
+  interval: 1800
+- name: Stifel
+  slug: Stifel
+  ats: smartrecruiters
+  url: https://api.smartrecruiters.com/v1/companies/stifel/postings?limit=100
+  interval: 1800
+- name: STJ Advisors
+  slug: STJAdvisors
+  ats: browser
+  url: https://www.stjadvisors.com/careers
+  interval: 7200
+- name: StoneX
+  slug: StoneX
+  ats: browser
+  url: https://www.stonex.com/en/about/careers/early-talent/
+  interval: 7200
+- name: Stout
+  slug: Stout
+  ats: workday
+  url: https://stout.wd5.myworkdayjobs.com/wday/cxs/stout/Stout-Student-Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://stout.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Superbet
+  slug: Superbet
+  ats: browser
+  url: https://job-boards.eu.greenhouse.io/superbet
+  interval: 7200
+- name: Susquehanna International Group
+  slug: SusquehannaInternationalGroup
+  ats: browser
+  url: https://careers.sig.com/eu-intern-openings
+  interval: 7200
+- name: Swiss Re
+  slug: SwissRe
+  ats: browser
+  url: https://careers.swissre.com/go/Internships/2744401/
+  interval: 7200
+- name: Synthesis
+  slug: Synthesis
+  ats: browser
+  url: https://app.the-trackr.com/company/synthesis
+  interval: 7200
+- name: T. Rowe Price
+  slug: TRowePrice
+  ats: browser
+  url: https://www.troweprice.com/corporate/se/en/careers/students-and-recent-graduates/internships-uk.html
+  interval: 7200
+- name: TA Associates
+  slug: TAAssociates
+  ats: smartrecruiters
+  url: https://api.smartrecruiters.com/v1/companies/taassociates/postings?limit=100
+  interval: 1800
+- name: TD Securities
+  slug: TDSecurities
+  ats: browser
+  url: https://www.tdsecurities.com/ca/en/campus
+  interval: 7200
+- name: Temasek
+  slug: Temasek
+  ats: browser
+  url: https://www.temasek.com.sg/en/careers/students-and-graduates
+  interval: 7200
+- name: Tencent
+  slug: Tencent
+  ats: browser
+  url: https://careers.tencent.com/en-us/
+  interval: 7200
+- name: Teneo
+  slug: Teneo
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/teneo/jobs?content=true
+  interval: 1800
+- name: Tesco
+  slug: Tesco
+  ats: browser
+  url: https://www.tesco-careers.com/early-careers/
+  interval: 7200
+- name: Teza Technologies
+  slug: TezaTechnologies
+  ats: pinpoint
+  url: https://teza.pinpointhq.com/postings.json
+  interval: 1800
+- name: The Dot Group
+  slug: TheDotGroup
+  ats: browser
+  url: https://www.thedotgroup.com/careers
+  interval: 7200
+- name: The Wall Street Journal
+  slug: TheWallStreetJournal
+  ats: browser
+  url: https://dowjones-internships.jobs/
+  interval: 7200
+- name: Tide Insurance
+  slug: TideInsurance
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/tide/jobs?content=true
+  interval: 1800
+- name: TikTok
+  slug: TikTok
+  ats: browser
+  url: https://careers.tiktok.com/
+  interval: 7200
+- name: Tokio Marine Kiln
+  slug: TokioMarineKiln
+  ats: browser
+  url: https://www.tokiomarinekiln.com/careers/
+  interval: 7200
+- name: Tower Research Capital
+  slug: TowerResearchCapital
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/towerresearchcapital/jobs?content=true
+  interval: 1800
+- name: TP ICAP
+  slug: TPICAP
+  ats: smartrecruiters
+  url: https://api.smartrecruiters.com/v1/companies/tpicap/postings?limit=100
+  interval: 1800
+- name: TPG
+  slug: TPG
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/tpgcareers/jobs?content=true
+  interval: 1800
+- name: Trackr
+  slug: Trackr
+  ats: browser
+  url: https://academy.the-trackr.com/
+  interval: 7200
+- name: Tradeweb
+  slug: Tradeweb
+  ats: browser
+  url: https://www.tradeweb.com/careers/
+  interval: 7200
+- name: Turner & Townsend
+  slug: TurnerTownsend
+  ats: browser
+  url: https://www.turnerandtownsend.com/en/careers/early-careers/
+  interval: 7200
+- name: Uber
+  slug: Uber
+  ats: smartrecruiters
+  url: https://api.smartrecruiters.com/v1/companies/uber/postings?limit=100
+  interval: 1800
+- name: UBS
+  slug: UBS
+  ats: browser
+  url: https://www.ubs.com/global/en/careers/students-graduates.html
+  interval: 7200
+- name: Vanguard
+  slug: Vanguard
+  ats: browser
+  url: https://www.vanguardjobs.com/students-graduates/
+  interval: 7200
+- name: Verition Fund Management
+  slug: VeritionFundManagement
+  ats: browser
+  url: https://www.verition.com/careers/
+  interval: 7200
+- name: Virtu Financial
+  slug: VirtuFinancial
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/virtu/jobs?content=true
+  interval: 1800
+- name: Visa
+  slug: Visa
+  ats: smartrecruiters
+  url: https://api.smartrecruiters.com/v1/companies/visa/postings?limit=100
+  interval: 1800
+- name: Vitruvian Partners
+  slug: VitruvianPartners
+  ats: browser
+  url: https://vitruvianform.com/a/careers
+  interval: 7200
+- name: W. P. Carey
+  slug: WPCarey
+  ats: browser
+  url: https://www.wpcarey.com/careers
+  interval: 7200
+- name: Walter Scott
+  slug: WalterScott
+  ats: browser
+  url: https://www.walterscott.com/careers/
+  interval: 7200
+- name: Warburg Pincus
+  slug: WarburgPincus
+  ats: browser
+  url: https://warburgpincus.com/careers/
+  interval: 7200
+- name: Waters Corporation
+  slug: WatersCorporation
+  ats: browser
+  url: https://www.waters.com/careers
+  interval: 7200
+- name: Weatherbys Private Bank
+  slug: WeatherbysPrivateBank
+  ats: browser
+  url: https://www.weatherbys.bank/careers
+  interval: 7200
+- name: WeChat Pay
+  slug: WeChatPay
+  ats: browser
+  url: https://careers.tencent.com/en-us/
+  interval: 7200
+- name: Wellington Management
+  slug: WellingtonManagement
+  ats: workday
+  url: https://wellington.wd5.myworkdayjobs.com/wday/cxs/wellington/Campus/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://wellington.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Wells Fargo
+  slug: WellsFargo
+  ats: browser
+  url: https://www.wellsfargojobs.com/en/university/
+  interval: 7200
+- name: Welltower
+  slug: Welltower
+  ats: browser
+  url: https://welltower.com/careers/
+  interval: 7200
+- name: Westgrove
+  slug: Westgrove
+  ats: browser
+  url: https://www.westgrovegroup.com/ (verify - firm match uncertain)
+  interval: 7200
+- name: William Blair
+  slug: WilliamBlair
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/williamblair/jobs?content=true
+  interval: 1800
+- name: Wincent
+  slug: Wincent
+  ats: ashby
+  url: https://api.ashbyhq.com/posting-api/job-board/wincent
+  interval: 1800
+- name: Wintermute
+  slug: Wintermute
+  ats: browser
+  url: https://www.wintermute.com/careers
+  interval: 7200
+- name: Wood Mackenzie
+  slug: WoodMackenzie
+  ats: workday
+  url: https://woodmac.wd3.myworkdayjobs.com/wday/cxs/woodmac/woodmaccareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://woodmac.wd3.myworkdayjobs.com
+  interval: 1800
+- name: WTW
+  slug: WTW
+  ats: smartrecruiters
+  url: https://api.smartrecruiters.com/v1/companies/wtw/postings?limit=100
+  interval: 1800
+- name: Xantium
+  slug: Xantium
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/xantium/jobs?content=true
+  interval: 1800
+- name: XTX Markets
+  slug: XTXMarkets
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/xtxmarketstechnologies/jobs?content=true
+  interval: 1800
+- name: Zaoui & Co.
+  slug: ZaouiCo
+  ats: browser
+  url: https://zaouico.com/
+  interval: 7200
+- name: Zeus Capital
+  slug: ZeusCapital
+  ats: browser
+  url: https://www.zeuscapital.co.uk/ (verify)
+  interval: 7200
+- name: ZS
+  slug: ZS
+  ats: browser
+  url: https://www.zs.com/careers
+  interval: 7200
+- name: Zurich Insurance
+  slug: ZurichInsurance
+  ats: browser
+  url: https://www.zurich.co.uk/careers/early-careers
+  interval: 7200

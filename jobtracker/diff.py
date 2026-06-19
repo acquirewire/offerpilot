@@ -112,12 +112,57 @@ def content_fingerprint(html: str, scope_selector: str | None = None) -> str:
     return hashlib.sha256(norm.encode("utf-8")).hexdigest()
 
 
+_YEAR_RE = re.compile(r"\b20\d{2}\b")
+_TERM_CACHE: dict[str, re.Pattern] = {}
+
+
+def _term_re(term: str) -> re.Pattern:
+    """Word-boundary matcher for a filter term. 'intern' matches intern/interns/
+    internship but NOT 'internal'/'international'; other terms match on a leading
+    word boundary (so 'placement' also catches 'placements')."""
+    pat = _TERM_CACHE.get(term)
+    if pat is None:
+        if term == "intern":
+            rx = r"\bintern(?:ship|s)?\b"
+        else:
+            rx = r"\b" + re.escape(term)
+        pat = _TERM_CACHE[term] = re.compile(rx, re.IGNORECASE)
+    return pat
+
+
+def _any_term(haystack: str, terms) -> bool:
+    return any(_term_re(t).search(haystack) for t in terms)
+
+
 def is_relevant(posting: JobPosting, filt: RelevanceFilter) -> bool:
-    """True if this posting matches the user's keyword/region/language gates."""
-    # Keyword gate: at least one target keyword in title or cycle.
-    if filt.keywords:
-        haystack = f"{posting.title} {posting.cycle or ''}".lower()
-        if not any(k in haystack for k in filt.keywords):
+    """True if this posting matches the user's gates.
+
+    Internship targeting (e.g. "2027 internships only"):
+      * require_any -- the title must read like an internship (>=1 term), which
+        is what strips out full-time / experienced roles a careers feed mixes in.
+      * exclude     -- hard reject on seniority / full-time markers.
+      * years       -- if the title names a cycle year, it must be a wanted one
+        (a title with no year still passes, since many list the year elsewhere).
+    """
+    haystack = f"{posting.title} {posting.cycle or ''}".lower()
+
+    # Keyword gate (legacy OR): at least one target keyword in title or cycle.
+    if filt.keywords and not any(k in haystack for k in filt.keywords):
+        return False
+
+    # Internship gate: must contain at least one internship term (word-aware,
+    # so "Internal Audit" / "International" don't masquerade as "intern").
+    if filt.require_any and not _any_term(haystack, filt.require_any):
+        return False
+
+    # Seniority / full-time exclusions.
+    if filt.exclude and _any_term(haystack, filt.exclude):
+        return False
+
+    # Year gate: if a year is named and it isn't one we want, drop it.
+    if filt.years:
+        named = set(_YEAR_RE.findall(haystack))
+        if named and not (named & filt.years):
             return False
 
     # Region gate.

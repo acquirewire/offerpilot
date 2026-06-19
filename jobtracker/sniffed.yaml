@@ -1,0 +1,3 @@
+# Auto-resolved source-direct ATS feeds (jobtracker.resolve).
+# Merge under the `firms:` key of config.yaml.
+firms:

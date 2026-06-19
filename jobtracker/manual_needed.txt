@@ -1,0 +1,270 @@
+# Firms whose live feed couldn't be auto-resolved.
+# These need a one-time DevTools endpoint (Workday/Avature/tal.net/
+# iCIMS/Oracle/Teamtailor) or a Playwright fallback.
+
+7IM	https://careers.7im.co.uk/
+ABN AMRO	https://www.abnamro.com/uk/en/careers
+Accuracy	https://www.accuracy.com/careers/
+ADIA	https://jobs.adia.ae/
+Advent International	https://www.adventinternational.com/advent-at-work/
+Aegon	https://www.aegon.com/careers/graduates-interns
+Affinius Capital	https://affiniuscapital.com/careers/
+Alantra	https://www.alantra.com/careers/students-graduates/
+Allia C&C	https://allia.group/careers/
+Allianz Insurance	https://careers.allianz.com/gb/en/internships-and-placements
+Allied World	https://alliedworldinsurance.com/products/working-at-allied-world/
+Altana Wealth	https://altanawealth.com/careers/
+Alvarez & Marsal	https://careers.alvarezandmarsal.com/search/job-type/intern/jobs
+Alvine Capital	https://www.alvinecapital.com/
+Amazon	https://www.amazon.jobs/content/en-gb/career-programs/university/internships-for-students
+American Express	https://careers.americanexpress.com/students/uk
+Amundi	https://jobs.amundi.com/
+Aon	https://www.aon.com/careers/early-careers/uk/internships
+Apple	https://jobs.apple.com/en-us/details/200646124-0836/finance-development-program-2027-internship-opportunities
+Arbuthnot Latham	https://careers.arbuthnotlatham.co.uk/
+Ardea Partners	https://www.ardeapartners.com/careers
+Arkle Finance	https://arklefinance.co.uk/careers/
+Aspect Capital	https://www.aspectcapital.com/careers/
+AstraZeneca	https://careers.astrazeneca.com/early-careers-internships
+Atlanta Wealth	https://altanawealth.com/careers/
+Audit Scotland	https://www.audit-scotland.gov.uk/careers
+AustralianSuper	https://www.australiansuper.com/careers/graduate-and-internship-programs
+Aventum Group	https://aventumgroup.com/join-us/early-careers
+AXA	https://jobs.axa.co.uk/early-careers
+Azets	https://www.azets.com/en-uk/careers
+BAE Systems	https://www.baesystems.com/en-uk/careers/careers-in-the-uk/your-career-with-us/search---apply/graduate-opportunities/summer-internships
+Bain & Company	https://www.bain.com/careers/work-with-us/internships-programs/true-north-scholarship-for-women-london/
+Baird	https://www.bairdcareers.com/internships/global-investment-banking-intern-programme-europe/
+Baker Hughes	https://careers.bakerhughes.com/global/en/early-careers-internships
+Balyasny Asset Management	https://www.bamfunds.com/careers/internships
+Bank of England	https://www.bankofengland.co.uk/careers/future-talent/internships
+Barnett Waddingham	https://www.barnett-waddingham.co.uk/careers/early-careers/summer-internships/
+BCG	https://careers.bcg.com/global/en/internship-opportunities
+BDO Global	https://careers.bdo.co.uk/placements-and-internships
+Berenberg	https://careers.berenberg.com/early-careers/internships/summer-internship-programmes
+BGF	https://www.bgf.co.uk/career/
+Blackfinch Group	https://blackfinch.com/careers/
+BlackRock	https://careers.blackrock.com/early-careers/emea/
+Bloomberg	https://www.bloomberg.com/company/early-careers/internship/
+BMLL	https://www.bmlltech.com/company/careers
+BMO Capital Markets	https://capitalmarkets.bmo.com/en/careers/
+BNP Paribas	https://careers.bnpparibas.co.uk/internships/
+BNY Mellon	https://www.bny.com/corporate/global/en/about-us/careers/students/internship-program.html
+British Airways	https://careers.ba.com/emerging-talent
+British Business Bank	https://www.british-business-bank.co.uk/about/careers/early-career
+British Land	https://www.britishland.com/careers/early-careers/
+BTIG	https://www.btig.com/careers/internship-program/
+Burford Capital	https://www.burfordcapital.com/about-us/careers/
+Caledonia Investments	https://www.caledonia.com/about/our-intern-programme/
+Campbell Lutyens	https://campbell-lutyens.com/careers/graduate-programme/
+Canaccord Genuity	https://www.canaccordgenuity.com/global-careers/students/
+Capgemini	https://www.capgemini.com/gb-en/careers/career-paths/graduates-and-apprenticeships/graduates/
+Capstone	https://www.capstoneco.com/careers/
+Carlyle Group	https://www.carlyle.com/careers
+Carter Jonas	https://www.carterjonas.co.uk/early-careers/property-internships-work-experience
+Castleton Commodities International	https://www.cci.com/careers/students/
+Caxton Associates	https://www.caxton.com/careers/
+Cboe Global Markets	https://careers.cboe.com/us/en/student
+CBRE	https://www.cbre.co.uk/careers/students-and-graduates
+CD&R	https://www.cdr.com/tsp/coop-careers
+Centerview Partners	https://www.centerviewpartners.com/careers.aspx
+Centrica	https://www.lifeatcentrica.com/our-pathways/internships/
+Charities Aid Foundation	https://www.cafonline.org/about-us/careers
+Chicago Trading Company	https://www.chicagotrading.com/campus
+Citadel	https://www.citadel.com/careers/open-opportunities
+Citadel Securities	https://www.citadelsecurities.com/careers/internships/
+Citco	https://www.citco.com/careers
+Citi	https://jobs.citi.com/early-careers
+CITIC CLSA	https://www.clsa.com/internship-programme-2/
+Clarksons	https://www.clarksons.com/home/careers/early-careers/broking-summer-internship/
+Climate Investment	https://www.climatechangecareers.com/job/climate-investment-ci/london-united-kingdom/summer-intern-investments/
+Coinbase	https://www.coinbase.com/en-gb/careers/positions/7322939
+Columbia Threadneedle Investments	https://www.columbiathreadneedle.com/en/gb/institutional/careers/early-careers/
+CPPIB	https://www.cppinvestments.com/careers/campus-candidates/internships/
+Crédit Agricole	https://www.ca-cib.com/en/careers/students-and-young-graduates
+CT: Accountants Advisers	https://ct.me/careers/graduate-recruitment/
+CVC Capital Partners	https://www.cvc.com/about/working-at-cvc/
+Cygnum Capital	https://www.cygnumcapital.com/careers
+D.E. Shaw	https://www.deshaw.com/careers/internships
+Dare	https://careers.dare.global/departments/graduate-student-programmes
+DC Advisory	https://www.dcadvisory.com/join-us/early-careers/
+DealGlobe	https://en.dealglobe.com/careers/
+Deloitte	https://www.deloitte.com/uk/en/careers/early-careers/early-careers-programmes.html
+Deutsche Bank	https://careers.db.com/students-graduates/internship-programme/
+Dow Jones	https://dowjones-internships.jobs/
+DRW	https://www.drw.com/work-at-drw/interns
+DWS	https://www.dws-earlycareers.groupgti.com/internship-program
+E.ON	https://careers.eon.com/uk
+Eastdil Secured	https://eastdilsecured.com/student-recent-college-graduate-programs/
+EBRD	https://www.ebrd.com/home/work-with-us/ebrd-careers/ebrd-internships.html
+EDF Trading	https://www.edftrading.com/careers/graduates-interns
+EQ	https://www.eqaccountants.co.uk/careers/internships/
+Equinor	https://www.equinor.com/careers/summer-interns
+Equitix	https://equitix.com/about/careers/
+Ethical Capital Partners	https://www.ethicalcapitalpartners.com/careers
+Evercore	https://www.evercore.com/careers/students-graduates/students-graduates-europe-asia/
+EY	https://www.ey.com/en_uk/careers/students/undergraduates/sip
+EY-Parthenon	https://www.ey.com/en_uk/careers/parthenon/earlycareers
+FactSet	https://www.factset.com/careers
+Fenchurch Advisory	https://fenchurchadvisory.com/careers/
+Fide Partners	https://fidepartners.com/careers/
+Fidelity International	https://careers.fidelityinternational.com/early-careers-overview/interns-and-insights/internships/
+Financial Conduct Authority	https://www.fca.org.uk/careers/early-careers
+First Actuarial	https://www.firstactuarial.co.uk/careers/
+First Bank of Nigeria	https://www.fbnbank.co.uk/firstbankuk-careers/
+First Wealth	https://www.firstwealth.co.uk/about-us/careers
+Franklin Templeton	https://www.franklintempletoncareers.com/early-careers
+FTI Consulting	https://www.fticonsulting.com/careers/early-careers
+G-Research	https://www.gresearch.com/vacancies/internship-in-quantitative-research/
+Gartner	https://jobs.gartner.com/early-careers/internships/
+General Electric	https://jobs.gecareers.com/global/en/internships-co-ops
+GEP	https://www.gep.com/careers/join-us/campus-connect
+GIC	https://gic.careers/programmes/gic-internship-programme/
+Gleacher Shacklock	https://www.gleachershacklock.com/work-with-us/careers/
+GLG	https://glginsights.com/campus-recruitment/
+Global Infrastructure Advisors	https://www.global-infra.com/careers/
+Gneiss Energy	https://gneiss.energy/careers/
+Goldman Sachs	https://www.goldmansachs.com/careers/students/programs-and-internships/emea/summer-analyst-programme
+Google	https://www.google.com/about/careers/applications/students/business-internships/
+Government Economic Service	https://www.gov.uk/guidance/how-to-apply-for-a-government-economic-service-summer-vacation-placement
+GPFS	https://gpfs.breezy.hr/
+Greenhill	https://greenhill.freshminds.co.uk/
+Hamilton Insurance Group	https://www.hamiltongroup.com/careers/
+Handelsbanken	https://www.handelsbanken.co.uk/en/about-us/careers/internships
+Hayfin Capital Management	https://www.hayfin.com/people/internship-programme/
+HDI Global	https://ukcareers.hdi.global/
+Hellman & Friedman	https://hf.com/
+HSBC	https://www.hsbc.com/careers/students-and-graduates/internships
+Hudson River Trading	https://www.hudsonrivertrading.com/student-opportunities/
+ICE	https://www.ice.com/careers/intern
+InfraRed Capital Partners	https://www.ircp.com/talent/early-careers/
+Insight Partners	https://info.insightpartners.com/Campus-Recruiting-Programs.html
+Insurance Advisory Partners	https://www.insuranceap.com/
+Intriva	https://apply.workable.com/intriva-capital/
+Inverto	https://inverto.com/en/careers/students/
+Invesco	https://careers.invesco.com/early-careers/
+Investec	https://www.investec.com/en_gb/welcome-to-investec/Careers/graduates.html
+IQT	https://www.iqt.org/careers
+Isio	https://careers.isio.com/pages/early-careers
+Ithaca Energy	https://www.ithacaenergy.com/careers/apply
+J.P. Morgan	https://www.jpmorganchase.com/careers/explore-opportunities/students-and-graduates
+Javelin Global Commodities	https://javelincommodities.com/contact/careers/
+Jefferies	https://www.jefferies.com/careers/students-and-graduates/
+Johnston Carmichael	https://johnstoncarmichael.com/careers/starting-out/summer-internships/
+Just	https://www.workatjust.co.uk/early_careers/
+KBW (Keefe, Bruyette & Woods)	https://kbw.com/about-us/working-at-kbw/
+KKR	https://www.kkr.com/careers/student-careers
+Kline Hill Partners	https://www.klinehill.com/
+Korn Ferry	https://www.kornferry.com/careers/join-korn-ferry/internships
+KR8 Advisory	https://kr8.co.uk/careers/
+L.E.K. Consulting	https://www.lek.com/join-lek/apply/internships
+Lazard	https://www.lazard.com/about-lazard/locations/united-kingdom/careers-in-the-united-kingdom/early-career-programmes-in-the-uk/
+Lazard Asset Management	https://www.lazard.com/careers/students/
+LCP	https://careers.lcp.com/early-careers/summer-internships
+Lenovo	https://jobs.lenovo.com/en_US/careers/EarlyCareer
+Leo-Crown Estates	https://leo-crown.com/
+Liberty Global	https://www.libertyglobal.com/careers/early-careers/internships-and-industrial-placements/finance-internship/
+Liquidnet	https://www.liquidnet.com/careers
+Lloyds Banking Group	https://www.lloydsbankinggrouptalent.com/our-opportunities/undergraduates/summer-internships/
+LMR Partners	https://www.lmrpartners.com/careers
+Loizou & Co	https://loizouco.com/careers
+London Stock Exchange Group	https://www.lseg.com/en/careers/graduate-internship-programmes/internship-programmes
+Macquarie Group	https://www.macquarie.com/uk/en/careers/graduates-and-interns.html
+Macro Hive	https://macrohive.com/
+MarketAxess	https://www.marketaxess.com/careers/students
+Marsh McLennan	https://careers.marshmclennan.com/global/en/landingstudenttemplate
+McKinsey & Company	https://www.mckinsey.com/careers/search-jobs/jobs/businessanalystintern-15275
+Midland Heart	https://jobs.midlandheartgroup.org.uk/jobs/early-careers/
+Millennium Management	https://campusjobs.mlp.com/careers/job/755954628841
+Mizuho	https://www.mizuhogroup.com/emea/careers/investment-banking-careers/internship-programme
+MKI Global Partners	https://mkigp.com/
+Moody's	https://careers.moodys.com/
+Morgan Stanley	https://www.morganstanley.com/people-opportunities/students-graduates
+Mubadala Investment Company	https://www.mubadala.com/en/careers/student
+Munich Re	https://www.munichre.com/en/careers/students-and-career-starters/internship.html
+Nationwide	https://www.nationwide-jobs.co.uk/early-careers/summer-internships/
+Natrium Capital	https://www.natriumcapital.com/careers/
+NatWest Markets	https://jobs.natwestgroup.com/pages/natwest-markets-internships
+NERA	https://www.nera.com/careers/student.html
+NextWave Consulting	https://www.nxwave.com/careers
+NFU Mutual	https://careers.nfumutual.co.uk/what-you-could-be-doing/internships
+Nomura	https://www.nomura.com/careers/early-careers/internship-programs/
+Nordic Capital	https://career.nordiccapital.com/pages/internship-program
+Norges Bank	https://www.nbim.no/en/about-us/career/summer-internship/
+OC&C	https://www.occstrategy.com/en/careers/careers-at-occ/
+Ondra Partners	https://www.ondra.com/
+Optiver	https://optiver.com/working-at-optiver/internships/
+Oracle	https://www.oracle.com/careers/students-grads/internships/
+Orbis	https://www.orbis.com/careers/careers/opportunities/intern-with-us
+Panmure Liberum	https://panmureliberum.com/people/careers/
+Peel Hunt	https://www.peelhunt.com/careers/internships/
+Pension Insurance Corporation	https://www.pensioncorporation.com/careers
+Perella Weinberg Partners	https://pwpartners.com/careers/intern-graduate-recruitment/
+Pharus	https://pharus.com/careers/
+Pictet Asset Management	https://am.pictet.com/uk/en/careers
+Plural Strategy	https://www.pluralstrategy.com/careers/
+Principal Asset Management	https://careers.principal.com/internships
+PwC	https://www.pwc.co.uk/careers/early-careers/undergraduate/summer-internship.html
+Qatalyst Partners	https://qatalyst.com/
+Quantbot Technologies	https://www.quantbot.com/careers/internships/
+Quantuma	https://careers.k3capitalgroup.com/
+Qube RT	https://www.qube-rt.com/careers
+RBC Capital Markets	https://www.rbccm.com/en/careers/campus-recruiting.page
+Redburn	https://www.redburnatlantic.com/careers/
+Rede Partners	https://www.rede-partners.com/graduate-scheme
+Revolut	https://www.revolut.com/careers/position/internship-programme-2027-strategy-operations-manager-aa3cc201-5808-4d7e-ba8e-e82e443d90d3/
+Robey Warshaw	https://www.robeywarshaw.com/
+Rokos Capital Management	https://www.rokoscapital.com/careers
+Roland Berger	https://www.rolandberger.com/en/Join/Join-Us/Career-Starter/Internship/
+Rothesay	https://www.rothesay.com/about-us/working-here/careers/graduate-and-intern-programmes/
+Rothschild & Co.	https://www.rothschildandco.com/en/careers/students-and-graduates/
+RWE	https://www.rwe.com/en/rwe-careers-portal/job-offers
+Rystad Energy	https://www.rystadenergy.com/rystad-energy-internship-program
+S&P Global	https://www.spglobal.com/en/explore-s-p-global/careers
+Saltgate	https://saltgate.com/careers/
+Santander	https://www.santander.com/en/careers/uk-careers/emerging-talent/summer-internships
+Savills	https://www.savills.co.uk/contact-us/careers/future-talent-careers/placement-opportunities/summer-scheme.aspx
+Scotiabank	https://www.scotiabank.com/careers/en/careers/careers-students-and-new-grads.html
+Severn Trent	https://www.severntrent.com/careers/early-careers/summer-placements/
+Shell	https://www.shell.co.uk/about-us/careers/shell-assessed-internship-programme.html
+SilverTide	https://uk.linkedin.com/company/silvertide-financial/jobs
+Simon-Kucher	https://www.simon-kucher.com/en/careers
+Skagen Capital	https://www.skagencapital.com/
+Sky	https://careers.sky.com/earlycareers/internships/finance
+Société Générale	https://www.societegenerale.co.uk/en/careers/internship/
+STJ Advisors	https://www.stjadvisors.com/careers
+StoneX	https://www.stonex.com/en/about/careers/early-talent/
+Superbet	https://job-boards.eu.greenhouse.io/superbet
+Susquehanna International Group	https://careers.sig.com/eu-intern-openings
+Swiss Re	https://careers.swissre.com/go/Internships/2744401/
+Synthesis	https://app.the-trackr.com/company/synthesis
+T. Rowe Price	https://www.troweprice.com/corporate/se/en/careers/students-and-recent-graduates/internships-uk.html
+TD Securities	https://www.tdsecurities.com/ca/en/campus
+Temasek	https://www.temasek.com.sg/en/careers/students-and-graduates
+Tencent	https://careers.tencent.com/en-us/
+Tesco	https://www.tesco-careers.com/early-careers/
+The Dot Group	https://www.thedotgroup.com/careers
+The Wall Street Journal	https://dowjones-internships.jobs/
+TikTok	https://careers.tiktok.com/
+Tokio Marine Kiln	https://www.tokiomarinekiln.com/careers/
+Trackr	https://academy.the-trackr.com/
+Tradeweb	https://www.tradeweb.com/careers/
+Turner & Townsend	https://www.turnerandtownsend.com/en/careers/early-careers/
+UBS	https://www.ubs.com/global/en/careers/students-graduates.html
+Vanguard	https://www.vanguardjobs.com/students-graduates/
+Verition Fund Management	https://www.verition.com/careers/
+Vitruvian Partners	https://vitruvianform.com/a/careers
+W. P. Carey	https://www.wpcarey.com/careers
+Walter Scott	https://www.walterscott.com/careers/
+Warburg Pincus	https://warburgpincus.com/careers/
+Waters Corporation	https://www.waters.com/careers
+Weatherbys Private Bank	https://www.weatherbys.bank/careers
+WeChat Pay	https://careers.tencent.com/en-us/
+Wells Fargo	https://www.wellsfargojobs.com/en/university/
+Welltower	https://welltower.com/careers/
+Westgrove	https://www.westgrovegroup.com/ (verify - firm match uncertain)
+Wintermute	https://www.wintermute.com/careers
+Zaoui & Co.	https://zaouico.com/
+Zeus Capital	https://www.zeuscapital.co.uk/ (verify)
+ZS	https://www.zs.com/careers
+Zurich Insurance	https://www.zurich.co.uk/careers/early-careers

@@ -15,3 +15,4 @@ streamlit>=1.37          # dashboard.py
 stripe>=9.0              # billing.py — self-serve Pro upgrades (optional)
 
 # PDF export in tailor.py shells out to LibreOffice (`soffice`) — install separately.
+curl_cffi

@@ -31,7 +31,7 @@ def cmd_poll(args) -> None:
     from .monitor import run
 
     try:
-        asyncio.run(run(args.config))
+        asyncio.run(run(args.config, prime=getattr(args, "prime", False)))
     except KeyboardInterrupt:
         print("\nstopped.")
 
@@ -184,7 +184,9 @@ def main(argv: list[str] | None = None) -> None:
     sub = p.add_subparsers(dest="cmd", required=True)
 
     s = sub.add_parser("init-db"); s.add_argument("--db", default="jobtracker.db"); s.set_defaults(fn=cmd_init_db)
-    s = sub.add_parser("poll"); s.add_argument("--config", required=True); s.set_defaults(fn=cmd_poll)
+    s = sub.add_parser("poll"); s.add_argument("--config", required=True)
+    s.add_argument("--prime", action="store_true", help="one silent baseline pass (no alerts), then exit")
+    s.set_defaults(fn=cmd_poll)
     s = sub.add_parser("scan"); s.add_argument("--cv", required=True); s.add_argument("--jd", required=True); s.set_defaults(fn=cmd_scan)
     s = sub.add_parser("tailor")
     s.add_argument("--master", required=True); s.add_argument("--jd", required=True)

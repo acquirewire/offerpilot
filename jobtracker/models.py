@@ -60,12 +60,16 @@ class CareerPageSnapshot:
 class RelevanceFilter:
     """What counts as worth-alerting. Empty collection == 'no constraint'."""
 
-    keywords: set[str] = field(default_factory=set)     # e.g. {"2027", "summer analyst", "off-cycle"}
+    keywords: set[str] = field(default_factory=set)     # OR gate (legacy): >=1 must appear
     regions: set[str] = field(default_factory=set)      # e.g. {"APAC"}
     # A posting passes the language gate if the user can satisfy AT LEAST the
     # languages it requires. So we store what the *user* speaks, and require
     # required_languages ⊆ user_languages.
     user_languages: set[str] = field(default_factory=lambda: {"english"})
+    # Internship targeting (the "2027 internships only" rule):
+    require_any: set[str] = field(default_factory=set)  # role must contain >=1 of these (e.g. intern terms)
+    exclude: set[str] = field(default_factory=set)      # reject if any appears (full-time/senior)
+    years: set[str] = field(default_factory=set)        # if a year is named, it must be one of these
 
     @classmethod
     def from_config(cls, raw: dict) -> "RelevanceFilter":
@@ -73,6 +77,9 @@ class RelevanceFilter:
             keywords={k.lower() for k in raw.get("keywords", [])},
             regions={r.upper() for r in raw.get("regions", [])},
             user_languages={l.lower() for l in raw.get("user_languages", ["english"])},
+            require_any={k.lower() for k in raw.get("require_any", [])},
+            exclude={k.lower() for k in raw.get("exclude", [])},
+            years={str(y) for y in raw.get("years", [])},
         )
 
 

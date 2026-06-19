@@ -30,11 +30,18 @@ async def push(topic: str | None, title: str, body: str) -> None:
         return
     server = os.getenv("NTFY_SERVER", "https://ntfy.sh").rstrip("/")
     try:
+        # Publish via ntfy's JSON API (UTF-8 safe). Putting the title in an HTTP
+        # header breaks on non-ASCII (emoji, "Société Générale", "L'Oréal").
         async with httpx.AsyncClient(timeout=10) as client:
             await client.post(
-                f"{server}/{topic}",
-                content=body.encode("utf-8"),
-                headers={"Title": title, "Priority": "high", "Tags": "briefcase"},
+                server,
+                json={
+                    "topic": topic,
+                    "title": title,
+                    "message": body,
+                    "priority": 4,
+                    "tags": ["briefcase"],
+                },
             )
         log.info("notify.ntfy.sent", title=title)
     except Exception as exc:  # noqa: BLE001 - alerting must not crash the loop

@@ -1,0 +1,1222 @@
+db_path: jobtracker.db
+ntfy_topic: internships
+defaults:
+  interval: 1800
+  max_apps: 3
+filter:
+  require_any:
+  - intern
+  - internship
+  - summer analyst
+  - summer associate
+  - summer intern
+  - placement
+  - insight
+  - vacation scheme
+  - vacation programme
+  - off-cycle
+  - industrial placement
+  - work placement
+  - spring week
+  - spring insight
+  - spring into
+  - summer programme
+  - summer program
+  - summer scheme
+  - summer academy
+  exclude:
+  - full-time
+  - full time
+  - experienced
+  - vice president
+  - managing director
+  - graduate programme
+  - graduate program
+  - graduate analyst
+  - graduate scheme
+  - mba
+  years:
+  - 2027
+  user_languages:
+  - english
+firms:
+- name: Aberdeen Group
+  slug: AberdeenGroup
+  ats: workday
+  url: https://abrdn.wd3.myworkdayjobs.com/wday/cxs/abrdn/abrdn/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://abrdn.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Advent International
+  slug: AdventInternational
+  ats: workday
+  url: https://adventinternational.wd12.myworkdayjobs.com/wday/cxs/adventinternational/AdventCareers/jobs
+  interval: 1800
+  method: POST
+  body: &id001
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://adventinternational.wd12.myworkdayjobs.com
+- name: AIG
+  slug: AIG
+  ats: workday
+  url: https://aig.wd1.myworkdayjobs.com/wday/cxs/aig/aig/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://aig.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Alantra
+  slug: Alantra
+  ats: workday
+  url: https://alantra.wd3.myworkdayjobs.com/wday/cxs/alantra/Alantra/jobs
+  interval: 1800
+  method: POST
+  body: *id001
+  host: https://alantra.wd3.myworkdayjobs.com
+- name: AllianceBernstein
+  slug: AllianceBernstein
+  ats: workday
+  url: https://abglobal.wd1.myworkdayjobs.com/wday/cxs/abglobal/alliancebernsteincareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://abglobal.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Alpha FMC
+  slug: AlphaFMC
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/alphafmc/jobs?content=true
+  interval: 86400
+- name: AlphaSights
+  slug: AlphaSights
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/alphasights/jobs?content=true
+  interval: 86400
+- name: Ankura
+  slug: Ankura
+  ats: workday
+  url: https://ankura.wd5.myworkdayjobs.com/wday/cxs/ankura/Ankura/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://ankura.wd5.myworkdayjobs.com
+  interval: 86400
+- name: Apollo Global Management
+  slug: ApolloGlobalManagement
+  ats: workday
+  url: https://athene.wd5.myworkdayjobs.com/wday/cxs/athene/Apollo_Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://athene.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Aquatic Capital Management
+  slug: AquaticCapitalManagement
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/aquaticcapitalmanagement/jobs?content=true
+  interval: 1800
+- name: Ares Management
+  slug: AresManagement
+  ats: workday
+  url: https://aresmgmt.wd1.myworkdayjobs.com/wday/cxs/aresmgmt/External/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://aresmgmt.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Bain Capital
+  slug: BainCapital
+  ats: workday
+  url: https://baincapital.wd1.myworkdayjobs.com/wday/cxs/baincapital/External_Public/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://baincapital.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Bank of America
+  slug: BankOfAmerica
+  ats: workday
+  url: https://ghr.wd1.myworkdayjobs.com/wday/cxs/ghr/lateral-us/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://ghr.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Barclays
+  slug: Barclays
+  ats: workday
+  url: https://barclays.wd3.myworkdayjobs.com/wday/cxs/barclays/External_Career_Site_Barclays/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://barclays.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Baringa
+  slug: Baringa
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/baringa/jobs?content=true
+  interval: 86400
+- name: Barings
+  slug: Barings
+  ats: workday
+  url: https://barings.wd1.myworkdayjobs.com/wday/cxs/barings/barings/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://barings.wd1.myworkdayjobs.com
+  interval: 1800
+- name: BBVA
+  slug: BBVA
+  ats: workday
+  url: https://bbva.wd3.myworkdayjobs.com/wday/cxs/bbva/BBVA/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://bbva.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Blackstone
+  slug: Blackstone
+  ats: workday
+  url: https://blackstone.wd1.myworkdayjobs.com/wday/cxs/blackstone/Blackstone_Campus_Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://blackstone.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Blockchain.com
+  slug: BlockchainCom
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/blockchain/jobs?content=true
+  interval: 86400
+- name: BlueCrest Capital Management
+  slug: BlueCrestCapitalManagement
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/bluecrestcapitalmanagement/jobs?content=true
+- name: BP
+  slug: BP
+  ats: workday
+  url: https://bpinternational.wd3.myworkdayjobs.com/wday/cxs/bpinternational/bpCareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://bpinternational.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Brevan Howard
+  slug: BrevanHoward
+  ats: workday
+  url: https://wd3.myworkdaysite.com/wday/cxs/brevanhoward/BH_ExternalCareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://wd3.myworkdaysite.com
+  interval: 1800
+- name: Brio Real Estate
+  slug: BrioRealEstate
+  ats: workday
+  url: https://revantage.wd1.myworkdayjobs.com/wday/cxs/revantage/Brio_Real_Estate/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://revantage.wd1.myworkdayjobs.com
+  interval: 1800
+- name: BTG Pactual
+  slug: BTGPactual
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/btgpactual/jobs?content=true
+  interval: 1800
+- name: Cabot Properties
+  slug: CabotProperties
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/cabotproperties/jobs?content=true
+  interval: 1800
+- name: Cambridge Associates
+  slug: CambridgeAssociates
+  ats: workday
+  url: https://cambridgeassociates.wd5.myworkdayjobs.com/wday/cxs/cambridgeassociates/Cambridge_Associates/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://cambridgeassociates.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Canaccord Genuity
+  slug: CanaccordGenuity
+  ats: workday
+  url: https://cgf.wd10.myworkdayjobs.com/wday/cxs/cgf/CG/jobs
+  interval: 1800
+  method: POST
+  body: *id001
+  host: https://cgf.wd10.myworkdayjobs.com
+- name: Canada Life
+  slug: CanadaLife
+  ats: recruitee
+  url: https://canada.recruitee.com/api/offers/
+  interval: 1800
+- name: Canary Wharf Group
+  slug: CanaryWharfGroup
+  ats: workday
+  url: https://canarywharf.wd103.myworkdayjobs.com/wday/cxs/canarywharf/CanaryWharf/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://canarywharf.wd103.myworkdayjobs.com
+  interval: 1800
+- name: Capital Group
+  slug: CapitalGroup
+  ats: workday
+  url: https://capgroup.wd1.myworkdayjobs.com/wday/cxs/capgroup/capitalgroupcareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://capgroup.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Capital One
+  slug: CapitalOne
+  ats: workday
+  url: https://capitalone.wd12.myworkdayjobs.com/wday/cxs/capitalone/Capital_One/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://capitalone.wd12.myworkdayjobs.com
+  interval: 86400
+- name: CDPQ
+  slug: CDPQ
+  ats: workday
+  url: https://cdpq.wd10.myworkdayjobs.com/wday/cxs/cdpq/CDPQ/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://cdpq.wd10.myworkdayjobs.com
+  interval: 1800
+- name: CFO Insights
+  slug: CFOInsights
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/cfoinsights/jobs?content=true
+  interval: 86400
+- name: Charles River Associates
+  slug: CharlesRiverAssociates
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/charlesriverassociates/jobs?content=true
+  interval: 86400
+- name: Chatham Financial
+  slug: ChathamFinancial
+  ats: workday
+  url: https://chathamfinancial.wd501.myworkdayjobs.com/wday/cxs/chathamfinancial/ChathamFinancial/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://chathamfinancial.wd501.myworkdayjobs.com
+  interval: 1800
+- name: CIBC
+  slug: CIBC
+  ats: workday
+  url: https://cibc.wd3.myworkdayjobs.com/wday/cxs/cibc/search/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://cibc.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Coinbase
+  slug: Coinbase
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/coinbase/jobs?content=true
+  interval: 1800
+- name: Compass Lexecon
+  slug: CompassLexecon
+  ats: workday
+  url: https://fticonsulting.wd108.myworkdayjobs.com/wday/cxs/fticonsulting/CompassLexeconCareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://fticonsulting.wd108.myworkdayjobs.com
+  interval: 86400
+- name: Copper.co
+  slug: CopperCo
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/copperco/jobs?content=true
+  interval: 86400
+- name: Cushman & Wakefield
+  slug: CushmanWakefield
+  ats: workday
+  url: https://cw.wd1.myworkdayjobs.com/wday/cxs/cw/External/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://cw.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Da Vinci Trading
+  slug: DaVinciTrading
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/davinciderivatives/jobs?content=true
+  interval: 1800
+- name: Dimensional Fund Advisors
+  slug: DimensionalFundAdvisors
+  ats: workday
+  url: https://dimensional.wd5.myworkdayjobs.com/wday/cxs/dimensional/DFA_Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://dimensional.wd5.myworkdayjobs.com
+  interval: 1800
+- name: DV Trading
+  slug: DVTrading
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/dvtrading/jobs?content=true
+  interval: 1800
+- name: EDF Trading
+  slug: EDFTrading
+  ats: workday
+  url: https://edftrading.wd1.myworkdayjobs.com/wday/cxs/edftrading/EDFTrading/jobs
+  interval: 1800
+  method: POST
+  body: *id001
+  host: https://edftrading.wd1.myworkdayjobs.com
+- name: EQT
+  slug: EQT
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/eqtpartners/jobs?content=true
+  interval: 1800
+- name: Everest
+  slug: Everest
+  ats: workday
+  url: https://wd5.myworkdaysite.com/wday/cxs/everestre/careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://wd5.myworkdaysite.com
+  interval: 1800
+- name: ExodusPoint
+  slug: ExodusPoint
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/exoduspoint/jobs?content=true
+  interval: 1800
+- name: Fidelity Investments
+  slug: FidelityInvestments
+  ats: workday
+  url: https://wd1.myworkdaysite.com/wday/cxs/fmr/targeted/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://wd1.myworkdaysite.com
+  interval: 1800
+- name: Flow Traders
+  slug: FlowTraders
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/flowtraders/jobs?content=true
+  interval: 1800
+- name: Forvis Mazars
+  slug: ForvisMazars
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/forvismazars/jobs?content=true
+  interval: 86400
+- name: Francisco Partners
+  slug: FranciscoPartners
+  ats: workday
+  url: https://merative.wd12.myworkdayjobs.com/wday/cxs/merative/External_Career_Site/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://merative.wd12.myworkdayjobs.com
+  interval: 1800
+- name: Frontier Economics
+  slug: FrontierEconomics
+  ats: workday
+  url: https://frontiereconomics.wd3.myworkdayjobs.com/wday/cxs/frontiereconomics/Frontier_Economics_Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://frontiereconomics.wd3.myworkdayjobs.com
+  interval: 86400
+- name: Future Planet Capital
+  slug: FuturePlanetCapital
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/future/jobs?content=true
+  interval: 1800
+- name: Galaxy
+  slug: Galaxy
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/galaxydigitalservices/jobs?content=true
+  interval: 1800
+- name: Gartner
+  slug: Gartner
+  ats: workday
+  url: https://gartner.wd5.myworkdayjobs.com/wday/cxs/gartner/EXT/jobs
+  interval: 1800
+  method: POST
+  body: *id001
+  host: https://gartner.wd5.myworkdayjobs.com
+- name: General Atlantic
+  slug: GeneralAtlantic
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/generalatlantic/jobs?content=true
+  interval: 1800
+- name: Greystar
+  slug: Greystar
+  ats: workday
+  url: https://greystar.wd1.myworkdayjobs.com/wday/cxs/greystar/External/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://greystar.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Grosvenor
+  slug: Grosvenor
+  ats: workday
+  url: https://grosvenor.wd3.myworkdayjobs.com/wday/cxs/grosvenor/External_careers_site_Grosvenor/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://grosvenor.wd3.myworkdayjobs.com
+  interval: 1800
+- name: GSA Capital
+  slug: GSACapital
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/gsacapital/jobs?content=true
+  interval: 1800
+- name: Guggenheim Partners
+  slug: GuggenheimPartners
+  ats: workday
+  url: https://guggenheim.wd1.myworkdayjobs.com/wday/cxs/guggenheim/Guggenheim_Careers_Campus/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://guggenheim.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Guidehouse
+  slug: Guidehouse
+  ats: workday
+  url: https://guidehouse.wd1.myworkdayjobs.com/wday/cxs/guidehouse/External/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://guidehouse.wd1.myworkdayjobs.com
+  interval: 86400
+- name: Gunvor
+  slug: Gunvor
+  ats: workday
+  url: https://gunvor.wd3.myworkdayjobs.com/wday/cxs/gunvor/Gunvor_Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://gunvor.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Hamilton Lane
+  slug: HamiltonLane
+  ats: workday
+  url: https://hamiltonlane.wd108.myworkdayjobs.com/wday/cxs/hamiltonlane/search/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://hamiltonlane.wd108.myworkdayjobs.com
+  interval: 1800
+- name: Harris Williams
+  slug: HarrisWilliams
+  ats: workday
+  url: https://pnc.wd5.myworkdayjobs.com/wday/cxs/pnc/HarrisWilliams/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://pnc.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Hiscox
+  slug: Hiscox
+  ats: workday
+  url: https://hiscox.wd3.myworkdayjobs.com/wday/cxs/hiscox/Hiscox_External_Site/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://hiscox.wd3.myworkdayjobs.com
+  interval: 86400
+- name: Houlihan Lokey
+  slug: HoulihanLokey
+  ats: workday
+  url: https://hl.wd1.myworkdayjobs.com/wday/cxs/hl/Campus/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://hl.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Howden
+  slug: Howden
+  ats: workday
+  url: https://hyperiongrp.wd3.myworkdayjobs.com/wday/cxs/hyperiongrp/Hyperion_External/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://hyperiongrp.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Hudson River Trading
+  slug: HudsonRiverTrading
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/hrttalentcommunity/jobs?content=true
+  interval: 1800
+- name: IMC Trading
+  slug: IMCTrading
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/imc/jobs?content=true
+  interval: 1800
+- name: Interpath Advisory
+  slug: InterpathAdvisory
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/interpath/jobs?content=true
+  interval: 86400
+- name: Invesco
+  slug: Invesco
+  ats: workday
+  url: https://invesco.wd1.myworkdayjobs.com/wday/cxs/invesco/IVZ/jobs
+  method: POST
+  body: &id002
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://invesco.wd1.myworkdayjobs.com
+  interval: 1800
+- name: J.P. Morgan
+  slug: JPMorgan
+  ats: oracle
+  url: https://jpmc.fa.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions?onlyData=true&expand=requisitionList&finder=findReqs;siteNumber=CX_1001,limit=200
+  interval: 1800
+  method: GET
+- name: Jane Street
+  slug: JaneStreet
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/janestreet/jobs?content=true
+  interval: 1800
+- name: JLL
+  slug: JLL
+  ats: workday
+  url: https://jll.wd1.myworkdayjobs.com/wday/cxs/jll/jllcareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://jll.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Julius Baer
+  slug: JuliusBaer
+  ats: workday
+  url: https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://juliusbaer.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Jump Trading
+  slug: JumpTrading
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/jumptrading/jobs?content=true
+  interval: 1800
+- name: LaSalle
+  slug: LaSalle
+  ats: workday
+  url: https://jll.wd1.myworkdayjobs.com/wday/cxs/jll/lasallecareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://jll.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Leerink Partners
+  slug: LeerinkPartners
+  ats: workday
+  url: https://leerink.wd5.myworkdayjobs.com/wday/cxs/leerink/leerinkpartners/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://leerink.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Legal & General
+  slug: LegalGeneral
+  ats: recruitee
+  url: https://legal.recruitee.com/api/offers/
+  interval: 1800
+- name: Lincoln International
+  slug: LincolnInternational
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/lincolninternational/jobs?content=true
+  interval: 1800
+- name: LionTree Advisors
+  slug: LionTreeAdvisors
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/liontree/jobs?content=true
+  interval: 1800
+- name: London Stock Exchange Group
+  slug: LondonStockExchangeGroup
+  ats: workday
+  url: https://lseg.wd3.myworkdayjobs.com/wday/cxs/lseg/Careers/jobs
+  interval: 1800
+  method: POST
+  body: *id001
+  host: https://lseg.wd3.myworkdayjobs.com
+- name: M&G
+  slug: MG
+  ats: workday
+  url: https://mgpru.wd3.myworkdayjobs.com/wday/cxs/mgpru/mandgprudential/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://mgpru.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Mako Trading
+  slug: MakoTrading
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/mako/jobs?content=true
+  interval: 1800
+- name: Man Group
+  slug: ManGroup
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/mangroup/jobs?content=true
+  interval: 1800
+- name: Marshall Wace
+  slug: MarshallWace
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/marshallwace/jobs?content=true
+  interval: 1800
+- name: Maven Securities
+  slug: MavenSecurities
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/emergingtalent/jobs?content=true
+  interval: 1800
+- name: Mercer
+  slug: Mercer
+  ats: workday
+  url: https://mmc.wd1.myworkdayjobs.com/wday/cxs/mmc/MMC/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://mmc.wd1.myworkdayjobs.com
+  interval: 1800
+- name: MFS
+  slug: MFS
+  ats: workday
+  url: https://mfs.wd1.myworkdayjobs.com/wday/cxs/mfs/MFS-Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://mfs.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Moelis & Co
+  slug: MoelisCo
+  ats: workday
+  url: https://moelis.wd1.myworkdayjobs.com/wday/cxs/moelis/University-Hires/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://moelis.wd1.myworkdayjobs.com
+  interval: 1800
+- name: MUFG
+  slug: MUFG
+  ats: workday
+  url: https://mufgub.wd3.myworkdayjobs.com/wday/cxs/mufgub/MUFG-EarlyCareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://mufgub.wd3.myworkdayjobs.com
+  interval: 1800
+- name: National Bank of Canada
+  slug: NationalBankOfCanada
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/national/jobs?content=true
+  interval: 1800
+- name: NCR Atleos
+  slug: NCRAtleos
+  ats: workday
+  url: https://ncratleos.wd1.myworkdayjobs.com/wday/cxs/ncratleos/ext_apacatleos/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://ncratleos.wd1.myworkdayjobs.com
+  interval: 86400
+- name: Neuberger Berman
+  slug: NeubergerBerman
+  ats: workday
+  url: https://nb.wd1.myworkdayjobs.com/wday/cxs/nb/nbcareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://nb.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Newton
+  slug: Newton
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/newton/jobs?content=true
+  interval: 1800
+- name: Northern Trust
+  slug: NorthernTrust
+  ats: workday
+  url: https://ntrs.wd1.myworkdayjobs.com/wday/cxs/ntrs/northerntrust/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://ntrs.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Nuveen
+  slug: Nuveen
+  ats: workday
+  url: https://tiaa.wd1.myworkdayjobs.com/wday/cxs/tiaa/Search/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://tiaa.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Oak Hill Advisors
+  slug: OakHillAdvisors
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/oakhilladvisors/jobs?content=true
+  interval: 1800
+- name: Oliver Wyman
+  slug: OliverWyman
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/oliver/jobs?content=true
+  interval: 86400
+- name: OTPP
+  slug: OTPP
+  ats: workday
+  url: https://otppb.wd3.myworkdayjobs.com/wday/cxs/otppb/OntarioTeachers_Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://otppb.wd3.myworkdayjobs.com
+  interval: 1800
+- name: P&G
+  slug: PG
+  ats: workday
+  url: https://pg.wd5.myworkdayjobs.com/wday/cxs/pg/1000/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://pg.wd5.myworkdayjobs.com
+  interval: 86400
+- name: Permira
+  slug: Permira
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/permiraexternalprivate/jobs?content=true
+  interval: 1800
+- name: PGIM
+  slug: PGIM
+  ats: workday
+  url: https://pru.wd5.myworkdayjobs.com/wday/cxs/pru/Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://pru.wd5.myworkdayjobs.com
+  interval: 1800
+- name: PIMCO
+  slug: PIMCO
+  ats: workday
+  url: https://pimco.wd1.myworkdayjobs.com/wday/cxs/pimco/pimco-careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://pimco.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Piper Sandler
+  slug: PiperSandler
+  ats: workday
+  url: https://pipersandler.wd501.myworkdayjobs.com/wday/cxs/pipersandler/Piper_Sandler_Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://pipersandler.wd501.myworkdayjobs.com
+  interval: 1800
+- name: PJT Partners
+  slug: PJTPartners
+  ats: workday
+  url: https://pjtpartners.wd1.myworkdayjobs.com/wday/cxs/pjtpartners/Students/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://pjtpartners.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Point72
+  slug: Point72
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/point72/jobs?content=true
+  interval: 1800
+- name: Private Equity Insights
+  slug: PrivateEquityInsights
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/privateequityinsights/jobs?content=true
+  interval: 86400
+- name: PSP Investments
+  slug: PSPInvestments
+  ats: workday
+  url: https://investpsp.wd3.myworkdayjobs.com/wday/cxs/investpsp/psp_careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://investpsp.wd3.myworkdayjobs.com
+  interval: 1800
+- name: Putnam
+  slug: Putnam
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/putnamassociatesllc/jobs?content=true
+  interval: 86400
+- name: Raymond James
+  slug: RaymondJames
+  ats: workday
+  url: https://raymondjames.wd1.myworkdayjobs.com/wday/cxs/raymondjames/RaymondJamesEarlyCareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://raymondjames.wd1.myworkdayjobs.com
+  interval: 1800
+- name: Retail Insights
+  slug: RetailInsights
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/retailinsights/jobs?content=true
+  interval: 86400
+- name: Ripple
+  slug: Ripple
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/ripple/jobs?content=true
+  interval: 1800
+- name: Rothschild & Co.
+  slug: RothschildCo
+  ats: workday
+  url: https://rothschildandco.wd3.myworkdayjobs.com/wday/cxs/rothschildandco/RothschildAndCo_Lateral/jobs
+  interval: 1800
+  method: POST
+  body: *id001
+  host: https://rothschildandco.wd3.myworkdayjobs.com
+- name: Ryan
+  slug: Ryan
+  ats: workday
+  url: https://ryan.wd1.myworkdayjobs.com/wday/cxs/ryan/RyanCareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://ryan.wd1.myworkdayjobs.com
+  interval: 86400
+- name: Ryan Specialty
+  slug: RyanSpecialty
+  ats: workday
+  url: https://ryansg.wd5.myworkdayjobs.com/wday/cxs/ryansg/Ryan_Specialty_Career_Site/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://ryansg.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Schonfeld
+  slug: Schonfeld
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/schonfeld/jobs?content=true
+  interval: 1800
+- name: Sixth Street
+  slug: SixthStreet
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/sixthstreet/jobs?content=true
+  interval: 1800
+- name: Soros Fund Management
+  slug: SorosFundManagement
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/familyoffice/jobs?content=true
+  interval: 1800
+- name: Squarepoint Capital
+  slug: SquarepointCapital
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/squarepointcapital/jobs?content=true
+  interval: 1800
+- name: State Street
+  slug: StateStreet
+  ats: workday
+  url: https://statestreet.wd1.myworkdayjobs.com/wday/cxs/statestreet/Global/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://statestreet.wd1.myworkdayjobs.com
+  interval: 1800
+- name: StepStone Group
+  slug: StepStoneGroup
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/stepstone/jobs?content=true
+  interval: 1800
+- name: Stout
+  slug: Stout
+  ats: workday
+  url: https://stout.wd5.myworkdayjobs.com/wday/cxs/stout/Stout-Student-Careers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://stout.wd5.myworkdayjobs.com
+  interval: 1800
+- name: T. Rowe Price
+  slug: TRowePrice
+  ats: workday
+  url: https://troweprice.wd5.myworkdayjobs.com/wday/cxs/troweprice/TRowePriceInternational/jobs
+  method: POST
+  body: *id002
+  host: https://troweprice.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Teneo
+  slug: Teneo
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/teneo/jobs?content=true
+  interval: 86400
+- name: Tide Insurance
+  slug: TideInsurance
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/tide/jobs?content=true
+  interval: 1800
+- name: Tower Research Capital
+  slug: TowerResearchCapital
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/towerresearchcapital/jobs?content=true
+  interval: 1800
+- name: TPG
+  slug: TPG
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/tpgcareers/jobs?content=true
+  interval: 1800
+- name: Virtu Financial
+  slug: VirtuFinancial
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/virtu/jobs?content=true
+  interval: 1800
+- name: Warburg Pincus
+  slug: WarburgPincus
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/warburgpincusllc/jobs?content=true
+  interval: 1800
+- name: Wellington Management
+  slug: WellingtonManagement
+  ats: workday
+  url: https://wellington.wd5.myworkdayjobs.com/wday/cxs/wellington/Campus/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://wellington.wd5.myworkdayjobs.com
+  interval: 1800
+- name: Wells Fargo
+  slug: WellsFargo
+  ats: workday
+  url: https://wd1.myworkdaysite.com/wday/cxs/wf/WellsFargoJobs/jobs
+  interval: 1800
+  method: POST
+  body: *id001
+  host: https://wd1.myworkdaysite.com
+- name: William Blair
+  slug: WilliamBlair
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/williamblair/jobs?content=true
+  interval: 1800
+- name: Wood Mackenzie
+  slug: WoodMackenzie
+  ats: workday
+  url: https://woodmac.wd3.myworkdayjobs.com/wday/cxs/woodmac/woodmaccareers/jobs
+  method: POST
+  body:
+    appliedFacets: {}
+    limit: 20
+    offset: 0
+    searchText: ''
+  host: https://woodmac.wd3.myworkdayjobs.com
+  interval: 86400
+- name: Xantium
+  slug: Xantium
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/xantium/jobs?content=true
+  interval: 1800
+- name: XTX Markets
+  slug: XTXMarkets
+  ats: greenhouse
+  url: https://boards-api.greenhouse.io/v1/boards/xtxmarketstechnologies/jobs?content=true
+  interval: 1800

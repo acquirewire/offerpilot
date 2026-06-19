@@ -22,6 +22,7 @@ class FirmTarget:
     body: dict | None = None      # POST payload for Workday search
     host: str = ""                # base host for building apply URLs
     scope_selector: str | None = None
+    search_term: str | None = None  # browser tier: type this into the page's search box first
     max_apps: int = 3
     interval: int = 300
 
@@ -49,6 +50,7 @@ def load(path: str) -> Config:
             body=f.get("body"),
             host=f.get("host", ""),
             scope_selector=f.get("scope_selector"),
+            search_term=f.get("search_term"),
             max_apps=f.get("max_apps", defaults.get("max_apps", 3)),
             interval=f.get("interval", defaults.get("interval", 300)),
         )
