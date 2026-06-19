@@ -1,0 +1,4 @@
+# Your private Google credentials — never commit these
+credentials.json
+token.json
+unsub_log.csv
