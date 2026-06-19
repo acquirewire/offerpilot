@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["--prefix", "C:\\Users\\henry\\acquirewire", "run", "dev"],
       "port": 4321
+    },
+    {
+      "name": "boostmatcher",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "boostmatcher"],
+      "port": 8765
     }
   ]
 }

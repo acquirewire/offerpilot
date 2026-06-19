@@ -12,3 +12,8 @@ out/
 *.xlsx
 jobtracker/examples/*.docx
 jobtracker/examples/*.pdf
+
+# Large media / build artifacts — keep these on the SSD, not in git
+viral_clips/
+_deploy.tgz
+*.log

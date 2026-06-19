@@ -47,7 +47,8 @@
       "Bash(iconv -f utf-8 -t ascii//TRANSLIT)",
       "Bash(.venv/Scripts/python.exe _pathtest.py)",
       "Bash(cat)",
-      "Bash(cd /c/Users/henry/reselling)"
+      "Bash(cd /c/Users/henry/reselling)",
+      "Bash(.venv/Scripts/python.exe -m compileall -q jobtracker/fit.py)"
     ]
   }
 }
