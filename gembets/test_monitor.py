@@ -27,7 +27,7 @@ def _snaps():
 
 class Tick(unittest.IsolatedAsyncioTestCase):
     async def _run_tick(self, cfg, *, fouls=None, cards=None):
-        async def fetch_odds():
+        async def fetch_odds(_key=None):
             return _snaps()
 
         async def fetch_stats():
@@ -45,7 +45,7 @@ class Tick(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(alert.await_count, 1)            # fired once
 
         # Second pass over the SAME state: no new alert (deduped on key+edge).
-        async def fetch_odds():
+        async def fetch_odds(_key=None):
             return _snaps()
         with mock.patch.object(monitor.notify, "alert") as alert2:
             await monitor.tick(cfg, fetch_odds, None, seen)
@@ -70,7 +70,7 @@ class Tick(unittest.IsolatedAsyncioTestCase):
     async def test_dead_odds_feed_does_not_crash(self):
         cfg = Config(ntfy_topic="t", enable_statedge=False)
 
-        async def boom():
+        async def boom(_key=None):
             raise RuntimeError("feed down")
 
         seen: dict[str, float] = {}
@@ -92,7 +92,7 @@ class DetectorCD(unittest.IsolatedAsyncioTestCase):
             BookLine("skybet", (1.30, 9.0, 12.0)), BookLine("paddypower", (1.28, 9.0, 12.0)),
             BookLine("williamhill", (1.29, 9.0, 12.0)), BookLine("unibet", (1.30, 9.0, 12.0))))
 
-        async def fetch_odds():
+        async def fetch_odds(_key=None):
             return [snap]
 
         cfg = Config(ntfy_topic="t", enable_goals=True, min_lift=0.99)  # A muted
@@ -112,10 +112,10 @@ class DetectorCD(unittest.IsolatedAsyncioTestCase):
         hist = steam.OddsHistory(window=10_000)
         seen: dict[str, float] = {}
 
-        async def fetch1():
+        async def fetch1(_key=None):
             return [snap(2.5, 2.5)]      # sharp Home 0.40
 
-        async def fetch2():
+        async def fetch2(_key=None):
             return [snap(2.0, 2.5)]      # sharp steams to 0.50, Sky Bet lags at 0.40
 
         with mock.patch.object(monitor.notify, "alert"):

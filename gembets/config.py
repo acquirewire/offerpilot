@@ -9,6 +9,13 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 
+@dataclass(frozen=True)
+class League:
+    """One competition to monitor, with its own consensus-outlier threshold."""
+    key: str                                 # The Odds API sport key
+    min_lift: float = 0.20                   # % above typical to flag for THIS league
+
+
 @dataclass
 class Config:
     # --- odds feed ---
@@ -16,7 +23,9 @@ class Config:
     # (api primary, scrape fallback when free credits run low). Default free-friendly.
     odds_source: str = "both"
     odds_provider: str = "theoddsapi"        # key into odds_api.PROVIDERS
-    sport_key: str = "soccer_epl"            # provider's league/competition id
+    sport_key: str = "soccer_epl"            # single-league fallback if `leagues` is empty
+    # Multi-league: each with its own min_lift. Falls back to [sport_key @ min_lift].
+    leagues: list[League] = field(default_factory=list)
     # Free-tier defaults: 1 region + 2 markets keeps each call to ~2 credits.
     markets: list[str] = field(default_factory=lambda: ["1X2", "Over/Under 2.5"])
     regions: list[str] = field(default_factory=lambda: ["uk"])
@@ -84,6 +93,10 @@ class Config:
     poll_interval: int = 1800                # 30 min default: free-tier-safe cadence
     ntfy_topic: str | None = None
 
+    def effective_leagues(self) -> list[League]:
+        """The leagues to poll — `leagues` if set, else the single sport_key."""
+        return self.leagues or [League(self.sport_key, self.min_lift)]
+
 
 def load(path: str) -> Config:
     import yaml
@@ -93,6 +106,8 @@ def load(path: str) -> Config:
         odds_source=raw.get("odds_source", "both"),
         odds_provider=raw.get("odds_provider", "theoddsapi"),
         sport_key=raw.get("sport_key", "soccer_epl"),
+        leagues=[League(key=l["key"], min_lift=float(l.get("min_lift", 0.20)))
+                 for l in raw.get("leagues", [])],
         markets=list(raw.get("markets", ["1X2", "Over/Under 2.5"])),
         regions=list(raw.get("regions", ["uk"])),
         monthly_credits=int(raw.get("monthly_credits", 500)),

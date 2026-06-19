@@ -106,20 +106,23 @@ async def tick(cfg: Config, fetch_odds: OddsFetcher, fetch_stats: StatsFetcher |
     gems: list[GemBet] = []
     allow = set(cfg.allowed_books) or None
 
-    # Fetch the odds once; every odds-based detector shares the snapshots.
+    # Fetch each league with its OWN outlier threshold; combine snapshots for the
+    # cross-league detectors (steam/goals/CLV). One dead league mustn't stop the rest.
     snaps: list[MarketSnapshot] = []
-    try:
-        snaps = await fetch_odds()
-    except Exception as exc:  # noqa: BLE001 — a dead feed mustn't kill the loop
-        log.warning("odds fetch failed: %s", exc)
-
-    # Detector A — consensus outliers (always on).
-    gems.extend(outlier.scan_all(snaps, min_lift=cfg.min_lift, min_books=cfg.min_books,
-                                 max_odds=cfg.max_odds, allowed_books=allow))
-
-    # Detector F — guaranteed cross-book arbitrage (free, pure odds).
-    if cfg.enable_arb:
-        gems.extend(arb.scan_arbs(snaps, min_margin=cfg.arb_min_margin))
+    for lg in cfg.effective_leagues():
+        try:
+            league_snaps = await fetch_odds(lg.key)
+        except Exception as exc:  # noqa: BLE001
+            log.warning("odds fetch failed for %s: %s", lg.key, exc)
+            continue
+        snaps.extend(league_snaps)
+        # Detector A — consensus outliers (per-league threshold).
+        gems.extend(outlier.scan_all(league_snaps, min_lift=lg.min_lift,
+                                     min_books=cfg.min_books, max_odds=cfg.max_odds,
+                                     allowed_books=allow))
+        # Detector F — guaranteed cross-book arbitrage (sport-agnostic).
+        if cfg.enable_arb:
+            gems.extend(arb.scan_arbs(league_snaps, min_margin=cfg.arb_min_margin))
 
     # Detector C — goals model (free, if enabled and a model was fitted).
     if cfg.enable_goals and goals_model is not None:

@@ -36,25 +36,26 @@ class OddsRouter:
             return True                       # not yet known — allow the first call
         return remaining > self.cfg.credit_floor
 
-    async def _from_api(self) -> list[MarketSnapshot]:
-        return await self._api_fetch(self.cfg.sport_key, self.cfg.regions, self.cfg.markets)
+    async def _from_api(self, sport_key: str) -> list[MarketSnapshot]:
+        return await self._api_fetch(sport_key, self.cfg.regions, self.cfg.markets)
 
     async def _from_scrape(self) -> list[MarketSnapshot]:
         return await scrape.fetch_scrape(self.cfg.scrape_scraper, self.cfg.scrape_urls)
 
-    async def fetch(self) -> list[MarketSnapshot]:
+    async def fetch(self, sport_key: str | None = None) -> list[MarketSnapshot]:
+        sport_key = sport_key or self.cfg.sport_key
         src = self.cfg.odds_source
         if src == "scrape":
             return await self._from_scrape()
 
         if src == "api":
-            return await self._from_api()
+            return await self._from_api(sport_key)
 
         # "both": API first while credits last; on low credits or error -> scrape.
         if self._credits_ok():
             try:
-                snaps = await self._from_api()
-                log.info("odds source: api (%d snapshot(s))", len(snaps))
+                snaps = await self._from_api(sport_key)
+                log.info("odds source: api %s (%d snapshot(s))", sport_key, len(snaps))
                 return snaps
             except Exception as exc:  # noqa: BLE001 — fall back rather than die
                 log.warning("api fetch failed (%s) - falling back to scrape", exc)
@@ -68,10 +69,10 @@ class OddsRouter:
 
 
 def make_odds_fetcher(cfg: Config):
-    """Zero-arg async fetcher the monitor binds to (router holds the state)."""
+    """Returns an async fetcher `fetch(sport_key)` (router holds credit state)."""
     router = OddsRouter(cfg)
 
-    async def fetch() -> list[MarketSnapshot]:
-        return await router.fetch()
+    async def fetch(sport_key: str) -> list[MarketSnapshot]:
+        return await router.fetch(sport_key)
 
     return fetch
