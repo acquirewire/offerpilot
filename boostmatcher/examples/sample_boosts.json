@@ -1,0 +1,18 @@
+[
+  {
+    "bookie": "skybet", "event": "England v USA", "market": "Match Result",
+    "selection": "England to win", "boosted_odds": 2.5, "original_odds": 2.1, "max_stake": 50
+  },
+  {
+    "bookie": "williamhill", "event": "Brazil v Croatia", "market": "Match Result",
+    "selection": "Brazil to win", "boosted_odds": 1.9, "original_odds": 1.75
+  },
+  {
+    "bookie": "bet365", "event": "France v Argentina", "market": "Both Teams To Score",
+    "selection": "Both teams to score - Yes", "boosted_odds": 2.2, "original_odds": 1.85
+  },
+  {
+    "bookie": "skybet", "event": "Spain v Germany", "market": "Anytime Scorer",
+    "selection": "Lamine Yamal anytime scorer", "boosted_odds": 4.0, "original_odds": 3.2
+  }
+]

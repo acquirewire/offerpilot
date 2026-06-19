@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><meta charset="utf-8">
+<title>boostmatcher</title><style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #0d1117; color: #e6edf3;
+  font: 14px/1.5 -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+header { padding: 20px 28px; border-bottom: 1px solid #21262d; }
+header h1 { margin: 0; font-size: 20px; }
+header .sub { color: #8b949e; font-size: 13px; margin-top: 4px; }
+.wrap { padding: 20px 28px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px 12px; text-align: right; border-bottom: 1px solid #21262d; white-space: nowrap; }
+th { color: #8b949e; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+td.l, th.l { text-align: left; white-space: normal; }
+tr.lock td { background: rgba(46,160,67,.07); }
+.pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+.pos { color: #3fb950; } .neg { color: #f85149; }
+.lockpill { background: #1f6f3f; color: #d6ffe0; }
+.valpill { background: #5a3b00; color: #ffe2ad; }
+.rating { font-weight: 700; }
+details { margin: 0; }
+details summary { cursor: pointer; color: #58a6ff; font-size: 12px; }
+details pre { margin: 8px 0 2px; padding: 12px; background: #161b22; border: 1px solid #21262d;
+  border-radius: 8px; white-space: pre-wrap; color: #c9d1d9; font-size: 12.5px; }
+h2 { font-size: 14px; color: #8b949e; margin: 28px 0 8px; }
+.muted { color: #6e7681; }
+</style>
+<header>
+  <h1>boostmatcher — live price-boost value</h1>
+  <div class="sub">Priced at £25 stake · 2 layable ·
+    1 locking ≥ 2.0% · updated 2026-06-18 11:41:44</div>
+</header>
+<div class="wrap">
+  <table><thead><tr><th class="l">Book</th><th class="l">Event / selection</th><th>Back</th><th>Stake</th><th>Returns</th><th>Lay</th><th>Lay £</th><th>Liability</th><th>If wins</th><th>If loses</th><th>Rating</th><th class="l">Method</th></tr></thead><tbody><tr class="lock">
+  <td class="l">skybet</td>
+  <td class="l">England v USA<br><span class="muted">England to win</span></td>
+  <td>2.50</td>
+  <td>£25.00</td>
+  <td>£62.50</td>
+  <td>2.32 <span class="muted">smarkets</span></td>
+  <td>£27.17</td>
+  <td>£35.87</td>
+  <td><span class="pos">£+1.63</span></td>
+  <td><span class="pos">£+1.63</span></td>
+  <td class="rating"><span class="pill lockpill">LOCK</span> 6.52%</td>
+  <td class="l"><details><summary>method</summary><pre>1. BACK £25.00 on the boost @ 2.50 at the bookie  (returns £62.50 if it wins)
+2. LAY  £27.17 on &quot;England&quot; @ 2.32 on smarkets  (needs £35.87 liability in your wallet)
+3a. If it WINS:  bookie pays you, exchange takes the lay  -&gt; net £+1.63
+3b. If it LOSES: you lose the back, exchange pays the lay  -&gt; net £+1.63
+=&gt; Guaranteed profit either way: £+1.63</pre>
+      <div class="muted">+19% vs pre-boost price</div></details></td>
+</tr>
+<tr class="">
+  <td class="l">williamhill</td>
+  <td class="l">Brazil v Croatia<br><span class="muted">Brazil to win</span></td>
+  <td>1.90</td>
+  <td>£25.00</td>
+  <td>£47.50</td>
+  <td>1.95 <span class="muted">smarkets</span></td>
+  <td>£24.61</td>
+  <td>£23.38</td>
+  <td><span class="neg">£-0.88</span></td>
+  <td><span class="neg">£-0.88</span></td>
+  <td class="rating"><span class="pill valpill">value</span> -3.52%</td>
+  <td class="l"><details><summary>method</summary><pre>1. BACK £25.00 on the boost @ 1.90 at the bookie  (returns £47.50 if it wins)
+2. LAY  £24.61 on &quot;Brazil&quot; @ 1.95 on smarkets  (needs £23.38 liability in your wallet)
+3a. If it WINS:  bookie pays you, exchange takes the lay  -&gt; net £-0.88
+3b. If it LOSES: you lose the back, exchange pays the lay  -&gt; net £-0.88
+=&gt; Guaranteed profit either way: £-0.88  (value bet, not risk-free)</pre>
+      <div class="muted">+9% vs pre-boost price</div></details></td>
+</tr></tbody></table>
+  <h2>Manual-only (no exchange runner to lay)</h2><ul><li>bet365 — France v Argentina: Both teams to score - Yes @ 2.20 <span class="muted">(no exchange match -- lay manually)</span></li><li>skybet — Spain v Germany: Lamine Yamal anytime scorer @ 4.00 <span class="muted">(no exchange match -- lay manually)</span></li></ul>
+  <p class="muted" style="margin-top:24px">All figures in £. Place every bet
+  manually. A “LOCK” profits whichever way the result goes; “value” has one
+  slightly-negative leg taken for the +EV. Lay only up to the liquidity shown.</p>
+</div></html>

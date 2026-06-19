@@ -1,0 +1,14 @@
+{
+  "_comment": "Opposite-side prices at OTHER bookies, keyed by the boost selection. Each leg covers one of the remaining outcomes. Stand-in for what the cross-book scraper will fetch live.",
+  "England to win": [
+    {"bookie": "bet365", "selection": "Draw", "odds": 3.5},
+    {"bookie": "williamhill", "selection": "USA to win", "odds": 4.0}
+  ],
+  "Both teams to score - Yes": [
+    {"bookie": "bet365", "selection": "Both teams to score - No", "odds": 1.9}
+  ],
+  "Brazil to win": [
+    {"bookie": "paddypower", "selection": "Draw", "odds": 4.5},
+    {"bookie": "bet365", "selection": "Croatia to win", "odds": 5.0}
+  ]
+}

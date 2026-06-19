@@ -1,0 +1,42 @@
+# boostmatcher config — copy to config.yaml and fill in.
+# Pricing knobs:
+back_stake: 25          # £ the rater prices every boost at (your standard lay unit)
+alert_rating: 2.0       # only push boosts that lock >= this % of stake (2.0 = +£0.50 on £25)
+poll_interval: 120      # seconds between re-scraping the boost pages
+ntfy_topic: boosts-himagic-7f3   # reuse the jobtracker/Fatsoma ntfy + SMTP env vars
+
+# Exchanges to pull lay prices from. Commission is YOUR effective rate.
+exchanges:
+  - name: smarkets
+    commission: 0.02      # flat 2%
+    enabled: true
+  - name: betfair
+    commission: 0.05      # 5% default; set 0.02 if you have the discounted base rate
+    enabled: true
+
+# Bookie boost pages. `scraper` selects the parser in scrapers.SCRAPERS.
+# Most of these pages are JS-rendered + geo/bot-gated, so they run through the
+# Playwright path (browser.py) rather than a plain fetch.
+bookies:
+  # Primary target: oddschecker aggregates boosts from ~8 books on ONE page,
+  # with the bookie in each logo's alt text. One robust scraper instead of six.
+  - name: oddschecker
+    url: https://www.oddschecker.com/football/best-of-the-boosts
+    scraper: oddschecker
+    enabled: true
+  - name: skybet
+    url: https://m.skybet.com/super-boosts
+    scraper: skybet
+    enabled: false
+  - name: bet365
+    url: https://www.bet365.com/#/AS/B1/        # bet boosts; heavy bot protection
+    scraper: bet365
+    enabled: true
+  - name: williamhill
+    url: https://sports.williamhill.com/betting/en-gb/your-odds
+    scraper: williamhill
+    enabled: true
+  - name: paddypower
+    url: https://www.paddypower.com/price-boost
+    scraper: paddypower
+    enabled: false        # turn on per book as scrapers are hardened

@@ -1,0 +1,111 @@
+<!doctype html><html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>boostmatcher feed</title><style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #0d1117; color: #e6edf3;
+  font: 14px/1.5 -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+header { padding: 20px 28px; border-bottom: 1px solid #21262d; }
+header h1 { margin: 0; font-size: 20px; }
+header .sub { color: #8b949e; font-size: 13px; margin-top: 4px; }
+.wrap { padding: 20px 28px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px 12px; text-align: right; border-bottom: 1px solid #21262d; white-space: nowrap; }
+th { color: #8b949e; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+td.l, th.l { text-align: left; white-space: normal; }
+tr.lock td { background: rgba(46,160,67,.07); }
+.pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+.pos { color: #3fb950; } .neg { color: #f85149; }
+.lockpill { background: #1f6f3f; color: #d6ffe0; }
+.valpill { background: #5a3b00; color: #ffe2ad; }
+.rating { font-weight: 700; }
+details { margin: 0; }
+details summary { cursor: pointer; color: #58a6ff; font-size: 12px; }
+details pre { margin: 8px 0 2px; padding: 12px; background: #161b22; border: 1px solid #21262d;
+  border-radius: 8px; white-space: pre-wrap; color: #c9d1d9; font-size: 12.5px; }
+h2 { font-size: 14px; color: #8b949e; margin: 28px 0 8px; }
+.muted { color: #6e7681; }
+
+.feed td { cursor: pointer; } .feed tr:hover td { background: rgba(56,139,253,.12); }
+.calc { margin-top: 28px; padding: 18px; border:1px solid #30363d; border-radius:14px; background:#161b22; }
+.calc h2 { margin:0 0 4px; color:#e6edf3; } .tabs { display:flex; gap:8px; margin:12px 0; }
+.tab { flex:1; text-align:center; padding:9px; border:1px solid #30363d; border-radius:9px; background:#0d1117; cursor:pointer; font-weight:600; font-size:13px; }
+.tab.active { background:#1f6feb; border-color:#1f6feb; color:#fff; }
+.field { display:inline-block; margin:6px 12px 6px 0; } .field label { font-size:12px; color:#8b949e; display:block; }
+.field input { width:110px; padding:8px; background:#0d1117; border:1px solid #30363d; border-radius:8px; color:#e6edf3; font-size:16px; }
+#legs input { width:90px; margin-right:6px; }
+.res { margin-top:10px; font-size:18px; font-weight:800; }
+.calc .hidden { display:none; }
+</style>
+<header><h1>boostmatcher — live boost feed</h1>
+<div class="sub">9 boosts across 8 books · updated 2026-06-18 16:40:57 · click a boost to price it</div></header>
+<div class="wrap">
+  <table class="feed"><thead><tr><th class="l">Book</th><th class="l">Selection</th>
+    <th>Boost</th><th>Was</th></tr></thead><tbody id="rows"></tbody></table>
+
+  <div class="calc">
+    <h2 id="calcTitle">Calculator — click a boost above, or type below</h2>
+    <div class="tabs">
+      <div class="tab active" data-m="lay">Lay (exchange)</div>
+      <div class="tab" data-m="cover">Cover (other book)</div>
+      <div class="tab" data-m="value">Value</div>
+    </div>
+    <div class="field"><label>Boost odds</label><input id="back" type="number" step="0.01" value="2.5"></div>
+    <div class="field"><label>Stake £</label><input id="stake" type="number" value="25"></div>
+    <span id="layf"><div class="field"><label>Lay odds</label><input id="lay" type="number" step="0.01" value="2.32"></div>
+      <div class="field"><label>Comm %</label><input id="comm" type="number" step="0.5" value="2"></div></span>
+    <span id="covf" class="hidden"><div class="field"><label>Opposite odds (space-sep)</label>
+      <input id="legs2" value="3.5 4.0" style="width:160px"></div></span>
+    <span id="valf" class="hidden"><div class="field"><label>Fair odds</label><input id="fair" type="number" step="0.01" value="2.28"></div></span>
+    <div class="res" id="res"></div>
+  </div>
+  <p class="muted" style="margin-top:18px">Lay &amp; Cover are risk-free locks; Value is +EV (not risk-free).
+  Most boosts are props with no lay/cover market — the calculator will say so.</p>
+</div>
+<script>
+const BOOSTS = [{"bookie": "pricedup", "sel": "Canada HT/FT", "odds": 2.0, "prev": null, "event": ""}, {"bookie": "skybet", "sel": "Ismael Kone to win 2+ fouls", "odds": 2.0, "prev": null, "event": ""}, {"bookie": "paddy power", "sel": "Derek Cornelius to commit 2 or more fouls", "odds": 2.0, "prev": null, "event": ""}, {"bookie": "boyle sports", "sel": "Czechia To Score In Both Halves", "odds": 3.5, "prev": null, "event": ""}, {"bookie": "spreadex", "sel": "Anytime Goalscorer - Liam Millar", "odds": 4.6, "prev": null, "event": ""}, {"bookie": "betfred", "sel": "Lyle Foster 2+ Shots On Target", "odds": 6.0, "prev": null, "event": ""}, {"bookie": "william hill", "sel": "Canada & Mexico Both To Win To Nil", "odds": 6.5, "prev": null, "event": ""}, {"bookie": "bet365", "sel": "Score with a Header - Cyle Larin", "odds": 8.5, "prev": null, "event": ""}, {"bookie": "bet365", "sel": "Score with a Header - Jovo Lukic", "odds": 17.0, "prev": null, "event": ""}];
+const $ = i => document.getElementById(i);
+const gbp = x => (x<0?'-£':'£') + Math.abs(x).toFixed(2);
+let mode = 'lay';
+function rows() {
+  $('rows').innerHTML = BOOSTS.map((b,i) => `<tr data-i="${i}"><td class="l">${b.bookie}</td>
+    <td class="l">${b.sel}</td><td><b>${b.odds}</b></td><td class="muted">${b.prev||'—'}</td></tr>`).join('');
+  document.querySelectorAll('#rows tr').forEach(tr => tr.onclick = () => {
+    const b = BOOSTS[tr.dataset.i]; $('back').value = b.odds;
+    $('calcTitle').textContent = `${b.sel} — ${b.bookie} @ ${b.odds}`; calc();
+    $('back').scrollIntoView({behavior:'smooth', block:'center'});
+  });
+}
+document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active')); t.classList.add('active');
+  mode = t.dataset.m;
+  $('layf').classList.toggle('hidden', mode!=='lay');
+  $('covf').classList.toggle('hidden', mode!=='cover');
+  $('valf').classList.toggle('hidden', mode!=='value'); calc();
+});
+function calc() {
+  const B = parseFloat($('back').value), S = parseFloat($('stake').value);
+  const r = $('res'); if(!(B>1&&S>0)){r.textContent='';return;}
+  if (mode==='lay') {
+    const L=parseFloat($('lay').value), c=parseFloat($('comm').value)/100;
+    if(!(L>1)){r.textContent='';return;}
+    const ls=(B*S)/(L-c), liab=ls*(L-1), win=S*(B-1)-liab, lose=ls*(1-c)-S, lk=Math.min(win,lose);
+    r.innerHTML = lk>=0 ? `<span class="pos">LOCK ${gbp(lk)}</span> — lay ${gbp(ls)} @ ${L} (liability ${gbp(liab)})`
+      : `<span class="neg">No lock (${gbp(lk)})</span> — boost too small to beat ${L}`;
+  } else if (mode==='cover') {
+    const odds=$('legs2').value.split(/\s+/).map(Number).filter(x=>x>1);
+    if(!odds.length){r.textContent='enter opposite odds';return;}
+    const R=S*B, ls=odds.map(o=>R/o), tot=S+ls.reduce((a,b)=>a+b,0), pf=R-tot;
+    const bs=1/B+odds.reduce((a,o)=>a+1/o,0);
+    r.innerHTML = bs<1 ? `<span class="pos">LOCK ${gbp(pf)}</span> (${(100*pf/tot).toFixed(1)}% ROI) — back ${gbp(S)} + ${ls.map((s,i)=>gbp(s)+'@'+odds[i]).join(' + ')}`
+      : `<span class="neg">No lock</span> — combined book ${(bs*100).toFixed(1)}% > 100%`;
+  } else {
+    const F=parseFloat($('fair').value); if(!(F>1)){r.textContent='';return;}
+    const edge=(B/F-1)*100;
+    r.innerHTML = edge>=2 ? `<span class="pos">+${edge.toFixed(1)}% edge</span> — genuinely +EV vs fair ${F} (value bet, not risk-free)`
+      : `<span class="neg">${edge>=0?'+':''}${edge.toFixed(1)}% edge</span> — not worth it vs fair ${F}`;
+  }
+}
+['back','stake','lay','comm','legs2','fair'].forEach(i=>$(i).addEventListener('input',calc));
+rows(); calc();
+</script></html>
